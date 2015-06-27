@@ -15,6 +15,22 @@ ctg
 Ctrl+h / Ctrl+l / Ctrl+j / Ctrl+ k
             vim多窗口之间切换  
 
+Ctrl+w 然后 =  增加屏幕大小（仅上下屏）
+
+Ctrl+w 然后 -  减小屏幕大小（仅上下屏）
+
+:resize 60     直接设置大小
+
+:res +5        增加5行
+
+:res -5        减少5行
+
+:vertical resize 80    设置宽度
+
+:vertical resize +5    宽度+5
+
+:vertical resize -5    宽度-5
+
 ## 文件操作
 :new <filename>
             新建一个文件
@@ -69,5 +85,4 @@ Ctrl+V然后移动方向键选中（或者Ctrl+D选择模块）
 zc/zo  折叠，打开
 
 zR/zM  全部折叠，全部打开
-
 
