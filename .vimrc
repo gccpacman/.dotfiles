@@ -37,7 +37,7 @@ let g:pymode_lint_on_write = 1
 let g:pymode_lint_unmodified = 0
 let g:pymode_lint_on_fly = 0
 let g:pymode_lint_message = 1
-let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
+let g:pymode_lint_checkers = ['pep8', 'pyflakes', 'mccabe']
 let g:pymode_lint_cwindow = 1
 let g:pymode_lint_signs = 1
 let g:pymode_lint_todo_symbol = 'WW'
@@ -46,7 +46,7 @@ let g:pymode_lint_visual_symbol = 'RR'
 let g:pymode_lint_error_symbol = 'EE'
 let g:pymode_lint_info_symbol = 'II'
 let g:pymode_lint_pyflakes_symbol = 'FF'
-
+let g:pymode_paths = ['/usr/lib/python2.7']
 
 "Smart way to move between windows 分屏窗口移动
 map <C-j> <C-W>j
@@ -104,3 +104,56 @@ python powerline_setup()
 python del powerline_setup
     
 set laststatus=2
+
+"Insert下按F5开始复制黏贴操作
+"设置成n可以用鼠标选择光标
+set mouse=n
+
+" 去掉输入错误的提示声音
+set novisualbell
+set noerrorbells
+set t_vb=
+set tm=500
+"set viminfo^=%
+"set magic
+
+" 显示行号： 默认关闭，按F12打开
+"set number
+" 取消换行。
+set nowrap
+
+"设置文内智能搜索提示
+" 高亮search命中的文本。
+set hlsearch
+" 打开增量搜索模式,随着键入即时搜索
+set incsearch
+" 搜索时忽略大小写
+set ignorecase
+" 有一个或以上大写字母时仍大小写敏感
+set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
+
+" 缩进配置
+"set smartindent   " Smart indent
+set autoindent    " 打开自动缩进
+" never add copyindent, case error   " copy the previous indentation on autoindenting
+
+" convert tab to spaces
+set tabstop=4     " 设置Tab键的宽度        [等同的空格个数]
+set shiftwidth=4  " 每一次缩进对应的空格数
+set softtabstop=4 " 按退格键时可以一次删掉 4 个空格
+set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop 按退格键时可以一次删掉 4 个空>
+set expandtab     " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
+set shiftround    " 缩进时，取整 use multiple of shiftwidth when indenting with '<' and '>'
+
+"<F12> show or hide line number
+nmap <F12> :set invnumber<CR>
+
+"set paste mode shorcat
+set pastetoggle=<F5>            "    when in insert mode, press <F5> to go to
+                                "    paste mode, where you can paste mass data
+                                "    that won't be autoindented
+
+au InsertLeave * set nopaste    " disbale paste mode when leaving insert mode
+" nnoremap <F6> :call HideNumber()<CR>
+
+
