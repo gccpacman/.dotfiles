@@ -8,7 +8,7 @@ syntax on
 
 filetype plugin indent on
 
-let mapleader = " "
+let mapleader = "\\"
 set timeoutlen=2000
 
 " theme主题
@@ -25,11 +25,11 @@ let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
 let g:pymode_doc = 1
 let g:pymode_doc_bind = 'K'
-let g:pymode_run_bind = '<C-c>r'
-let g:pymode_rope_goto_definition_bind = "<C-c>g"
+let g:pymode_run_bind = '<leader>r'
+let g:pymode_rope_goto_definition_bind = "<leader>g"
 let g:pymode_rope_goto_definition_cmd = 'new'
-let g:pymode_rope_rename_bind = '<C-c>rr'
-let g:pymode_rope_rename_module_bind = '<C-c>r1r'
+let g:pymode_rope_rename_bind = '<leader>rr'
+let g:pymode_rope_rename_module_bind = '<leader>r1r'
 let g:pymode_breakpoint = 1
 let g:pymode_breakpoint_bind = '<leader>b'
 let g:pymode_lint = 1
@@ -93,10 +93,10 @@ map <C-n> :tabnext<cr>
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+map <leader>t :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " select all
-map <Leader>sa ggVG"
+map <leader>sa ggVG"
 
 " integrate with Powerline
 python from powerline.vim import setup as powerline_setup
