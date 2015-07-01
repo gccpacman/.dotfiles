@@ -8,6 +8,9 @@ syntax on
 
 filetype plugin indent on
 
+let mapleader = " "
+set timeoutlen=2000
+
 " theme主题
 set background=dark
 set t_Co=256
