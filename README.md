@@ -12,12 +12,13 @@ with vundle you only need to:
 
 Done!
 
-PS : if taglist plugin raise error that cannot find 'ctags', you should check the path of your ctags 
-example: 
-If you are on Ubuntu, you should do :
+You should check you ctags path, it is operation based
 
-    ln -s /usr/bin/ctags /usr/local/bin/ctags
+    which ctags
 
+when change the value of Tlist_Ctags_Cmd in .vimrc:
+
+    let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
 
 ## pathogen install
 
