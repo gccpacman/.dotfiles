@@ -1,4 +1,25 @@
 # my-vimrc
+
+
+##install
+
+clone this git repo:
+
+    git clone https://github.com/realhu1989/pyvim-power.git
+
+install git, python, pip, for example you are on Ubuntu, you can try:
+
+    sudo apt-get install git python python-pip
+
+install the powerline:
+
+    pip install --user git+git://github.com/Lokaltog/powerline
+
+init all submodules:
+
+    git submodules update --init --recursive
+
+
 my vimrc configuration file
 
 # vim 用法总结  :  
