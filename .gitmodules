@@ -6,7 +6,7 @@
     url = https://github.com/klen/python-mode.git
 [submodule ".vim/bundle/vim-sensible"]
     path = .vim/bundle/vim-sensible
-    url = https://github.com/tpope/vim-sensible.git 
+    url = https://github.com/tpope/vim-sensible.git
 [submodule ".vim/bundle/nerdtree"]
     path = .vim/bundle/nerdtree
     url = https://github.com/scrooloose/nerdtree.git
