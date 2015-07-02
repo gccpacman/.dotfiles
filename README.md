@@ -10,6 +10,13 @@ with vundle you only need to:
 
 Done!
 
+PS : if taglist plugin raise error that cannot find 'ctags', you should check the path of your ctags 
+example: 
+If you are on Ubuntu, you should do :
+
+    ln -s /usr/bin/ctags /usr/local/bin/ctags
+
+
 ## pathogen install
 
 clone this git repo:
