@@ -1,10 +1,19 @@
 # my-vimrc
 
+## vundle install
 
-##install
+with vundle you only need to:
+
+    git clone https://github.com/realhu1989/pyvim-power.git
+
+    vim +BundleInstall +qall
+
+Done!
+
+## pathogen install
 
 clone this git repo:
-
+    
     git clone https://github.com/realhu1989/pyvim-power.git
 
 install git, python, pip, for example you are on Ubuntu, you can try:
