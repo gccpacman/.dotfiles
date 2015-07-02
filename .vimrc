@@ -1,9 +1,19 @@
-" Pathogen load
+" vunble conf
+set nocompatible
 filetype off
 
-call pathogen#infect()
-call pathogen#helptags()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
+Bundle 'gmarik/vundle'
+Bundle 'klen/python-mode'
+Bundle 'tpope/vim-sensible'
+Bundle 'scrooloose/nerdtree.git'
+"""""""""""""""""""""""""
+" Pathogen load
+" call pathogen#infect()
+" call pathogen#helptags()
+"""""""""""""""""""""""""
 syntax on
 
 filetype plugin indent on
