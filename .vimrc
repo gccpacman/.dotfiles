@@ -5,10 +5,16 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" manage vundle with vundle
 Bundle 'gmarik/vundle'
+
+" plugins managed by vundle
 Bundle 'klen/python-mode'
 Bundle 'tpope/vim-sensible'
 Bundle 'scrooloose/nerdtree.git'
+Bundle 'vim-scripts/taglist.vim'
+
+
 """""""""""""""""""""""""
 " Pathogen load
 " call pathogen#infect()
