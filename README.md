@@ -6,6 +6,8 @@ with vundle you only need to:
 
     git clone https://github.com/realhu1989/pyvim-power.git
 
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
     vim +BundleInstall +qall
 
 Done!
