@@ -1,9 +1,12 @@
 [submodule ".vim/bundle/powerline"]
-        path = .vim/bundle/powerline
-            url = https://github.com/powerline/powerline.git
+    path = .vim/bundle/powerline
+    url = https://github.com/powerline/powerline.git
 [submodule ".vim/bundle/python-mode"]
-        path = .vim/bundle/python-mode
-	    url = https://github.com/klen/python-mode.git
+    path = .vim/bundle/python-mode
+    url = https://github.com/klen/python-mode.git
 [submodule ".vim/bundle/vim-sensible"]
-	path = .vim/bundle/vim-sensible
-	    url = https://github.com/tpope/vim-sensible.git 
+    path = .vim/bundle/vim-sensible
+    url = https://github.com/tpope/vim-sensible.git 
+[submodule ".vim/bundle/nerdtree"]
+    path = .vim/bundle/nerdtree
+    url = https://github.com/scrooloose/nerdtree.git
