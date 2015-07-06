@@ -1,0 +1,50 @@
+attrcolor b ".I"
+term "screen-256color"
+termcapinfo xterm ti@:te@
+defbce "on"
+
+#
+# Green text, time, and date; windows in blue:
+caption always "%{= wk} %{= KY} [%n]%t @ %H %{-} %= %{= KR} %l %{-} | %{= KG} %Y-%m-%d %{-} "
+# hardstatus alwayslastline "%{=b}%{G} Screen(s): %{b}%w %=%{kG}%C%A  %D, %M/%d/%Y "
+hardstatus alwayslastline " %-Lw%{= Bw}%n%f %t%{-}%+Lw %=| %0c:%s "
+
+## =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= #
+####    Some general options    ##
+
+## Turn off start message:
+startup_message off
+
+# Set messages timeout to one second:
+msgwait 1
+##
+## =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= #
+##
+##    Keybindings    ##
+##
+# bind <F7> to detach screen from this terminal
+# bind <F8> to kill current session
+# bind <F10> to create a new screen
+# bind <F9> to rename an existing window
+# bind <F11> to move to previous window
+# bind <F12> to move to next window
+#bind ' ' windowlist -b
+##Byobu compatible
+# bindkey -k k6 detach
+# space in keyboard
+# bindkey -k k2 screen
+# bindkey -k k8 title
+# bindkey -k k3 prev
+# bindkey -k k4 next
+
+# ctrl up to start a new screen
+# ctrl down to nename a screen
+bindkey ^[[1;5A screen
+bindkey ^[[1;5B title
+# ctrl right and left arrows to switch screen
+bindkey ^[[1;5D prev
+bindkey ^[[1;5C next
+
+#escape ^``
+#escape ^}}
+escape ^\\
