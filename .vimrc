@@ -117,12 +117,12 @@ set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set helplang=cn
 
 
-map <C-i> :tabnew<cr>
-map <C-e> :tabedit 
-map <C-c> :tabclose<cr>
-map <C-m> :tabmove
-map <C-b> :tabprevious<cr>
-map <C-n> :tabnext<cr>
+"map <C-i> :tabnew<cr>
+"map <C-e> :tabedit 
+map <leader>k :tabclose<cr>
+map <leader>j :tabmove
+map <leader>h :tabprevious<cr>
+map <leader>l :tabnext<cr>
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
