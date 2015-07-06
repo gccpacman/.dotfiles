@@ -27,11 +27,23 @@ filetype plugin indent on
 let mapleader = "\\"
 set timeoutlen=2000
 
+
 " theme主题
+" set background=light
 set background=dark
 set t_Co=256
+" set background=dark
+" colorscheme koehler
+" colorscheme torte
+" colorscheme pablo
+" colorscheme evening
+" colorscheme shine
+colorscheme elflord
+" colorscheme blue
+" colorscheme default
+" colorscheme ron
 
-"colorscheme blue
+
 
 " pymode设置
 let g:pymode = 1
@@ -75,23 +87,28 @@ map <C-l> <C-W>l
 "map <C-W>+ <C-W>+
 "map <C-W>< <C-W><
 "map <C-W>> <C-W>>
+map <leader>- <C-W>-
+map <leader>= <C-W>+
+map <leader>, <C-W><
+map <leader>. <C-W>>
+
 
 " Resize the current split to at least (90,25) but no more than (140,60)
 " or 2/3 of the available space otherwise.
 
-function Splitresize()
-    let hmax = max([winwidth(0), float2nr(&columns*0.66), 80])
-    let vmax = max([winheight(0), float2nr(&lines*0.66), 25])
-    exe "vertical resize" . (min([hmax, 140]))
-    exe "resize" . (min([vmax, 60]))
-endfunction
+"function Splitresize()
+"    let hmax = max([winwidth(0), float2nr(&columns*0.66), 80])
+"    let vmax = max([winheight(0), float2nr(&lines*0.66), 25])
+"    exe "vertical resize" . (min([hmax, 140]))
+"    exe "resize" . (min([vmax, 60]))
+"endfunction
 
 " move between splits without the ctrl-w prefix
 
-nnoremap <silent><C-J> <C-W><C-J>:call Splitresize()<CR>
-nnoremap <silent><C-K> <C-W><C-K>:call Splitresize()<CR>
-nnoremap <silent><C-L> <C-W><C-L>:call Splitresize()<CR>
-nnoremap <silent><C-H> <C-W><C-H>:call Splitresize()<CR>
+"nnoremap <silent><C-J> <C-W><C-J>:call Splitresize()<CR>
+"nnoremap <silent><C-K> <C-W><C-K>:call Splitresize()<CR>
+"nnoremap <silent><C-L> <C-W><C-L>:call Splitresize()<CR>
+"nnoremap <silent><C-H> <C-W><C-H>:call Splitresize()<CR>
 
 " 设置新文件的编码为 UTF-8
 set encoding=utf-8
@@ -104,7 +121,7 @@ map <C-i> :tabnew<cr>
 map <C-e> :tabedit 
 map <C-c> :tabclose<cr>
 map <C-m> :tabmove
-map <C-p> :tabprevious<cr>
+map <C-b> :tabprevious<cr>
 map <C-n> :tabnext<cr>
 
 " Opens a new tab with the current buffer's path
@@ -184,7 +201,7 @@ map <F3> :NERDTreeToggle<CR>
 set tags=tags;$HOME/.vim/tags/
 
 " TagList Plugin Configuration
-let Tlist_Ctags_Cmd='/usr/bin/ctags'
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Close_On_Select = 1
 let Tlist_Use_Right_Window = 1
@@ -193,8 +210,8 @@ map <F7> :TlistToggle<CR>
 
 " Viewport Controls
 " ie moving between split panes
-map <silent>,h <C-w>h
-map <silent>,j <C-w>j
-map <silent>,k <C-w>k
-map <silent>,l <C-w>l
+"map <silent>,h <C-w>h
+"map <silent>,j <C-w>j
+"map <silent>,k <C-w>k
+"map <silent>,l <C-w>l
 
