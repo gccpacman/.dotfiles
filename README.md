@@ -1,5 +1,11 @@
 # My Vimrc 
-Most make for python programing, My env is actually cygwin, but it works fine with other platform(like ubuntu, centos, etc I have tested my self, mac OS is untested)
+Myvim configure is most used for python programing, 
+
+![Screenshot1](https://raw.githubusercontent.com/realhu1989/pyvim-power/master/pymode-power-1.png)
+![Screenshot2](https://raw.githubusercontent.com/realhu1989/pyvim-power/master/pymode-power-2.png)
+
+
+My env is actually cygwin, but it works fine with other platform(like ubuntu, centos, etc I have tested my self, mac OS is not tested)
 
 
 ## Install By Vundle
@@ -15,11 +21,11 @@ with vundle you only need to:
 Done!
 
 
-> PS: You should check you ctags path, it is operation based
+PS: You should check you ctags path, it is operation based
 
     which ctags
 
-> when change the value of Tlist_Ctags_Cmd in .vimrc:
+when change the value of Tlist_Ctags_Cmd in .vimrc:
 
     let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
 
