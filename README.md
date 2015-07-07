@@ -1,6 +1,8 @@
-# my-vimrc
+# My Vimrc 
+Most make for python programing, My env is actually cygwin, but it works fine with other platform(like ubuntu, centos, etc I have tested my self, mac OS is untested)
 
-## vundle install
+
+## Install By Vundle
 
 with vundle you only need to:
 
@@ -12,15 +14,16 @@ with vundle you only need to:
 
 Done!
 
-You should check you ctags path, it is operation based
+
+> PS: You should check you ctags path, it is operation based
 
     which ctags
 
-when change the value of Tlist_Ctags_Cmd in .vimrc:
+> when change the value of Tlist_Ctags_Cmd in .vimrc:
 
     let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
 
-## pathogen install
+## Install By pathogen 
 
 clone this git repo:
     
@@ -39,12 +42,12 @@ init all submodules:
     git submodules update --init --recursive
 
 
-my vimrc configuration file
+------
 
-# vim 用法总结  :  
-PS：具体用法和配置文件有关， 这里只是用于记录，并不完全一致
 
-ctg
+# vim 基本操作 :  
+
+PS：具体用法和配置文件有关，以下仅供参考。
 
 ## 分屏操作：
 
@@ -71,11 +74,26 @@ Ctrl+w 然后 -  减小屏幕大小（仅上下屏）
 
 :vertical resize -5    宽度-5
 
+## 多tab操作
+
+:tabnew 新建tab
+
+:tabnext 下一个tab
+
+:tabprevious 上一个tab
+
+:tabclose 关闭tab
+
+:tabedit 用tab打开某个文件
+
+
 ## 文件操作
 :new <filename>
             新建一个文件
 
-F7          查看文件树
+<F3>        查看文件树
+
+<F7>          查看代码结构
 
 ## 普通复制黏贴：
 先按v选择，然后按y  复制
@@ -87,10 +105,9 @@ F7          查看文件树
 ## 鼠标：
 
 ### cygwin让鼠标操作起作用
-:set mouse=
+:set mouse=n
 
-### 鼠标黏贴
-先按i进入Insert模式，然后按F5
+<F5>  (Insert模式下)进入黏贴模式（用鼠标黏贴而不是vim）
 
 Ctrl+I / Ctrl+O 
             在历史位置之间来回切换
@@ -103,26 +120,29 @@ set nu      显示行号
 
 set nonu    取消行号
 
-## 编程相关
+<F12>       显示关闭行号显示
 
-### 查看定义
+# python编程相关
+
+## 查看定义
 K           查看定义
 
-### 方法跳转
+## 方法跳转
 
 \ + g       跳转到方法
 
 ``          返回原来的位置
 
-### 批量注释
+## 批量注释
 
 Ctrl+V然后移动方向键选中（或者Ctrl+D选择模块）
 
 然后按I， 输入内容，然后按ESC让每行生效
 
-### 代码块折叠/打开
+## 代码块折叠/打开
 
 zc/zo  折叠，打开
 
 zR/zM  全部折叠，全部打开
+
 
