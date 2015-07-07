@@ -1,11 +1,12 @@
 # My Vimrc 
 Myvim configure is most used for python programing, 
 
+It looks like this in my cygwin.
+
 ![Screenshot1](https://raw.githubusercontent.com/realhu1989/pyvim-power/master/pymode-power-1.png)
 ![Screenshot2](https://raw.githubusercontent.com/realhu1989/pyvim-power/master/pymode-power-2.png)
 
-
-My env is actually cygwin, but it works fine with other platform(like ubuntu, centos, etc I have tested my self, mac OS is not tested)
+As I used [powerline](https://github.com/powerline/powerline) vim plugin, you should install and use the [powerline font](https://github.com/powerline/fonts) to make it work best.
 
 
 ## Install By Vundle
