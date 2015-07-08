@@ -16,7 +16,7 @@ Bundle 'scrooloose/nerdtree.git'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'taglist.vim'
-
+Bundle 'fholgado/minibufexpl.vim'
 
 """""""""""""""""""""""""
 " Pathogen load
@@ -138,14 +138,14 @@ set helplang=cn
 
 "map <C-i> :tabnew<cr>
 "map <C-e> :tabedit 
-map <leader>k :tabclose<cr>
-map <leader>j :tabmove
-map <leader>h :tabprevious<cr>
-map <leader>l :tabnext<cr>
+"map <leader>k :tabclose<cr>
+"map <leader>j :tabmove
+"map <leader>h :tabprevious<cr>
+"map <leader>l :tabnext<cr>
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
-map <leader>t :tabedit <c-r>=expand("%:p:h")<cr>/
+"map <leader>t :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " select all
 map <leader>sa ggVG"
