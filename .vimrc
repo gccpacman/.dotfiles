@@ -51,9 +51,9 @@ colorscheme elflord
 "map <Leader>c :MBEClose<cr>
 "map <Leader>t :MBEToggle<cr>
 "let g:miniBufExplMapCTabSwitchBufs = 1
-map <F2> :MBEFocus<CR>
-noremap <C-TAB>   :MBEbn<CR>
-noremap <C-S-TAB> :MBEbp<CR>
+"map <F2> :MBEFocus<CR>
+noremap <C-n> :MBEbn<CR>
+noremap <C-b> :MBEbp<CR>
 let g:miniBufExplUseSingleClick = 1
 
 " pymode config
