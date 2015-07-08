@@ -46,9 +46,17 @@ colorscheme elflord
 " colorscheme default
 " colorscheme ron
 
+" minibufexpl config
+"map <Leader>e :MBEOpen<cr>
+"map <Leader>c :MBEClose<cr>
+"map <Leader>t :MBEToggle<cr>
+"let g:miniBufExplMapCTabSwitchBufs = 1
+map <F2> :MBEFocus<CR>
+noremap <C-TAB>   :MBEbn<CR>
+noremap <C-S-TAB> :MBEbp<CR>
+let g:miniBufExplUseSingleClick = 1
 
-
-" pymode设置
+" pymode config
 let g:pymode = 1
 let g:pymode_warning = 1
 let g:pymode_folding = 1
