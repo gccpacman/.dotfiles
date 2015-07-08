@@ -90,10 +90,10 @@ let g:pymode_paths = ['/usr/lib/python2.7']
 
 "Jedi-Vim settings
 let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#use_splits_not_buffers = "left"
-let g:jedi#goto_command = "<leader>d"
+"let g:jedi#use_splits_not_buffers = "left"  open in split not buffer
+let g:jedi#goto_command = "<leader>c"
 let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = ""
+let g:jedi#goto_definitions_command = "<leader>d"
 let g:jedi#documentation_command = "K"
 let g:jedi#popup_on_dot = 1
 let g:jedi#popup_select_first = 1
