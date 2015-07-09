@@ -13,7 +13,7 @@ Bundle 'klen/python-mode'
 Bundle 'tpope/vim-sensible'
 Bundle 'scrooloose/nerdtree.git'
 "Bundle 'vim-scripts/taglist.vim'
-Bundle 'davidhalter/jedi-vim'
+"Bundle 'davidhalter/jedi-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'taglist.vim'
 Bundle 'fholgado/minibufexpl.vim'
@@ -49,12 +49,12 @@ colorscheme elflord
 " minibufexpl config
 "map <Leader>e :MBEOpen<cr>
 "map <Leader>c :MBEClose<cr>
-"map <Leader>t :MBEToggle<cr>
+map <Leader>t :MBEToggle<cr> :MBEFocus<cr>
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "map <F2> :MBEFocus<CR>
-noremap <C-n> :MBEbn<CR>
-noremap <C-b> :MBEbp<CR>
-let g:miniBufExplUseSingleClick = 1
+"noremap <C-n> :MBEbn<CR>
+"noremap <C-b> :MBEbp<CR>
+"let g:miniBufExplUseSingleClick = 1
 
 " pymode config
 let g:pymode = 1
@@ -65,19 +65,21 @@ let g:pymode_syntax_all = 1
 let g:pymode_doc = 1
 let g:pymode_doc_bind = 'K'
 let g:pymode_run_bind = '<leader>r'
-let g:pymode_rope=0
-"let g:pymode_rope_goto_definition_bind = "<leader>g"
-"let g:pymode_rope_goto_definition_cmd = 'new'
-"let g:pymode_rope_rename_bind = '<leader>rr'
-"let g:pymode_rope_rename_module_bind = '<leader>r1r'
+let g:pymode_rope = 1
+let g:pymode_rope_lookup_project = 0
+let g:pymode_rope_project_root = ""
+let g:pymode_rope_goto_definition_bind = "<leader>g"
+let g:pymode_rope_goto_definition_cmd = 'new'
+let g:pymode_rope_rename_bind = '<leader>rr'
+let g:pymode_rope_rename_module_bind = '<leader>r1r'
 let g:pymode_breakpoint = 1
 let g:pymode_breakpoint_bind = '<leader>b'
 let g:pymode_lint = 1
-"let g:pymode_lint_on_write = 1
+let g:pymode_lint_on_write = 1 
 "let g:pymode_lint_unmodified = 0
-"let g:pymode_lint_on_fly = 0
-"let g:pymode_lint_message = 1
-"let g:pymode_lint_checkers = ['pep8', 'pyflakes', 'mccabe']
+let g:pymode_lint_on_fly = 1
+let g:pymode_lint_message = 0
+let g:pymode_lint_checkers = ['pep8', 'pyflakes', 'mccabe']
 "let g:pymode_lint_cwindow = 1
 "let g:pymode_lint_signs = 1
 "let g:pymode_lint_todo_symbol = 'WW'
@@ -89,18 +91,18 @@ let g:pymode_lint = 1
 let g:pymode_paths = ['/usr/lib/python2.7']
 
 "Jedi-Vim settings
-let g:jedi#use_tabs_not_buffers = 0
-"let g:jedi#use_splits_not_buffers = "left"  open in split not buffer
-let g:jedi#goto_command = "<leader>c"
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "K"
-let g:jedi#popup_on_dot = 1
-let g:jedi#popup_select_first = 1
-let g:jedi#completions_enabled = 1
-let g:jedi#completions_command = "<C-n>"
-let g:jedi#usages_command = "<leader>u"
-let g:jedi#rename_command = "<leader>r"
+"let g:jedi#use_tabs_not_buffers = 0
+""let g:jedi#use_splits_not_buffers = "left"  open in split not buffer
+"let g:jedi#goto_command = "<leader>c"
+"let g:jedi#goto_assignments_command = "<leader>g"
+"let g:jedi#goto_definitions_command = "<leader>d"
+"let g:jedi#documentation_command = "K"
+"let g:jedi#popup_on_dot = 1
+"let g:jedi#popup_select_first = 1
+"let g:jedi#completions_enabled = 1
+"let g:jedi#completions_command = "<C-n>"
+"let g:jedi#usages_command = "<leader>u"
+"let g:jedi#rename_command = "<leader>r"
 
 
 "Smart way to move between windows 分屏窗口移动
@@ -150,6 +152,10 @@ set helplang=cn
 "map <leader>j :tabmove
 "map <leader>h :tabprevious<cr>
 "map <leader>l :tabnext<cr>
+
+map <C-b> :tabprevious<cr>
+map <C-n> :tabnext<cr>
+
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
