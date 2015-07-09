@@ -17,6 +17,7 @@ Bundle 'davidhalter/jedi-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'taglist.vim'
 Bundle 'fholgado/minibufexpl.vim'
+"Bundle 'buftabs'
 
 """""""""""""""""""""""""
 " Pathogen load
@@ -53,10 +54,16 @@ colorscheme elflord
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "map <F2> :MBEFocus<CR>
 "map <F2> :b
-map <F2> :MBEToggle<cr>
-noremap <C-r> :MBEbn<CR>
-noremap <C-e> :MBEbp<CR>
+map <F4> :MBEToggle<cr>
+noremap <F2> :MBEbn<CR>
+noremap <F1> :MBEbp<CR>
+noremap <F5> :MBEbd<CR>
 let g:miniBufExplUseSingleClick = 1
+
+" buftabs config
+"noremap <F1> :bprev<CR>
+"noremap <F2> :bnext<CR>
+
 
 " pymode config
 let g:pymode = 1
