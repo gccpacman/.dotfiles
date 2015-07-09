@@ -47,13 +47,13 @@ colorscheme elflord
 " colorscheme ron
 
 " minibufexpl config
-"map <Leader>e :MBEOpen<cr>
-"map <Leader>c :MBEClose<cr>
-"map <Leader>t :MBEToggle<cr>
+map <Leader>e :MBEOpen<cr>
+map <Leader>q :MBEClose<cr>
+map <Leader>t :MBEToggle<cr>
 "let g:miniBufExplMapCTabSwitchBufs = 1
-"map <F2> :MBEFocus<CR>
-noremap <C-f> :MBEbn<CR>
-noremap <C-g> :MBEbp<CR>
+map <F2> :MBEFocus<CR>
+noremap <leader>h :MBEbn<CR>
+noremap <leader>l :MBEbp<CR>
 let g:miniBufExplUseSingleClick = 1
 
 " pymode config
