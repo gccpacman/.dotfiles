@@ -17,6 +17,7 @@ Bundle 'scrooloose/nerdtree.git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'taglist.vim'
 Bundle 'fholgado/minibufexpl.vim'
+"Bundle 'buftabs'
 
 """""""""""""""""""""""""
 " Pathogen load
@@ -55,6 +56,21 @@ map <Leader>t :MBEToggle<cr> :MBEFocus<cr>
 "noremap <C-n> :MBEbn<CR>
 "noremap <C-b> :MBEbp<CR>
 "let g:miniBufExplUseSingleClick = 1
+"map <Leader>q :MBEClose<cr>
+"map <Leader>t :MBEToggle<cr>
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"map <F2> :MBEFocus<CR>
+"map <F2> :b
+"map <leader>t :MBEToggle<cr>
+"noremap <F2> :MBEbn<CR>
+"noremap <F1> :MBEbp<CR>
+"noremap <F4> :MBEbd<CR>
+let g:miniBufExplUseSingleClick = 1
+
+" buftabs config
+"noremap <F1> :bprev<CR>
+"noremap <F2> :bnext<CR>
+
 
 " pymode config
 let g:pymode = 1
@@ -69,7 +85,7 @@ let g:pymode_rope = 1
 let g:pymode_rope_lookup_project = 0
 let g:pymode_rope_project_root = ""
 let g:pymode_rope_goto_definition_bind = "<leader>g"
-let g:pymode_rope_goto_definition_cmd = 'new'
+let g:pymode_rope_goto_definition_cmd = 'tabnew'
 let g:pymode_rope_rename_bind = '<leader>rr'
 let g:pymode_rope_rename_module_bind = '<leader>r1r'
 let g:pymode_breakpoint = 1
@@ -147,14 +163,11 @@ set helplang=cn
 
 
 "map <C-i> :tabnew<cr>
-"map <C-e> :tabedit 
-"map <leader>k :tabclose<cr>
-"map <leader>j :tabmove
-"map <leader>h :tabprevious<cr>
-"map <leader>l :tabnext<cr>
-
-map <C-b> :tabprevious<cr>
-map <C-n> :tabnext<cr>
+map <leader>e :tabedit 
+map <leader>k :tabclose<cr>
+map <leader>j :tabmove 
+map <leader>h :tabprevious<cr>
+map <leader>l :tabnext<cr>
 
 
 " Opens a new tab with the current buffer's path
