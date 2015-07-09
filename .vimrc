@@ -16,10 +16,11 @@ Bundle 'scrooloose/nerdtree.git'
 "Bundle 'davidhalter/jedi-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'taglist.vim'
-Bundle 'fholgado/minibufexpl.vim'
-"Bundle 'buftabs'
+"Bundle 'fholgado/minibufexpl.vim'
+Bundle 'buftabs'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'atelierbram/vim-colors_atelier-schemes'
+Bundle 'airblade/vim-gitgutter'
 
 """""""""""""""""""""""""
 " Pathogen load
@@ -142,7 +143,7 @@ au InsertLeave * set nopaste    " disbale paste mode when leaving insert mode
 "map <Leader>e :MBEOpen<cr>
 "map <Leader>c :MBEClose<cr>
 "map <Leader>t :MBEToggle<cr> :MBEFocus<cr>
-map <F2> :MBEToggle<cr> :MBEFocus<cr>
+"map <F2> :MBEToggle<cr> :MBEFocus<cr>
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "map <F2> :MBEFocus<CR>
 "noremap <C-n> :MBEbn<CR>
@@ -156,11 +157,15 @@ map <F2> :MBEToggle<cr> :MBEFocus<cr>
 "noremap <F4> :MBEbn<CR>
 "noremap <F3> :MBEbp<CR>
 "noremap <F2> :MBEbd<CR>
-let g:miniBufExplUseSingleClick = 1
+"let g:miniBufExplUseSingleClick = 1
 
 " buftabs config
-"noremap <F1> :bprev<CR>
-"noremap <F2> :bnext<CR>
+noremap <leader>j :bprev<CR>
+noremap <leader>k :bnext<CR>
+
+" gitgutter config
+map <F1> :GitGutterToggle<cr>
+
 
 
 " pymode config
@@ -265,8 +270,8 @@ map <C-o> <C-W>>
 
 "map <C-i> :tabnew<cr>
 map <leader>e :tabedit 
-map <leader>k :tabclose<cr>
-map <leader>j :tabmove 
+map <leader>c :tabclose<cr>
+map <leader>m :tabmove 
 map <leader>h :tabprevious<cr>
 map <leader>l :tabnext<cr>
 
