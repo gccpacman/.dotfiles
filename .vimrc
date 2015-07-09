@@ -52,8 +52,8 @@ map <Leader>q :MBEClose<cr>
 map <Leader>t :MBEToggle<cr>
 "let g:miniBufExplMapCTabSwitchBufs = 1
 map <F2> :MBEFocus<CR>
-noremap <leader>h :MBEbn<CR>
-noremap <leader>l :MBEbp<CR>
+noremap <leader>l :MBEbn<CR>
+noremap <leader>h :MBEbp<CR>
 let g:miniBufExplUseSingleClick = 1
 
 " pymode config
