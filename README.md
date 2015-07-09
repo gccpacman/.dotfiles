@@ -21,12 +21,15 @@ get the .vimrc file:
     wget https://raw.githubusercontent.com/realhu1989/pyvim-power/master/.vimrc
 
 Install vundle:
+
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 Install powerline by pip:
+
     pip install --user git+git://github.com/powerline/powerline
 
 Install all plugins by vundle:
+    
     vim +BundleInstall +qall
 
 Done!
