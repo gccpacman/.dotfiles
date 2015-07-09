@@ -54,10 +54,10 @@ colorscheme elflord
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "map <F2> :MBEFocus<CR>
 "map <F2> :b
-map <F4> :MBEToggle<cr>
+map <leader>t :MBEToggle<cr>
 noremap <F2> :MBEbn<CR>
 noremap <F1> :MBEbp<CR>
-noremap <F5> :MBEbd<CR>
+noremap <F4> :MBEbd<CR>
 let g:miniBufExplUseSingleClick = 1
 
 " buftabs config
