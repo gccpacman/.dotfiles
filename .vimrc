@@ -47,11 +47,12 @@ colorscheme elflord
 " colorscheme ron
 
 " minibufexpl config
-map <Leader>e :MBEOpen<cr>
-map <Leader>q :MBEClose<cr>
+"map <Leader>e :MBEOpen<cr>
+"map <Leader>q :MBEClose<cr>
 map <Leader>t :MBEToggle<cr>
 "let g:miniBufExplMapCTabSwitchBufs = 1
-map <F2> :MBEFocus<CR>
+"map <F2> :MBEFocus<CR>
+map <F2> :b
 noremap <leader>l :MBEbn<CR>
 noremap <leader>h :MBEbp<CR>
 let g:miniBufExplUseSingleClick = 1
