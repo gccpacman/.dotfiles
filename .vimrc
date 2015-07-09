@@ -18,6 +18,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'taglist.vim'
 Bundle 'fholgado/minibufexpl.vim'
 "Bundle 'buftabs'
+Bundle 'flazz/vim-colorschemes'
 
 """""""""""""""""""""""""
 " Pathogen load
@@ -37,15 +38,9 @@ set timeoutlen=2000
 set background=dark
 set t_Co=256
 " set background=dark
-" colorscheme koehler
-" colorscheme torte
-" colorscheme pablo
-" colorscheme evening
-" colorscheme shine
-colorscheme elflord
-" colorscheme blue
-" colorscheme default
-" colorscheme ron
+"colorscheme elflord
+colorscheme c
+"colorscheme C64 
 
 " 文件修改后自动重载
 set autoread
@@ -163,7 +158,7 @@ let g:pymode_rope = 1
 let g:pymode_rope_lookup_project = 0
 let g:pymode_rope_project_root = ""
 let g:pymode_rope_goto_definition_bind = "<leader>g"
-let g:pymode_rope_goto_definition_cmd = 'sp'
+let g:pymode_rope_goto_definition_cmd = 'new'
 let g:pymode_rope_rename_bind = '<leader>rr'
 let g:pymode_rope_rename_module_bind = '<leader>r1r'
 let g:pymode_breakpoint = 1
