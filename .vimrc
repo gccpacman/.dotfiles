@@ -129,20 +129,20 @@ au InsertLeave * set nopaste    " disbale paste mode when leaving insert mode
 "map <Leader>e :MBEOpen<cr>
 "map <Leader>c :MBEClose<cr>
 map <Leader>t :MBEToggle<cr> :MBEFocus<cr>
+map <F1> :MBEToggle<cr> :MBEFocus<cr>
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "map <F2> :MBEFocus<CR>
 "noremap <C-n> :MBEbn<CR>
 "noremap <C-b> :MBEbp<CR>
 "let g:miniBufExplUseSingleClick = 1
-"map <Leader>q :MBEClose<cr>
 "map <Leader>t :MBEToggle<cr>
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "map <F2> :MBEFocus<CR>
 "map <F2> :b
 "map <leader>t :MBEToggle<cr>
-"noremap <F2> :MBEbn<CR>
-"noremap <F1> :MBEbp<CR>
-"noremap <F4> :MBEbd<CR>
+noremap <F4> :MBEbn<CR>
+noremap <F3> :MBEbp<CR>
+noremap <F2> :MBEbd<CR>
 let g:miniBufExplUseSingleClick = 1
 
 " buftabs config
@@ -262,7 +262,7 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 let NERDTreeMouseMode=3         "  single click to open folder or file
-map <F3> :NERDTreeToggle<CR>
+map <F6> :NERDTreeToggle<CR>
 
 " Syntax for multiple tag files are
 " set tags=/my/dir1/tags, /my/dir2/tags
