@@ -11,12 +11,22 @@ As I used [powerline](https://github.com/powerline/powerline) vim plugin, you sh
 
 ## Install By Vundle
 
-with vundle you only need to:
+You may want to backup your own vimrc file first:
 
-    git clone https://github.com/realhu1989/pyvim-power.git
+    mv .vimrc .vimrc.bak
 
+get the .vimrc file:
+
+    cd ~
+    wget https://raw.githubusercontent.com/realhu1989/pyvim-power/master/.vimrc
+
+Install vundle:
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
+Install powerline by pip:
+    pip install --user git+git://github.com/powerline/powerline
+
+Install all plugins by vundle:
     vim +BundleInstall +qall
 
 Done!
