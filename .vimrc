@@ -49,12 +49,13 @@ colorscheme elflord
 " minibufexpl config
 "map <Leader>e :MBEOpen<cr>
 "map <Leader>q :MBEClose<cr>
-map <Leader>t :MBEToggle<cr>
+"map <Leader>t :MBEToggle<cr>
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "map <F2> :MBEFocus<CR>
-map <F2> :b
-noremap <leader>l :MBEbn<CR>
-noremap <leader>h :MBEbp<CR>
+"map <F2> :b
+map <F2> :MBEToggle<cr>
+noremap <C-r> :MBEbn<CR>
+noremap <C-e> :MBEbp<CR>
 let g:miniBufExplUseSingleClick = 1
 
 " pymode config
