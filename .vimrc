@@ -118,13 +118,11 @@ set pastetoggle=<F5>            "    when in insert mode, press <F5> to go to
 au InsertLeave * set nopaste    " disbale paste mode when leaving insert mode
 " nnoremap <F6> :call HideNumber()<CR>
 
-
-
 " minibufexpl config
 "map <Leader>e :MBEOpen<cr>
 "map <Leader>c :MBEClose<cr>
-map <Leader>t :MBEToggle<cr> :MBEFocus<cr>
-map <F1> :MBEToggle<cr> :MBEFocus<cr>
+"map <Leader>t :MBEToggle<cr> :MBEFocus<cr>
+map <F2> :MBEToggle<cr> :MBEFocus<cr>
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "map <F2> :MBEFocus<CR>
 "noremap <C-n> :MBEbn<CR>
@@ -135,9 +133,9 @@ map <F1> :MBEToggle<cr> :MBEFocus<cr>
 "map <F2> :MBEFocus<CR>
 "map <F2> :b
 "map <leader>t :MBEToggle<cr>
-noremap <F4> :MBEbn<CR>
-noremap <F3> :MBEbp<CR>
-noremap <F2> :MBEbd<CR>
+"noremap <F4> :MBEbn<CR>
+"noremap <F3> :MBEbp<CR>
+"noremap <F2> :MBEbd<CR>
 let g:miniBufExplUseSingleClick = 1
 
 " buftabs config
@@ -155,20 +153,21 @@ let g:pymode_doc = 1
 let g:pymode_doc_bind = 'K'
 let g:pymode_run_bind = '<leader>r'
 let g:pymode_rope = 1
-let g:pymode_rope_lookup_project = 0
-let g:pymode_rope_project_root = ""
+let g:pymode_rope_lookup_project = 1
+"let g:pymode_rope_project_root = ""
 let g:pymode_rope_goto_definition_bind = "<leader>g"
-let g:pymode_rope_goto_definition_cmd = 'new'
+"let g:pymode_rope_goto_definition_cmd = 'new'
 let g:pymode_rope_rename_bind = '<leader>rr'
 let g:pymode_rope_rename_module_bind = '<leader>r1r'
 let g:pymode_breakpoint = 1
 let g:pymode_breakpoint_bind = '<leader>b'
 let g:pymode_lint = 1
-let g:pymode_lint_on_write = 1 
+"let g:pymode_lint_on_write = 1 
 "let g:pymode_lint_unmodified = 0
-let g:pymode_lint_on_fly = 1
-let g:pymode_lint_message = 0
-let g:pymode_lint_checkers = ['pep8', 'pyflakes', 'mccabe']
+let g:pymode_lint_cwindow = 0
+let g:pymode_lint_on_fly =0 
+let g:pymode_lint_message = 1
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
 "let g:pymode_lint_cwindow = 1
 "let g:pymode_lint_signs = 1
 "let g:pymode_lint_todo_symbol = 'WW'
@@ -178,6 +177,21 @@ let g:pymode_lint_checkers = ['pep8', 'pyflakes', 'mccabe']
 "let g:pymode_lint_info_symbol = 'II'
 "let g:pymode_lint_pyflakes_symbol = 'FF'
 let g:pymode_paths = ['/usr/lib/python2.7']
+
+
+" ================  ============================
+" Key               Command
+" ================  ============================
+" [[                Jump to previous class or function (normal, visual, operator modes)
+" ]]                Jump to next class or function  (normal, visual, operator modes)
+" [M                Jump to previous class or method (normal, visual, operator modes)
+" ]M                Jump to next class or method (normal, visual, operator modes)
+" aC                Select a class. Ex: vaC, daC, yaC, caC (normal, operator modes)
+" iC                Select inner class. Ex: viC, diC, yiC, ciC (normal, operator modes)
+" aM                Select a function or method. Ex: vaM, daM, yaM, caM (normal, operator modes)
+" iM                Select inner function or method. Ex: viM, diM, yiM, ciM (normal, operator modes)
+" ================  ============================
+
 
 "Jedi-Vim settings
 "let g:jedi#use_tabs_not_buffers = 0
@@ -248,7 +262,8 @@ map <leader>sa ggVG"
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
-    
+
+" always show status line
 set laststatus=2
 
 " NERD_tree config
@@ -257,7 +272,7 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 let NERDTreeMouseMode=3         "  single click to open folder or file
-map <F6> :NERDTreeToggle<CR>
+map <F3> :NERDTreeToggle<CR>
 
 " Syntax for multiple tag files are
 " set tags=/my/dir1/tags, /my/dir2/tags
