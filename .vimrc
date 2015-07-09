@@ -19,6 +19,7 @@ Bundle 'taglist.vim'
 Bundle 'fholgado/minibufexpl.vim'
 "Bundle 'buftabs'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'atelierbram/vim-colors_atelier-schemes'
 
 """""""""""""""""""""""""
 " Pathogen load
@@ -37,10 +38,29 @@ set timeoutlen=2000
 " set background=light
 set background=dark
 set t_Co=256
-" set background=dark
+"set background=dark
 "colorscheme elflord
-colorscheme c
+"colorscheme c
 "colorscheme C64 
+
+" or, for the light background mode:
+" set background=light
+"colorscheme base16-atelierdune
+" or any of the other schemes:
+" colorscheme base16-atelierforest
+" colorscheme base16-atelierplateau
+" colorscheme base16-atelierheath
+" colorscheme base16-ateliercave
+"colorscheme base16-ateliersulphurpool
+" colorscheme base16-atelierlakeside
+" colorscheme base16-ateliersavanna
+" colorscheme base16-atelierseaside
+"colorscheme base16-atelierdune
+" colorscheme base16-atelierestuary
+"colorscheme darkZ
+"colorscheme gor
+colorscheme fu 
+
 
 " 文件修改后自动重载
 set autoread
