@@ -60,7 +60,7 @@ set t_Co=256
 " colorscheme base16-atelierestuary
 "colorscheme darkZ
 "colorscheme gor
-colorscheme fu 
+colorscheme less 
 
 
 " 文件修改后自动重载
@@ -73,7 +73,7 @@ set noswapfile
 
 set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 " 突出显示当前行等, 因为主题问题暂时不用
-set cursorcolumn
+"set cursorcolumn
 set cursorline          " 突出显示当前行
 
 " 设置新文件的编码为 UTF-8
