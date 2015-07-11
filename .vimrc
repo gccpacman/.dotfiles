@@ -15,13 +15,19 @@ Bundle 'scrooloose/nerdtree.git'
 "Bundle 'vim-scripts/taglist.vim'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'tpope/vim-fugitive'
-Bundle 'taglist.vim'
-"Bundle 'fholgado/minibufexpl.vim'
+" buffer tabs 
+Bundle 'fholgado/minibufexpl.vim'
 Bundle 'buftabs'
+" colorschemes
 Bundle 'flazz/vim-colorschemes'
 Bundle 'atelierbram/vim-colors_atelier-schemes'
+" git
 Bundle 'airblade/vim-gitgutter'
+" tagbar: http://majutsushi.github.io/tagbar/
 Bundle 'majutsushi/tagbar'
+Bundle 'taglist.vim'
+" nerdcommenterquick: comment tool [count]<leader>cc to comment 
+Bundle 'scrooloose/nerdcommenter'
 """""""""""""""""""""""""
 " Pathogen load
 " call pathogen#infect()
@@ -128,9 +134,6 @@ if has ('gui_running')
     highlight Pmenu guibg=#cccccc gui=bold    
 endif
 
-au InsertLeave * set nopaste    " disbale paste mode when leaving insert mode
-" nnoremap <F6> :call HideNumber()<CR>
-
 " minibufexpl config
 "map <Leader>e :MBEOpen<cr>
 "map <Leader>c :MBEClose<cr>
@@ -151,12 +154,38 @@ let g:miniBufExplAutoStart=0
 noremap <leader>j :bprev<CR>
 noremap <leader>k :bnext<CR>
 
+
 " gitgutter config
-map <F1> :GitGutterToggle<cr>
+map <F11> :GitGutterToggle<cr>
 let g:tagbar_ctags_bin = '/usr/bin/ctags'
 
+" Search related
 " remove highlights for search
-map <F9> :nohls<cr>
+" * for search current word
+map <F10> :nohls<cr>
+
+" Highlight all instances of word under cursor, when idle.
+" Useful when studying strange source code.
+" Type z/ to toggle highlighting on/off.
+" nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
+" function! AutoHighlightToggle()
+"   let @/ = ''
+"   if exists('#auto_highlight')
+"     au! auto_highlight
+"     augroup! auto_highlight
+"     setl updatetime=4000
+"     echo 'Highlight current word: off'
+"     return 0
+"   else
+"     augroup auto_highlight
+"       au!
+"       au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+"     augroup end
+"     setl updatetime=500
+"     echo 'Highlight current word: ON'
+"     return 1
+"   endif
+" endfunction
 
 " TagBar toggle
 nmap <F8> :TagbarToggle<CR>
@@ -164,26 +193,59 @@ nmap <F8> :TagbarToggle<CR>
 "F12 show or hide line number
 nmap <F12> :set invnumber<CR>
 
+" NERD_tree config
+let NERDTreeChDirMode=2
+let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
+let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
+let NERDTreeShowBookmarks=1
+let NERDTreeMouseMode=3         "  single click to open folder or file
+map <F3> :NERDTreeToggle<CR>
+
+" Syntax for multiple tag files are
+" set tags=/my/dir1/tags, /my/dir2/tags
+set tags=tags;$HOME/.vim/tags/
+
+" TagList Plugin Configuration
+let Tlist_Ctags_Cmd='/usr/bin/ctags'
+let Tlist_Show_One_File=1
+let Tlist_WinWidt=28
+let Tlist_Exit_OnlyWindow=1
+"let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Close_On_Select = 1
+let Tlist_Use_Right_Window = 1
+"let Tlist_File_Fold_Auto_Close = 1
+map <F7> :TlistToggle<CR>
+
+" Viewport Controls
+" ie moving between split panes
+"map <silent>,h <C-w>h
+"map <silent>,j <C-w>j
+"map <silent>,k <C-w>k
+"map <silent>,l <C-w>l
+
 "set paste mode shorcat
 set pastetoggle=<F5>            "    when in insert mode, press <F5> to go to
                                 "    paste mode, where you can paste mass data
                                 "    that won't be autoindented
+au InsertLeave * set nopaste    " disbale paste mode when leaving insert mode
+" nnoremap <F6> :call HideNumber()<CR>
+
 " pymode config
 let g:pymode = 1
 let g:pymode_warning = 1
 let g:pymode_folding = 1
 let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
-let g:pymode_doc = 1
-let g:pymode_doc_bind = 'K'
-let g:pymode_run_bind = '<leader>r'
-let g:pymode_rope = 1
+"let g:pymode_doc = 1
+"let g:pymode_doc_bind = '<leader>k'
+"let g:pymode_run_bind = '<leader>ru'
+let g:pymode_rope = 1 
 let g:pymode_rope_lookup_project = 1
 "let g:pymode_rope_project_root = ""
 let g:pymode_rope_goto_definition_bind = "<leader>g"
 "let g:pymode_rope_goto_definition_cmd = 'new'
-let g:pymode_rope_rename_bind = '<leader>rr'
-let g:pymode_rope_rename_module_bind = '<leader>r1r'
+"let g:pymode_rope_rename_bind = '<leader>rr'
+"let g:pymode_rope_rename_module_bind = '<leader>r1r'
 let g:pymode_breakpoint = 1
 let g:pymode_breakpoint_bind = '<leader>b'
 let g:pymode_lint = 1
@@ -220,17 +282,19 @@ let g:pymode_paths = ['/usr/lib/python2.7']
 
 "Jedi-Vim settings
 "let g:jedi#use_tabs_not_buffers = 0
-""let g:jedi#use_splits_not_buffers = "left"  open in split not buffer
-"let g:jedi#goto_command = "<leader>c"
-"let g:jedi#goto_assignments_command = "<leader>g"
-"let g:jedi#goto_definitions_command = "<leader>d"
-"let g:jedi#documentation_command = "K"
-"let g:jedi#popup_on_dot = 1
-"let g:jedi#popup_select_first = 1
-"let g:jedi#completions_enabled = 1
-"let g:jedi#completions_command = "<C-n>"
-"let g:jedi#usages_command = "<leader>u"
-"let g:jedi#rename_command = "<leader>r"
+let g:jedi#use_splits_not_buffers = "left"  "open in split not buffer
+let g:jedi#goto_command = "<leader>c"
+let g:jedi#goto_assignments_command = "<leader>a"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#documentation_command = "K"
+let g:jedi#max_doc_height = 35
+let g:jedi#auto_close_doc = 1
+let g:jedi#popup_on_dot = 1 
+let g:jedi#popup_select_first = 1 
+let g:jedi#completions_enabled = 1
+let g:jedi#completions_command = "<C-n>"
+let g:jedi#usages_command = "<leader>u"
+let g:jedi#rename_command = "<leader>r"
 
 
 "Smart way to move between windows 分屏窗口移动
@@ -290,34 +354,3 @@ python del powerline_setup
 
 " always show status line
 set laststatus=2
-
-" NERD_tree config
-let NERDTreeChDirMode=2
-let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
-let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
-let NERDTreeShowBookmarks=1
-let NERDTreeMouseMode=3         "  single click to open folder or file
-map <F3> :NERDTreeToggle<CR>
-
-" Syntax for multiple tag files are
-" set tags=/my/dir1/tags, /my/dir2/tags
-set tags=tags;$HOME/.vim/tags/
-
-" TagList Plugin Configuration
-let Tlist_Ctags_Cmd='/usr/bin/ctags'
-let Tlist_Show_One_File=1
-let Tlist_WinWidt=28
-let Tlist_Exit_OnlyWindow=1
-"let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Close_On_Select = 1
-let Tlist_Use_Right_Window = 1
-"let Tlist_File_Fold_Auto_Close = 1
-map <F7> :TlistToggle<CR>
-
-" Viewport Controls
-" ie moving between split panes
-"map <silent>,h <C-w>h
-"map <silent>,j <C-w>j
-"map <silent>,k <C-w>k
-"map <silent>,l <C-w>l
-
