@@ -21,7 +21,7 @@ Bundle 'buftabs'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'atelierbram/vim-colors_atelier-schemes'
 Bundle 'airblade/vim-gitgutter'
-
+Bundle 'majutsushi/tagbar'
 """""""""""""""""""""""""
 " Pathogen load
 " call pathogen#infect()
@@ -153,7 +153,13 @@ noremap <leader>k :bnext<CR>
 
 " gitgutter config
 map <F1> :GitGutterToggle<cr>
+let g:tagbar_ctags_bin = '/usr/bin/ctags'
+
+" remove highlights for search
 map <F9> :nohls<cr>
+
+" TagBar toggle
+nmap <F8> :TagbarToggle<CR>
 
 "F12 show or hide line number
 nmap <F12> :set invnumber<CR>
