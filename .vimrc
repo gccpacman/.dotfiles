@@ -13,7 +13,7 @@ Bundle 'klen/python-mode'
 Bundle 'tpope/vim-sensible'
 Bundle 'scrooloose/nerdtree.git'
 "Bundle 'vim-scripts/taglist.vim'
-"Bundle 'davidhalter/jedi-vim'
+Bundle 'davidhalter/jedi-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'taglist.vim'
 "Bundle 'fholgado/minibufexpl.vim'
@@ -128,14 +128,6 @@ if has ('gui_running')
     highlight Pmenu guibg=#cccccc gui=bold    
 endif
 
-"<F12> show or hide line number
-nmap <F12> :set invnumber<CR>
-
-"set paste mode shorcat
-set pastetoggle=<F5>            "    when in insert mode, press <F5> to go to
-                                "    paste mode, where you can paste mass data
-                                "    that won't be autoindented
-
 au InsertLeave * set nopaste    " disbale paste mode when leaving insert mode
 " nnoremap <F6> :call HideNumber()<CR>
 
@@ -143,21 +135,17 @@ au InsertLeave * set nopaste    " disbale paste mode when leaving insert mode
 "map <Leader>e :MBEOpen<cr>
 "map <Leader>c :MBEClose<cr>
 "map <Leader>t :MBEToggle<cr> :MBEFocus<cr>
-"map <F2> :MBEToggle<cr> :MBEFocus<cr>
+map <F2> :MBEToggle<cr> :MBEFocus<cr>
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "map <F2> :MBEFocus<CR>
 "noremap <C-n> :MBEbn<CR>
 "noremap <C-b> :MBEbp<CR>
-"let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplAutoStart=0
 "map <Leader>t :MBEToggle<cr>
-"let g:miniBufExplMapCTabSwitchBufs = 1
-"map <F2> :MBEFocus<CR>
-"map <F2> :b
-"map <leader>t :MBEToggle<cr>
 "noremap <F4> :MBEbn<CR>
 "noremap <F3> :MBEbp<CR>
 "noremap <F2> :MBEbd<CR>
-"let g:miniBufExplUseSingleClick = 1
 
 " buftabs config
 noremap <leader>j :bprev<CR>
@@ -165,9 +153,15 @@ noremap <leader>k :bnext<CR>
 
 " gitgutter config
 map <F1> :GitGutterToggle<cr>
+map <F9> :nohls<cr>
 
+"F12 show or hide line number
+nmap <F12> :set invnumber<CR>
 
-
+"set paste mode shorcat
+set pastetoggle=<F5>            "    when in insert mode, press <F5> to go to
+                                "    paste mode, where you can paste mass data
+                                "    that won't be autoindented
 " pymode config
 let g:pymode = 1
 let g:pymode_warning = 1
@@ -189,8 +183,8 @@ let g:pymode_breakpoint_bind = '<leader>b'
 let g:pymode_lint = 1
 "let g:pymode_lint_on_write = 1 
 "let g:pymode_lint_unmodified = 0
-let g:pymode_lint_cwindow = 0
-let g:pymode_lint_on_fly =0 
+let g:pymode_lint_cwindow = 0 
+let g:pymode_lint_on_fly = 1 
 let g:pymode_lint_message = 1
 let g:pymode_lint_checkers = ['pyflakes', 'pep8']
 "let g:pymode_lint_cwindow = 1
