@@ -20,7 +20,6 @@ Bundle 'fholgado/minibufexpl.vim'
 Bundle 'buftabs'
 " colorschemes
 Bundle 'flazz/vim-colorschemes'
-Bundle 'atelierbram/vim-colors_atelier-schemes'
 " git
 Bundle 'airblade/vim-gitgutter'
 " tagbar: http://majutsushi.github.io/tagbar/
@@ -49,6 +48,7 @@ set t_Co=256
 "colorscheme elflord
 "colorscheme c
 "colorscheme C64 
+"colorscheme win9xblueback
 
 " or, for the light background mode:
 " set background=light
@@ -66,8 +66,13 @@ set t_Co=256
 " colorscheme base16-atelierestuary
 "colorscheme darkZ
 "colorscheme gor
-colorscheme less 
-
+"colorscheme less 
+"colorscheme osx_like
+"colorscheme newspaper
+"colorscheme django 
+"colorscheme colorful256
+"colorscheme google
+colorscheme jellybeans
 
 " 文件修改后自动重载
 set autoread
