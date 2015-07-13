@@ -314,9 +314,9 @@ map <C-l> <C-W>l
 "map <C-W>< <C-W><
 "map <C-W>> <C-W>>
 "map <leader>- <C-W>-
-map <C-m> <C-W>+
+"map <C-m> <C-W>+
 "map <leader>, <C-W><
-map <C-o> <C-W>>
+"map <C-o> <C-W>>
 
 
 " Resize the current split to at least (90,25) but no more than (140,60)
