@@ -42,7 +42,7 @@ set timeoutlen=2000
 
 
 " theme主题
-" set background=light
+set background=light
 set background=dark
 set t_Co=256
 "set background=dark
@@ -53,7 +53,6 @@ set t_Co=256
 
 " or, for the light background mode:
 " set background=light
-"colorscheme base16-atelierdune
 " or any of the other schemes:
 " colorscheme base16-atelierforest
 " colorscheme base16-atelierplateau
@@ -62,18 +61,17 @@ set t_Co=256
 "colorscheme base16-ateliersulphurpool
 " colorscheme base16-atelierlakeside
 " colorscheme base16-ateliersavanna
-" colorscheme base16-atelierseaside
 "colorscheme base16-atelierdune
 " colorscheme base16-atelierestuary
 "colorscheme darkZ
 "colorscheme gor
-"colorscheme less 
+colorscheme less 
 "colorscheme osx_like
 "colorscheme newspaper
 "colorscheme django 
 "colorscheme colorful256
 "colorscheme google
-colorscheme jellybeans
+"colorscheme jellybeans
 
 " 文件修改后自动重载
 set autoread
@@ -144,13 +142,13 @@ endif
 "map <Leader>e :MBEOpen<cr>
 "map <Leader>c :MBEClose<cr>
 "map <Leader>t :MBEToggle<cr> :MBEFocus<cr>
-map <F2> :MBEToggle<cr> :MBEFocus<cr>
+"map <F2> :MBEToggle<cr> :MBEFocus<cr>
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "map <F2> :MBEFocus<CR>
 "noremap <C-n> :MBEbn<CR>
 "noremap <C-b> :MBEbp<CR>
-let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplAutoStart=0
+"let g:miniBufExplUseSingleClick = 1
+"let g:miniBufExplAutoStart=0
 "map <Leader>t :MBEToggle<cr>
 "noremap <F4> :MBEbn<CR>
 "noremap <F3> :MBEbp<CR>
@@ -248,10 +246,10 @@ let g:pymode_syntax_all = 1
 "let g:pymode_doc = 1
 "let g:pymode_doc_bind = '<leader>k'
 "let g:pymode_run_bind = '<leader>ru'
-let g:pymode_rope = 1 
-let g:pymode_rope_lookup_project = 1
+"let g:pymode_rope = 1 
+"let g:pymode_rope_lookup_project = 1
 "let g:pymode_rope_project_root = ""
-let g:pymode_rope_goto_definition_bind = "<leader>g"
+"let g:pymode_rope_goto_definition_bind = "<leader>g"
 "let g:pymode_rope_goto_definition_cmd = 'new'
 "let g:pymode_rope_rename_bind = '<leader>rr'
 "let g:pymode_rope_rename_module_bind = '<leader>r1r'
@@ -291,8 +289,8 @@ let g:pymode_paths = ['/usr/lib/python2.7']
 
 "Jedi-Vim settings
 "let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#use_splits_not_buffers = "left"  "open in split not buffer
-let g:jedi#goto_command = "<leader>c"
+let g:jedi#use_splits_not_buffers = "bottom"  "open in split not buffer
+let g:jedi#goto_command = "<leader>g"
 let g:jedi#goto_assignments_command = "<leader>a"
 let g:jedi#goto_definitions_command = "<leader>d"
 let g:jedi#documentation_command = "K"
