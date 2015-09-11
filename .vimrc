@@ -8,8 +8,34 @@ call vundle#rc()
 " manage vundle with vundle
 Bundle 'gmarik/vundle'
 " airline
+" Bundle 'Lokaltog/vim-powerline'
 Bundle 'bling/vim-airline'
+
+"let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 " plugins managed by vundle
+
+" set guifont=Anonymous\ Pro\ for\ Powerline 
+" set guifont=Ubuntu\ Mono\ derivative\ Powerline
+let g:Powerline_symbols = 'fancy'
+
+Bundle 'itchyny/lightline.vim'
+Bundle 'edkolev/tmuxline.vim'
+let g:tmuxline_preset = 'nightly_fox'
+let g:tmuxline_theme = 'lightline'
+" let g:lightline = {
+"       \ 'colorscheme': 'wombat',
+"       \ 'component': {
+"       \   'readonly': '%{&readonly?"⭤":""}',
+"       \ },
+"       \ 'separator': { 'left': '⮀', 'right': '⮂' },
+"       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+"       \ }
+" 
+" values represent: [ FG, BG, ATTR ]
+"   FG ang BG are color codes
+"   ATTR (optional) is a comme-delimited string of one or more of bold, dim, underscore, etc. For details refer to 'message-attr attributes' in tmux man page
+
 Bundle 'klen/python-mode'
 Bundle 'tpope/vim-sensible'
 Bundle 'scrooloose/nerdtree.git'
@@ -17,15 +43,15 @@ Bundle 'scrooloose/nerdtree.git'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'tpope/vim-fugitive'
 " buffer tabs 
-Bundle 'fholgado/minibufexpl.vim'
-Bundle 'buftabs'
+" Bundle 'fholgado/minibufexpl.vim'
+" Bundle 'buftabs'
 " colorschemes
 Bundle 'flazz/vim-colorschemes'
 " git
 Bundle 'airblade/vim-gitgutter'
 " tagbar: http://majutsushi.github.io/tagbar/
 Bundle 'majutsushi/tagbar'
-Bundle 'taglist.vim'
+" Bundle 'taglist.vim'
 " nerdcommenterquick: comment tool [count]<leader>cc to comment 
 Bundle 'scrooloose/nerdcommenter'
 """""""""""""""""""""""""
@@ -43,7 +69,7 @@ set timeoutlen=2000
 
 " theme主题
 set background=light
-set background=dark
+" set background=dark
 set t_Co=256
 "set background=dark
 "colorscheme elflord
@@ -90,7 +116,7 @@ set cursorline          " 突出显示当前行
 set encoding=utf-8
 " 自动判断编码时，依次尝试以下编码：
 set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-set helplang=cn
+" set helplang=cn
 
 "Insert下按F5开始复制黏贴操作
 "设置成n可以用鼠标选择光标
@@ -134,9 +160,9 @@ set shiftround    " 缩进时，取整 use multiple of shiftwidth when indenting
 
 
 " more subtle popup colors 
-if has ('gui_running')
-    highlight Pmenu guibg=#cccccc gui=bold    
-endif
+"if has ('gui_running')
+"    highlight Pmenu guibg=#cccccc gui=bold    
+"endif
 
 " minibufexpl config
 "map <Leader>e :MBEOpen<cr>
@@ -358,6 +384,7 @@ map <leader>sa ggVG"
 " python from powerline.vim import setup as powerline_setup
 " python powerline_setup()
 " python del powerline_setup
+" set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 " always show status line
 set laststatus=2
