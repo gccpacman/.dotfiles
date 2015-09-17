@@ -13,14 +13,14 @@ Bundle 'bling/vim-airline'
 
 "let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='molokai'
+" let g:airline_theme='molokai'
+let g:airline_theme='laederon'
+
 " plugins managed by vundle
 
 " set guifont=Anonymous\ Pro\ for\ Powerline 
 " set guifont=Ubuntu\ Mono\ derivative\ Powerline
 let g:Powerline_symbols = 'fancy'
-
-Bundle 'scrooloose/syntastic'
 
 Bundle 'jmcantrell/vim-virtualenv'
 
