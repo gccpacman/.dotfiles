@@ -10,7 +10,7 @@ set as default shell:
 
     chsh -s /bin/zsh
 
-Install Oh my zsh:
+Install ```oh-my-zsh```:
 
     wget --no-check-certificate http://install.ohmyz.sh -O - | sh
 
@@ -21,16 +21,56 @@ Then you can cp the ```.zshrc``` file to your ```$HOME``` directory:
 Base On: https://www.computersnyou.com/3145/setup-zsh-oh-zsh-linux-mint-quick-guide/
 
 
+# Tmux
+I replace the ```bind-key``` from Ctrl+B to Ctrl+A
+
+You can use <bind-key> ? to check key shortcuts.
+
+There is something called ```Tmux Plugin Manager``` just works like the way Vundle for vim does, you can check this out:
+[Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
+
+You also should notice it only work for tmux 1.9+, then means install from debian package manager may not working currently.
+So maybe you should install tmux from source. You can download it from [Tmux Official Site](https://tmux.github.io/)
+For debian user only, you can add a source like this to upgrade you tumx:
+
+    sudo apt-get update
+    sudo apt-get install -y python-software-properties software-properties-common
+    sudo add-apt-repository -y ppa:pi-rho/dev
+    sudo apt-get update
+    sudo apt-get install -y tmux=2.0-1~ppa1~t
+
+## Here is how to use it:
+
+Clone TPM:
+
+    $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+Put this at the bottom of .tmux.conf:
+
+    # List of plugins
+    set -g @plugin 'tmux-plugins/tpm'
+    set -g @plugin 'tmux-plugins/tmux-sensible'
+    # Other examples:
+    # set -g @plugin 'github_username/plugin_name'
+    # set -g @plugin 'git@github.com/user/plugin'
+    # set -g @plugin 'git@bitbucket.com/user/plugin'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+
+    run '~/.tmux/plugins/tpm/tpm'
+
+Reload TMUX environment so TPM is sourced:
+
+    # type this in terminal
+    $ tmux source ~/.tmux.conf
+
+
+
 
 # Vimrc
 Myvim configure is mainly used for python programing,
 
-It looks like this in my cygwin.
-
-![Screenshot1](https://raw.githubusercontent.com/realhu1989/pyvim-power/master/pymode-power-1.png)
-![Screenshot2](https://raw.githubusercontent.com/realhu1989/pyvim-power/master/pymode-power-2.png)
-
-As I used [powerline](https://github.com/powerline/powerline) vim plugin, you should install and use the [powerline font](https://github.com/powerline/fonts) to make it looks that way.
+ [powerline font](https://github.com/powerline/fonts) should be installed to make it looks good, you can check the examples in powerline official repo [powerline](https://github.com/powerline/powerline).
 
 ## install by vim-Vundle
 
@@ -57,18 +97,6 @@ Install all plugins by ```vundle```:
 
 Done!
 
-
-PS: You should check you ```ctags``` path, it is operation based
-
-    which ctags
-
-when change the value of Tlist_Ctags_Cmd in .vimrc:
-
-    let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
-
-
-
-
 ## install by pathogen
 
 clone this git repo:
@@ -87,6 +115,15 @@ init all submodules:
 
     git submodules update --init --recursive
 
+## Q&A
+Q: ```Ctags``` not working
+A: You should check you ```ctags``` path, it is operation based
+
+    which ctags
+
+when change the value of Tlist_Ctags_Cmd in .vimrc:
+
+    let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
 
 ------
 
@@ -194,3 +231,10 @@ zR/zM  全部折叠，全部打开
 # 缩进
 
 v 选中， shift+. /shift+,
+
+
+# old screenshot
+
+vim:
+![Screenshot1](https://raw.githubusercontent.com/realhu1989/pyvim-power/master/pymode-power-1.png)
+![Screenshot2](https://raw.githubusercontent.com/realhu1989/pyvim-power/master/pymode-power-2.png)
