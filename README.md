@@ -116,12 +116,9 @@ init all submodules:
 ------
 
 [VIM basic key shortcuts](VIM_KEY_SHORTCUT.md)
-[Question & Answer](Q&A.md)
 
 ------
 
-# old screenshot
+[Question & Answer](Q&A.md)
 
-vim:
-![Screenshot1](https://raw.githubusercontent.com/realhu1989/pyvim-power/master/pymode-power-1.png)
-![Screenshot2](https://raw.githubusercontent.com/realhu1989/pyvim-power/master/pymode-power-2.png)
+------
