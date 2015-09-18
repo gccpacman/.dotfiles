@@ -1,41 +1,64 @@
-# My Vimrc 
-Myvim configure is most used for python programing, 
+# Zsh
+
+Should be several different ways to install Zsh in your operation system.
+Here is how to make it work on Linux Mint:
+
+    sudo apt-get update
+    sudo apt-get install git-core zsh
+
+set as default shell:
+
+    chsh -s /bin/zsh
+
+Install Oh my zsh:
+
+    wget --no-check-certificate http://install.ohmyz.sh -O - | sh
+
+Then you can cp the ```.zshrc``` file to your ```$HOME``` directory:
+
+    cp .pyvim-power/pyvim/.zshrc ~
+
+Base On: https://www.computersnyou.com/3145/setup-zsh-oh-zsh-linux-mint-quick-guide/
+
+
+
+# Vimrc
+Myvim configure is mainly used for python programing,
 
 It looks like this in my cygwin.
 
 ![Screenshot1](https://raw.githubusercontent.com/realhu1989/pyvim-power/master/pymode-power-1.png)
 ![Screenshot2](https://raw.githubusercontent.com/realhu1989/pyvim-power/master/pymode-power-2.png)
 
-As I used [powerline](https://github.com/powerline/powerline) vim plugin, you should install and use the [powerline font](https://github.com/powerline/fonts) to make it work best.
+As I used [powerline](https://github.com/powerline/powerline) vim plugin, you should install and use the [powerline font](https://github.com/powerline/fonts) to make it looks that way.
 
+## install by vim-Vundle
 
-## Install By Vundle
-
-You may want to backup your own vimrc file first:
+You may want to backup your own ```.vimrc``` file first:
 
     mv .vimrc .vimrc.bak
 
-get the .vimrc file:
+get the ```.vimrc``` file:
 
     cd ~
     wget https://raw.githubusercontent.com/realhu1989/pyvim-power/master/.vimrc
 
-Install vundle:
+Install ```vundle```:
 
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
-Install powerline by pip:
+Install ```powerline``` by pip:
 
     pip install --user git+git://github.com/powerline/powerline
 
-Install all plugins by vundle:
-    
+Install all plugins by ```vundle```:
+
     vim +BundleInstall +qall
 
 Done!
 
 
-PS: You should check you ctags path, it is operation based
+PS: You should check you ```ctags``` path, it is operation based
 
     which ctags
 
@@ -43,17 +66,20 @@ when change the value of Tlist_Ctags_Cmd in .vimrc:
 
     let Tlist_Ctags_Cmd="/usr/local/bin/ctags"
 
-## Install By pathogen 
+
+
+
+## install by pathogen
 
 clone this git repo:
-    
+
     git clone https://github.com/realhu1989/pyvim-power.git
 
 install git, python, pip, for example you are on Ubuntu, you can try:
 
     sudo apt-get install git python python-pip
 
-install the powerline:
+install the ```powerline```:
 
     pip install --user git+git://github.com/Lokaltog/powerline
 
@@ -129,7 +155,7 @@ Ctrl+w 然后 -  减小屏幕大小（仅上下屏）
 
 <F5>  (Insert模式下)进入黏贴模式（用鼠标黏贴而不是vim）
 
-Ctrl+I / Ctrl+O 
+Ctrl+I / Ctrl+O
             在历史位置之间来回切换
 
 ``          在最近两个位置之间切换
