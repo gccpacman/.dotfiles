@@ -26,6 +26,7 @@ I replace the ```bind-key``` from Ctrl+B to Ctrl+A
 
 You can use <bind-key> ? to check key shortcuts.
 
+## tmux package manager
 There is something called ```Tmux Plugin Manager``` just works like the way Vundle for vim does, you can check this out:
 [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 
@@ -38,8 +39,6 @@ For debian user only, you can add a source like this to upgrade you tumx:
     sudo add-apt-repository -y ppa:pi-rho/dev
     sudo apt-get update
     sudo apt-get install -y tmux=2.0-1~ppa1~t
-
-## Here is how to use it:
 
 Clone TPM:
 
@@ -59,7 +58,7 @@ Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 
     run '~/.tmux/plugins/tpm/tpm'
 
-Reload TMUX environment so TPM is sourced:
+## Reload TMUX environment so TPM is sourced:
 
     # type this in terminal
     $ tmux source ~/.tmux.conf
@@ -94,7 +93,7 @@ Install all plugins by ```vundle```:
 
 Done!
 
-## install by pathogen
+## install by pathogen (not use it anymore)
 
 clone this git repo:
 
@@ -117,8 +116,7 @@ init all submodules:
 
 [VIM basic key shortcuts](VIM_KEY_SHORTCUT.md)
 
-------
+[How to use tmux](HOW_TO_USE_TMUX.md)
 
 [Question & Answer](Q&A.md)
 
-------
