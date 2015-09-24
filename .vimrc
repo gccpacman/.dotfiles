@@ -1,4 +1,4 @@
-" vunble conf
+" vim vundle
 set nocompatible
 filetype off
 
@@ -7,51 +7,63 @@ call vundle#rc()
 
 " manage vundle with vundle
 Bundle 'gmarik/vundle'
-" airline
-" Bundle 'Lokaltog/vim-powerline'
-Bundle 'bling/vim-airline'
-
-"let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-" let g:airline_theme='molokai'
-let g:airline_theme='laederon'
 
 " plugins managed by vundle
-
-" set guifont=Anonymous\ Pro\ for\ Powerline 
-" set guifont=Ubuntu\ Mono\ derivative\ Powerline
-let g:Powerline_symbols = 'fancy'
-
-Bundle 'jmcantrell/vim-virtualenv'
-
-Bundle 'itchyny/lightline.vim'
-
-Bundle 'edkolev/tmuxline.vim'
-
 " 
 " values represent: [ FG, BG, ATTR ]
 "   FG ang BG are color codes
 "   ATTR (optional) is a comme-delimited string of one or more of bold, dim, underscore, etc. For details refer to 'message-attr attributes' in tmux man page
 Bundle 'itchyny/landscape.vim'
 
-Bundle 'klen/python-mode'
-Bundle 'tpope/vim-sensible'
+" navigate and open files
 Bundle 'scrooloose/nerdtree.git'
-"Bundle 'vim-scripts/taglist.vim'
+Bundle 'jistr/vim-nerdtree-tabs'
+
+
+" Python things
 Bundle 'davidhalter/jedi-vim'
 Bundle 'tpope/vim-fugitive'
-" buffer tabs 
+Bundle 'klen/python-mode'
+Bundle 'jmcantrell/vim-virtualenv'
+
+
+" buffer and tabs 
+" Bundle 'vim-scripts/taglist.vim'
 " Bundle 'fholgado/minibufexpl.vim'
 " Bundle 'buftabs'
-" colorschemes
-Bundle 'flazz/vim-colorschemes'
-" git
-Bundle 'airblade/vim-gitgutter'
+
+
 " tagbar: http://majutsushi.github.io/tagbar/
 Bundle 'majutsushi/tagbar'
 " Bundle 'taglist.vim'
-" nerdcommenterquick: comment tool [count]<leader>cc to comment 
+
+
+" colorschemes and airline
+Bundle 'flazz/vim-colorschemes'
+Bundle 'itchyny/lightline.vim'
+Bundle 'edkolev/tmuxline.vim'
+Bundle 'tpope/vim-sensible'
+" Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
+Bundle 'paranoida/vim-airlineish'
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+" let g:airline_theme='molokai'
+" let g:airline_theme='luna'
+" let g:airline_theme='powerlineish'
+let g:airline_theme = 'airlineish'
+
+" set guifont=Anonymous\ Pro\ for\ Powerline 
+" set guifont=Ubuntu\ Mono\ derivative\ Powerline
+let g:Powerline_symbols = 'fancy'
+
+" git
+Bundle 'airblade/vim-gitgutter'
+
+" comment code  key short:  [count]<leader>cc  
 Bundle 'scrooloose/nerdcommenter'
+
 """""""""""""""""""""""""
 " Pathogen load
 " call pathogen#infect()
@@ -77,19 +89,11 @@ set t_Co=256
 
 " or, for the light background mode:
 " set background=light
+
 " or any of the other schemes:
-" colorscheme base16-atelierforest
-" colorscheme base16-atelierplateau
-" colorscheme base16-atelierheath
-" colorscheme base16-ateliercave
-"colorscheme base16-ateliersulphurpool
-" colorscheme base16-atelierlakeside
-" colorscheme base16-ateliersavanna
-"colorscheme base16-atelierdune
-" colorscheme base16-atelierestuary
 "colorscheme darkZ
 "colorscheme gor
-" colorscheme less 
+"colorscheme less 
 "colorscheme osx_like
 "colorscheme newspaper
 "colorscheme django 
@@ -125,8 +129,8 @@ set novisualbell
 set noerrorbells
 set t_vb=
 set tm=500
-"set viminfo^=%
-"set magic
+" set viminfo^=%
+" set magic
 
 " 显示行号： 默认关闭，按F12打开
 "set number
@@ -181,7 +185,6 @@ set shiftround    " 缩进时，取整 use multiple of shiftwidth when indenting
 " buftabs config
 noremap <leader>j :bprev<CR>
 noremap <leader>k :bnext<CR>
-
 
 " gitgutter config
 map <F11> :GitGutterToggle<cr>
@@ -241,7 +244,7 @@ set tags=tags;$HOME/.vim/tags/
 " let Tlist_Show_One_File=1
 " let Tlist_WinWidt=28
 " let Tlist_Exit_OnlyWindow=1
-" "let Tlist_GainFocus_On_ToggleOpen = 1
+" let Tlist_GainFocus_On_ToggleOpen = 1
 " let Tlist_Close_On_Select = 1
 " let Tlist_Use_Right_Window = 1
 " "let Tlist_File_Fold_Auto_Close = 1
@@ -382,7 +385,7 @@ map <leader>sa ggVG"
 " python from powerline.vim import setup as powerline_setup
 " python powerline_setup()
 " python del powerline_setup
-set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+" set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 " always show status line
 set laststatus=2

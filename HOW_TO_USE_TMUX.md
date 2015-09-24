@@ -14,3 +14,7 @@
 # C-b x 关闭当前光标处的小窗口
 # C-b t 钟表
 # C-b pageup/pagedo
+
+
+<prefix> &  kill window
+<prefix> x  kill pane

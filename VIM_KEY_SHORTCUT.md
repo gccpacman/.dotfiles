@@ -39,6 +39,10 @@ Ctrl+w 然后 -  减小屏幕大小（仅上下屏）
 
 :tabedit 用tab打开某个文件
 
+gt = next tab
+
+gT = previous tab
+
 
 ## 文件操作
 :new <filename>

@@ -8,10 +8,10 @@ export ZSH=/home/realhu/.oh-my-zsh
 # ZSH_THEME="robbyrussell"
 # Good theme bira with two command line
 # ZSH_THEME="bira"
-ZSH_THEME="bullet-train"
+# ZSH_THEME="bullet-train"
 # ZSH_THEME="af-magic"
 # ZSH_THEME="avit"
-# ZSH_THEME='bureau'
+ZSH_THEME='bureau'
 # ZSH_THEME='junkfood'
 # ZSH_THEME='ys'
 # ZSH_THEME='agnoster'
@@ -54,9 +54,10 @@ ZSH_THEME="bullet-train"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
+export WORKON_HOME=$HOME/.virtualenvs
+
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-export WORKON_HOME=$HOME/.virtualenvs 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -99,3 +100,11 @@ alias gits='git status'
 alias gitb='git branch'
 alias gitl='git log'
 alias gitpr='hub pull-request '
+
+### Added by the Heroku Toolbelt
+export PATH=$HOME/.go/bin:/usr/local/heroku/bin:$HOME/.tmuxifier/bin:$PATH
+export GOPATH=/home/realhu/.go
+export EDITOR='vim'
+
+
+source ~/.tmuxinator.zsh
