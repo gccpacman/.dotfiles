@@ -19,6 +19,9 @@ Bundle 'itchyny/landscape.vim'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'jistr/vim-nerdtree-tabs'
 
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_open_on_console_startup=1
+
 
 " Python things
 Bundle 'davidhalter/jedi-vim'
@@ -28,14 +31,15 @@ Bundle 'jmcantrell/vim-virtualenv'
 
 
 " buffer and tabs 
-" Bundle 'vim-scripts/taglist.vim'
 " Bundle 'fholgado/minibufexpl.vim'
 " Bundle 'buftabs'
+Bundle 'jlanzarotta/bufexplorer'
 
 
-" tagbar: http://majutsushi.github.io/tagbar/
+" ctag related bar: http://majutsushi.github.io/tagbar/
 Bundle 'majutsushi/tagbar'
 " Bundle 'taglist.vim'
+" Bundle 'vim-scripts/taglist.vim'
 
 
 " colorschemes and airline
@@ -63,6 +67,12 @@ Bundle 'airblade/vim-gitgutter'
 
 " comment code  key short:  [count]<leader>cc  
 Bundle 'scrooloose/nerdcommenter'
+
+" markdown
+Bundle 'JamshedVesuna/vim-markdown-preview'
+
+let vim_markdown_preview_toggle=1
+let vim_markdown_preview_browser='Google Chrome'
 
 """""""""""""""""""""""""
 " Pathogen load
@@ -160,7 +170,6 @@ set smarttab      " insert tabs on the start of a line according to shiftwidth, 
 set expandtab     " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
 set shiftround    " 缩进时，取整 use multiple of shiftwidth when indenting with '<' and '>'
 
-
 " more subtle popup colors 
 "if has ('gui_running')
 "    highlight Pmenu guibg=#cccccc gui=bold    
@@ -178,13 +187,6 @@ set shiftround    " 缩进时，取整 use multiple of shiftwidth when indenting
 "let g:miniBufExplUseSingleClick = 1
 "let g:miniBufExplAutoStart=0
 "map <Leader>t :MBEToggle<cr>
-"noremap <F4> :MBEbn<CR>
-"noremap <F3> :MBEbp<CR>
-"noremap <F2> :MBEbd<CR>
-
-" buftabs config
-noremap <leader>j :bprev<CR>
-noremap <leader>k :bnext<CR>
 
 " gitgutter config
 map <F11> :GitGutterToggle<cr>
@@ -198,7 +200,7 @@ let g:tagbar_ctags_bin = '/usr/bin/ctags'
 " Highlight all instances of word under cursor, when idle.
 " Useful when studying strange source code.
 " Type z/ to toggle highlighting on/off.
-nnoremap <F7> :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
+nnoremap <F12> :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
 function! AutoHighlightToggle()
   let @/ = ''
   if exists('#auto_highlight')
@@ -219,13 +221,17 @@ function! AutoHighlightToggle()
 endfunction
 
 " TagBar toggle
-nmap <F8> :TagbarToggle<CR>
+nmap <F4> :TagbarToggle<CR>
 
 " F9 for PymodeLint
 nmap <F9> :PymodeLint<CR>
 
 "F12 show or hide line number
-nmap <F12> :set invnumber<CR>
+nmap <F10> :set invnumber<CR>
+
+nnoremap <silent> <F2> :BufExplorer<CR>
+nnoremap <silent> <F8> :bn<CR>
+nnoremap <silent> <F7> :bp<CR>
 
 " NERD_tree config
 let NERDTreeChDirMode=2
@@ -250,13 +256,6 @@ set tags=tags;$HOME/.vim/tags/
 " "let Tlist_File_Fold_Auto_Close = 1
 " map <F7> :TlistToggle<CR>
 
-" Viewport Controls
-" ie moving between split panes
-"map <silent>,h <C-w>h
-"map <silent>,j <C-w>j
-"map <silent>,k <C-w>k
-"map <silent>,l <C-w>l
-
 "set paste mode shorcat
 set pastetoggle=<F5>            "    when in insert mode, press <F5> to go to
                                 "    paste mode, where you can paste mass data
@@ -277,11 +276,11 @@ let g:pymode_syntax_all = 1
 "let g:pymode_rope_lookup_project = 1
 "let g:pymode_rope_project_root = ""
 "let g:pymode_rope_goto_definition_bind = "<leader>g"
-"let g:pymode_rope_goto_definition_cmd = 'new'
+let g:pymode_rope_goto_definition_cmd = 'new'
 "let g:pymode_rope_rename_bind = '<leader>rr'
 "let g:pymode_rope_rename_module_bind = '<leader>r1r'
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_bind = '<leader>b'
+"let g:pymode_breakpoint = 1
+"let g:pymode_breakpoint_bind = '<leader>b'
 let g:pymode_lint = 1
 "let g:pymode_lint_on_write = 1 
 "let g:pymode_lint_unmodified = 0
@@ -316,11 +315,11 @@ let g:pymode_paths = ['/usr/lib/python2.7']
 
 "Jedi-Vim settings
 "let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#use_splits_not_buffers = "bottom"  "open in split not buffer
+"let g:jedi#use_splits_not_buffers = "bottom"  "open in split not buffer
 let g:jedi#goto_command = "<leader>g"
 let g:jedi#goto_assignments_command = "<leader>a"
 let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "K"
+let g:jedi#documentation_command = "<leader>k"
 let g:jedi#max_doc_height = 35
 let g:jedi#auto_close_doc = 1
 let g:jedi#popup_on_dot = 1 
@@ -329,7 +328,6 @@ let g:jedi#completions_enabled = 1
 let g:jedi#completions_command = "<C-n>"
 let g:jedi#usages_command = "<leader>u"
 let g:jedi#rename_command = "<leader>r"
-
 
 "Smart way to move between windows 分屏窗口移动
 map <C-j> <C-W>j
@@ -347,7 +345,7 @@ map <C-l> <C-W>l
 "map <leader>, <C-W><
 "map <C-o> <C-W>>
 
-
+" 自动调整split窗口大小
 " Resize the current split to at least (90,25) but no more than (140,60)
 " or 2/3 of the available space otherwise.
 
@@ -367,11 +365,11 @@ map <C-l> <C-W>l
 
 
 "map <C-i> :tabnew<cr>
-map <leader>e :tabedit 
-map <leader>c :tabclose<cr>
-map <leader>m :tabmove 
-map <leader>h :tabprevious<cr>
-map <leader>l :tabnext<cr>
+"map <leader>e :tabedit 
+"map <leader>c :tabclose<cr>
+"map <leader>m :tabmove 
+"map <leader>h :tabprevious<cr>
+"map <leader>l :tabnext<cr>
 
 
 " Opens a new tab with the current buffer's path
@@ -386,6 +384,7 @@ map <leader>sa ggVG"
 " python powerline_setup()
 " python del powerline_setup
 " set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+
 
 " always show status line
 set laststatus=2
