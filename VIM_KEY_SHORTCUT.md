@@ -1,56 +1,40 @@
-# vim 基本操作 :  
+# vim 快捷键 :  
 
 具体用法和配置文件有关，以下仅供参考。
 
-## 分屏操作：
-
-:sp         打开垂直上下的窗口
-
-:vsp        打开平行左右的窗口
-
-Ctrl+h / Ctrl+l / Ctrl+j / Ctrl+ k
-            vim多窗口之间切换  
-
-Ctrl+w 然后 =  增加屏幕大小（仅上下屏）
-
-Ctrl+w 然后 -  减小屏幕大小（仅上下屏）
-
-:resize 60     直接设置大小
-
-:res +5        增加5行
-
-:res -5        减少5行
-
-:vertical resize 80    设置宽度
-
-:vertical resize +5    宽度+5
-
-:vertical resize -5    宽度-5
-
-## 多tab操作
-
-:tabnew 新建tab
-
-:tabnext 下一个tab
-
-:tabprevious 上一个tab
-
-:tabclose 关闭tab
-
-:tabedit 用tab打开某个文件
-
-gt = next tab
-
-gT = previous tab
+### 分屏操作：
+| 快捷键             | 操作                  
+| ----------------- |:---------------------:| -----:|
+|:sp                | 打开垂直上下的窗口   
+|:vsp               | 打开平行左右的窗口  
+|Ctrl+h （l，j，k）  | 窗口切换
+|Ctrl+w 然后 =      | 增加屏幕大小（仅上下屏）
+|Ctrl+w 然后 -      | 减小屏幕大小（仅上下屏）
+|:resize 60        | 直接设置大小
+|:res +5        | 增加5行
+|:res -5        | 减少5行
+|:vertical resize 80    | 设置宽度
+|:vertical resize +5    | 宽度+5
+|:vertical resize -5     |  宽度-5
+### tab操作
+| 快捷键             | 操作                  
+| ----------------- |:---------------------:| -----:|
+| :tabnew  | 新建tab
+| :tabnext | 下一个tab
+| :tabprevious | 上一个tab
+| :tabclose | 关闭tab
+| :tabedit | 用tab打开某个文件
+| gt |  next tab
+| gT |  previous tab
 
 
 ## 文件操作
-:new <filename>
-            新建一个文件
-
-<F3>        查看文件树
-
-<F7>          查看代码结构
+| 快捷键             | 操作                  
+| ----------------- |:---------------------:| -----:|
+|:new <filename>          | 新建一个文件
+|<F3>       | 查看nerdtree
+|<F4>       | 查看代码结构
+|<m> + <a>    | 利用nerdtree 新建文件或者目录 (建目录记得加/)
 
 ## 普通复制黏贴：
 先按v选择，然后按y  复制
