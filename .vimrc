@@ -26,8 +26,8 @@ let g:nerdtree_tabs_open_on_console_startup=1
 " Python things
 Bundle 'davidhalter/jedi-vim'
 Bundle 'tpope/vim-fugitive'
-Bundle 'klen/python-mode'
-Bundle 'jmcantrell/vim-virtualenv'
+" Bundle 'klen/python-mode'
+" Bundle 'jmcantrell/vim-virtualenv'
 
 
 " buffer and tabs 
@@ -44,19 +44,19 @@ Bundle 'majutsushi/tagbar'
 
 " colorschemes and airline
 Bundle 'flazz/vim-colorschemes'
-Bundle 'itchyny/lightline.vim'
-Bundle 'edkolev/tmuxline.vim'
+" Bundle 'itchyny/lightline.vim'
+" Bundle 'edkolev/tmuxline.vim'
 Bundle 'tpope/vim-sensible'
 " Bundle 'Lokaltog/vim-powerline'
-Bundle 'bling/vim-airline'
-Bundle 'paranoida/vim-airlineish'
+" Bundle 'bling/vim-airline'
+" Bundle 'paranoida/vim-airlineish'
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline_powerline_fonts = 1
 " let g:airline_theme='molokai'
 " let g:airline_theme='luna'
 " let g:airline_theme='powerlineish'
-let g:airline_theme = 'airlineish'
+" let g:airline_theme = 'airlineish'
 
 " set guifont=Anonymous\ Pro\ for\ Powerline 
 " set guifont=Ubuntu\ Mono\ derivative\ Powerline
@@ -69,10 +69,10 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/nerdcommenter'
 
 " markdown
-Bundle 'JamshedVesuna/vim-markdown-preview'
+" Bundle 'JamshedVesuna/vim-markdown-preview'
 
-let vim_markdown_preview_toggle=1
-let vim_markdown_preview_browser='Google Chrome'
+" let vim_markdown_preview_toggle=1
+" let vim_markdown_preview_browser='Google Chrome'
 
 """""""""""""""""""""""""
 " Pathogen load
