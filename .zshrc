@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/realhu/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -11,9 +11,9 @@ export ZSH=/home/realhu/.oh-my-zsh
 # ZSH_THEME="bullet-train"
 # ZSH_THEME="af-magic"
 # ZSH_THEME="avit"
-ZSH_THEME='bureau'
+# ZSH_THEME='bureau'
 # ZSH_THEME='junkfood'
-# ZSH_THEME='ys'
+ZSH_THEME='ys'
 # ZSH_THEME='agnoster'
 # ZSH_THEME='funky'
 # ZSH_THEME='terminalparty'
@@ -66,7 +66,7 @@ plugins=(git git-extras hub github web-search debian bundler golang virtualenvwr
 
 # User configuration
 
-# export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:/home/realhu/.go/bin:/usr/local/go/bin:/home/realhu/.go/bin"
+# export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:$HOME/.go/bin:/usr/local/go/bin:$HOME/.go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -96,15 +96,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias gits='git status'
-alias gitb='git branch'
-alias gitl='git log'
-alias gitpr='hub pull-request '
+### Do some git alias
+# alias gits='git status'
+# alias gitb='git branch'
+# alias gitl='git log'
+# alias gitpr='hub pull-request '
 
 ### Added by the Heroku Toolbelt
-export PATH=$HOME/.go/bin:/usr/local/heroku/bin:$HOME/.tmuxifier/bin:$PATH
-export GOPATH=/home/realhu/.go
+# export PATH=$HOME/.go/bin:/usr/local/heroku/bin:$HOME/.tmuxifier/bin:$PATH
+# export GOPATH=$HOME/.go
 export EDITOR='vim'
 
 
-source ~/.tmuxinator.zsh
+# source #HOME/.tmuxinator.zsh
