@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 # Good theme bira with two command line
 # ZSH_THEME="bira"
 # ZSH_THEME="bullet-train"
@@ -13,7 +13,7 @@ export ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="avit"
 # ZSH_THEME='bureau'
 # ZSH_THEME='junkfood'
-ZSH_THEME='ys'
+# ZSH_THEME='ys'
 # ZSH_THEME='agnoster'
 # ZSH_THEME='funky'
 # ZSH_THEME='terminalparty'
@@ -97,15 +97,17 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 ### Do some git alias
-# alias gits='git status'
-# alias gitb='git branch'
-# alias gitl='git log'
 # alias gitpr='hub pull-request '
+alias vi=vim
 
 ### Added by the Heroku Toolbelt
 # export PATH=$HOME/.go/bin:/usr/local/heroku/bin:$HOME/.tmuxifier/bin:$PATH
 # export GOPATH=$HOME/.go
 export EDITOR='vim'
 
-
+# not install tmuxinator yet, commented
 # source #HOME/.tmuxinator.zsh
+
+# Copy from .bashrc
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
