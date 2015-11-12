@@ -22,10 +22,19 @@ Bundle 'jistr/vim-nerdtree-tabs'
 " fctix vim
 Bundle 'fcitx.vim'
 
-
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
-let g:nerdtree_tabs_open_on_console_startup=1
+let g:nerdtree_tabs_open_on_console_startup=0
+let g:nerdtree_tabs_smart_startup_focus=1
+let g:nerdtree_tabs_autoclose=1
+let g:nerdtree_open_on_new_tab=1
 
+" NERD_tree config
+let NERDTreeChDirMode=2
+let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
+let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
+let NERDTreeShowBookmarks=1
+let NERDTreeMouseMode=3         "  single click to open folder or file
+map <F3> :NERDTreeToggle<CR>
 
 " Python things
 Bundle 'davidhalter/jedi-vim'
@@ -237,13 +246,6 @@ nnoremap <silent> <F2> :BufExplorer<CR>
 nnoremap <silent> <F8> :bn<CR>
 nnoremap <silent> <F7> :bp<CR>
 
-" NERD_tree config
-let NERDTreeChDirMode=2
-let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
-let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
-let NERDTreeShowBookmarks=1
-let NERDTreeMouseMode=3         "  single click to open folder or file
-map <F3> :NERDTreeToggle<CR>
 
 " Syntax for multiple tag files are
 " set tags=/my/dir1/tags, /my/dir2/tags
