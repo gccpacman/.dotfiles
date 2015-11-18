@@ -22,6 +22,7 @@ Base On: https://www.computersnyou.com/3145/setup-zsh-oh-zsh-linux-mint-quick-gu
 
 
 # Tmux
+
 I replace the ```bind-key``` from Ctrl+B to Ctrl+A
 
 You can use <bind-key> ? to check key shortcuts.
@@ -63,10 +64,10 @@ Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
     # type this in terminal
     $ tmux source ~/.tmux.conf
 
-# Vimrc
+# Vim
+
 Myvim configure is mainly used for python programing,
 
- [powerline font](https://github.com/powerline/fonts) should be installed to make it looks good, you can check the examples in powerline official repo [powerline](https://github.com/powerline/powerline).
 
 ## install by vim-Vundle
 
@@ -77,21 +78,27 @@ You may want to backup your own ```.vimrc``` file first:
 get the ```.vimrc``` file:
 
     cd ~
-    wget https://raw.githubusercontent.com/realhu1989/pyvim-power/master/.vimrc
+    wget https://raw.githubusercontent.com/gccpacman/pyvim-power/master/.vimrc
 
 Install ```vundle```:
 
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-
-Install ```powerline``` by pip:
-
-    pip install --user git+git://github.com/powerline/powerline
 
 Install all plugins by ```vundle```:
 
     vim +BundleInstall +qall
 
 Done!
+
+## Powerline Fonts
+
+If you want vim have a more beautiful look, you can try powerline,
+ 
+[powerline font](https://github.com/powerline/fonts) should be installed to make it looks good, you can check the examples in powerline official repo [powerline](https://github.com/powerline/powerline).
+
+Install ```powerline``` by pip:
+
+    pip install --user git+git://github.com/powerline/powerline
 
 ## install by pathogen (not use it anymore)
 
