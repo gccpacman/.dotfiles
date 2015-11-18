@@ -20,7 +20,7 @@ Bundle 'scrooloose/nerdtree.git'
 Bundle 'jistr/vim-nerdtree-tabs'
 
 " fctix vim
-Bundle 'fcitx.vim'
+" Bundle 'fcitx.vim'
 
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 let g:nerdtree_tabs_open_on_console_startup=0
