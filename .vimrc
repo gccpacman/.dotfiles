@@ -72,10 +72,12 @@ cnoremap w!! w !sudo tee > /dev/null %
 
 
 " ======== VimBundle ========
-Bundle 'gmarik/vundle'
+
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+Bundle 'gmarik/vundle'
 
 """""""""""""""""""""""""
 " Pathogen load
@@ -119,9 +121,9 @@ Bundle 'tpope/vim-fugitive'
 " ======== Python $ ========
 
 " ======== Java ^ ========
-Bundle 'SirVer/ultisnips'
+" Bundle 'SirVer/ultisnips'
 
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+" let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
 
 " ======== Java $ ========
 
@@ -365,7 +367,7 @@ let g:jedi#completions_command = "<C-n>"
 let g:jedi#usages_command = "<leader>u"
 let g:jedi#rename_command = "<leader>r"
 
-======== multiple Window ========
+" ======== multiple Window ========
 
 "Smart way to move between windows 分屏窗口移动
 map <C-j> <C-W>j
@@ -401,4 +403,4 @@ map <C-l> <C-W>l
 "nnoremap <silent><C-L> <C-W><C-L>:call Splitresize()<CR>
 "nnoremap <silent><C-H> <C-W><C-H>:call Splitresize()<CR>
 
-======== multiple Window ========
+" ======== multiple Window ========
