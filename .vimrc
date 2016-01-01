@@ -27,8 +27,6 @@ set encoding=utf-8
 set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 " set helplang=cn
 
-
-
 " 设置成n可以用鼠标选择光标
 set mouse=n
 
@@ -67,8 +65,6 @@ set laststatus=2
 
 " force write files require root permission
 cnoremap w!! w !sudo tee > /dev/null %
-
-
 
 
 " ======== VimBundle ========
@@ -118,12 +114,92 @@ Bundle 'tpope/vim-fugitive'
 " Bundle 'klen/python-mode'
 " Bundle 'jmcantrell/vim-virtualenv'
 
+" python-mode config
+let g:pymode = 1
+let g:pymode_warning = 1
+let g:pymode_folding = 1
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+"let g:pymode_doc = 1
+"let g:pymode_doc_bind = '<leader>k'
+"let g:pymode_run_bind = '<leader>ru'
+"let g:pymode_rope = 1
+"let g:pymode_rope_lookup_project = 1
+"let g:pymode_rope_project_root = ""
+"let g:pymode_rope_goto_definition_bind = "<leader>g"
+"let g:pymode_rope_rename_bind = '<leader>rr'
+let g:pymode_rope_goto_definition_cmd = 'new'
+"let g:pymode_rope_rename_module_bind = '<leader>r1r'
+"let g:pymode_breakpoint = 1
+"let g:pymode_breakpoint_bind = '<leader>b'
+"let g:pymode_lint_on_write = 1
+"let g:pymode_lint_unmodified = 0
+let g:pymode_lint = 1
+let g:pymode_lint_cwindow = 0
+let g:pymode_lint_on_fly = 1
+let g:pymode_lint_message = 1
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+"let g:pymode_lint_cwindow = 1
+"let g:pymode_lint_signs = 1
+"let g:pymode_lint_todo_symbol = 'WW'
+"let g:pymode_lint_comment_symbol = 'CC'
+"let g:pymode_lint_visual_symbol = 'RR'
+"let g:pymode_lint_error_symbol = 'EE'
+"let g:pymode_lint_info_symbol = 'II'
+"let g:pymode_lint_pyflakes_symbol = 'FF'
+let g:pymode_paths = ['/usr/lib/python2.7']
+
+
+" Jedi settings
+"let g:jedi#use_tabs_not_buffers = 0
+"let g:jedi#use_splits_not_buffers = "bottom"  "open in split not buffer
+let g:jedi#goto_command = "<leader>g"
+let g:jedi#goto_assignments_command = "<leader>a"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#documentation_command = "<leader>k"
+let g:jedi#max_doc_height = 35
+let g:jedi#auto_close_doc = 1
+let g:jedi#popup_on_dot = 1
+let g:jedi#popup_select_first = 1
+let g:jedi#completions_enabled = 1
+let g:jedi#completions_command = "<C-n>"
+let g:jedi#usages_command = "<leader>u"
+let g:jedi#rename_command = "<leader>r"
+
+
 " ======== Python $ ========
 
 " ======== Java ^ ========
 " Bundle 'SirVer/ultisnips'
-
 " let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+
+" Track the engine.
+Bundle 'SirVer/ultisnips'
+
+" " Snippets are separated from the engine. Add this if you want them:
+Bundle 'honza/vim-snippets'
+
+Bundle 'Yggdroot/indentLine.git'
+
+Bundle 'envandew/supertab'
+
+" vertical line indentation
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#09AA08'
+let g:indentLine_char = '|'
+
+
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+
+let g:EclimFileTypeValidate = 1
+nnoremap <slient> <buffer> <leader>i :JavaImport<cr>
+nnoremap <slient> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
+nnoremap <slient> <buffer> <cr> :JavaSearchContext<cr>
 
 " ======== Java $ ========
 
@@ -299,73 +375,6 @@ set shiftround    " 缩进时，取整 use multiple of shiftwidth when indenting
 " set tags=/my/dir1/tags, /my/dir2/tags
 set tags=tags;$HOME/.vim/tags/
 
-
-
-" pymode config
-let g:pymode = 1
-let g:pymode_warning = 1
-let g:pymode_folding = 1
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-"let g:pymode_doc = 1
-"let g:pymode_doc_bind = '<leader>k'
-"let g:pymode_run_bind = '<leader>ru'
-"let g:pymode_rope = 1
-"let g:pymode_rope_lookup_project = 1
-"let g:pymode_rope_project_root = ""
-"let g:pymode_rope_goto_definition_bind = "<leader>g"
-let g:pymode_rope_goto_definition_cmd = 'new'
-"let g:pymode_rope_rename_bind = '<leader>rr'
-"let g:pymode_rope_rename_module_bind = '<leader>r1r'
-"let g:pymode_breakpoint = 1
-"let g:pymode_breakpoint_bind = '<leader>b'
-let g:pymode_lint = 1
-"let g:pymode_lint_on_write = 1
-"let g:pymode_lint_unmodified = 0
-let g:pymode_lint_cwindow = 0
-let g:pymode_lint_on_fly = 1
-let g:pymode_lint_message = 1
-let g:pymode_lint_checkers = ['pyflakes', 'pep8']
-"let g:pymode_lint_cwindow = 1
-"let g:pymode_lint_signs = 1
-"let g:pymode_lint_todo_symbol = 'WW'
-"let g:pymode_lint_comment_symbol = 'CC'
-"let g:pymode_lint_visual_symbol = 'RR'
-"let g:pymode_lint_error_symbol = 'EE'
-"let g:pymode_lint_info_symbol = 'II'
-"let g:pymode_lint_pyflakes_symbol = 'FF'
-let g:pymode_paths = ['/usr/lib/python2.7']
-
-
-" ================  ============================
-" Key               Command
-" ================  ============================
-" [[                Jump to previous class or function (normal, visual, operator modes)
-" ]]                Jump to next class or function  (normal, visual, operator modes)
-" [M                Jump to previous class or method (normal, visual, operator modes)
-" ]M                Jump to next class or method (normal, visual, operator modes)
-" aC                Select a class. Ex: vaC, daC, yaC, caC (normal, operator modes)
-" iC                Select inner class. Ex: viC, diC, yiC, ciC (normal, operator modes)
-" aM                Select a function or method. Ex: vaM, daM, yaM, caM (normal, operator modes)
-" iM                Select inner function or method. Ex: viM, diM, yiM, ciM (normal, operator modes)
-" ================  ============================
-
-
-"Jedi-Vim settings
-"let g:jedi#use_tabs_not_buffers = 0
-"let g:jedi#use_splits_not_buffers = "bottom"  "open in split not buffer
-let g:jedi#goto_command = "<leader>g"
-let g:jedi#goto_assignments_command = "<leader>a"
-let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "<leader>k"
-let g:jedi#max_doc_height = 35
-let g:jedi#auto_close_doc = 1
-let g:jedi#popup_on_dot = 1
-let g:jedi#popup_select_first = 1
-let g:jedi#completions_enabled = 1
-let g:jedi#completions_command = "<C-n>"
-let g:jedi#usages_command = "<leader>u"
-let g:jedi#rename_command = "<leader>r"
 
 " ======== multiple Window ========
 
