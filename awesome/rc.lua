@@ -17,7 +17,7 @@ local beautiful = require("beautiful")
 local naughty   = require("naughty")
 local drop      = require("scratchdrop")
 local lain      = require("lain")
-local menubar = require("menubar")
+local menubar   = require("menubar")
 
 
 -- }}}
@@ -55,7 +55,8 @@ end
 
 run_once("fcitx-autostart")
 run_once("dropbox")
-run_once("nm-applet")
+run_once("touchpad_disable.sh")
+run_once("wpa_gui")
 
 -- }}}
 
@@ -491,6 +492,20 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
+    awful.key({ modkey,           }, "Tab",
+        function ()
+            awful.client.focus.history.previous()
+            if client.focus then
+                client.focus:raise()
+            end
+        end),
+    awful.key({ modkey, "Shift"   }, "Tab",
+        function ()
+            awful.client.focus.history.nexts()
+            if client.focus then
+                client.focus:raise()
+            end
+        end),
     awful.key({ altkey,           }, "Tab",
         function ()
             awful.client.focus.history.previous()
@@ -576,13 +591,13 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "c", function () os.execute("xsel -p -o | xsel -i -b") end),
 
     -- User programs
-    -- awful.key({ modkey }, "d", function () awful.util.spawn("dwb") end),
-    -- awful.key({ modkey }, "f", function () awful.util.spawn("firefox") end),
-    -- awful.key({ modkey }, "t", function () awful.util.spawn("terminator") end),
+    awful.key({ altkey, "Control" }, "d", function () awful.util.spawn("dwb") end),
+    awful.key({ altkey, "Control" }, "f", function () awful.util.spawn("firefox") end),
+    awful.key({ altkey, "Control" }, "t", function () awful.util.spawn("terminator") end),
     -- awful.key({ modkey }, "g", function () awful.util.spawn("chromium") end),
     -- awful.key({ modkey }, "s", function () awful.util.spawn('thunar') end),
     -- awful.key({ modkey }, "s", function () awful.util.spawn('nemo') end),
-    -- awful.key({ modkey }, "v", function () awful.util.spawn('vlc') end),
+    awful.key({ altkey, "Control" }, "v", function () awful.util.spawn('vlc') end),
 
     -- Prompt
     awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
@@ -691,8 +706,8 @@ awful.rules.rules = {
 --    { rule = { class = "Dwb" },
 --          properties = { tag = tags[1][6] } },
 
-    { rule = { class = "Chromium" },
-          properties = { floating = true, tag = tags[1][3] } },
+--    { rule = { class = "Chromium" },
+--         properties = { floating = true, tag = tags[1][3] } },
 
 --    { rule = { class = "Google-chrome-stable" },
 --          properties = { tag = tags[1][2] } },
@@ -825,4 +840,9 @@ end
 -- awful.util.spawn_with_shell("fcitx-autostart")
 -- awful.util.spawn_with_shell("dropbox")
 -- awful.util.spawn_with_shell("nm-applet")
+
+-- awful.util.spawn_with_shell("/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1")
+-- awful.util.spawn_with_shell("run_once nm-applet")
+
 -- }}}
+
