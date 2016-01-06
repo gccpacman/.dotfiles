@@ -20,11 +20,6 @@ set encoding=utf-8
 " 自动判断编码时，依次尝试以下编码：
 set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
-" 设置成n可以用鼠标选择光标
-" set mouse=n
-
-nmap <F6> :call HideNumber()<CR>
-
 " F9 for PymodeLint
 nmap <F9> :PymodeLint<CR>
 
