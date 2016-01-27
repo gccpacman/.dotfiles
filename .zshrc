@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # Good theme bira with two command line
-ZSH_THEME="fox"
+ZSH_THEME="fishy"
 # PowerLine
 
 # Uncomment the following line to use case-sensitive completion.
@@ -56,13 +56,25 @@ plugins=(git git-extras hub github web-search debian bundler golang virtualenvwr
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:"
-export MANPATH="/usr/local/man:$MANPATH"
+# export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:"
+# export MANPATH="/usr/local/man:$MANPATH"
 
+export PATH="$HOME/bin:$HOME/go/bin:$HOME/.gem/ruby/2.3.0/bin:/usr/local/heroku/bin:$PATH"
+export EDITOR='vim'
+
+# Python Configuation
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+
+# Ruby Configuation
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+
+# Golang Configuation
+export GOPATH=$HOME/go
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -70,6 +82,7 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -88,11 +101,6 @@ source $ZSH/oh-my-zsh.sh
 
 ### Do some git alias
 source ~/.bash_aliases
-
-### Added by the Heroku Toolbelt
-export PATH=$HOME/go/bin:/usr/local/heroku/bin:$HOME/.tmuxifier/bin:$PATH
-export GOPATH=$HOME/go
-export EDITOR='vim'
 
 # not install tmuxinator yet, commented
 # source #HOME/.tmuxinator.zsh
