@@ -54,9 +54,9 @@ function run_once(cmd)
 end
 
 run_once("fcitx-autostart")
-run_once("dropbox")
+-- run_once("dropbox")
 run_once("touchpad_disable.sh")
-run_once("wpa_gui")
+-- run_once("nm-applet")
 
 -- }}}
 
@@ -94,9 +94,11 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { "term", "office", "web", "media", "files", "floating" },
-   layout = { layouts[11], layouts[11], layouts[11], layouts[11], layouts[11], layouts[1] }
+  names = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" },
+  layout = { layouts[11], layouts[11], layouts[11], layouts[11], layouts[11], layouts[11], layouts[11], layouts[11], layouts[11], layouts[11]     }
 }
+
+
 for s = 1, screen.count() do
 -- Each screen has its own tag table.
    tags[s] = awful.tag(tags.names, s, tags.layout)
@@ -121,6 +123,7 @@ markup      = lain.util.markup
 
 -- Textclock
 clockicon = wibox.widget.imagebox(beautiful.widget_clock)
+
 --mytextclock = awful.widget.textclock(markup("#7788af", "%A %d %B ") .. markup("#343639", ">") .. markup("#de5e1e", " %H:%M "))
 mytextclock = lain.widgets.abase({
     timeout  = 60,
@@ -138,17 +141,6 @@ mytextclock = lain.widgets.abase({
 -- Calendar
 lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
--- Weather
--- weathericon = wibox.widget.imagebox(beautiful.widget_weather)
--- myweather = lain.widgets.weather({
---     city_id = 123456, -- placeholder
---     settings = function()
---         descr = weather_now["weather"][1]["description"]:lower()
---         units = math.floor(weather_now["main"]["temp"])
---         widget:set_markup(markup("#eca4c4", descr .. " @ " .. units .. "°C "))
---     end
--- })
-
 -- / fs
 fsicon = wibox.widget.imagebox(beautiful.widget_fs)
 fswidget = lain.widgets.fs({
@@ -156,27 +148,6 @@ fswidget = lain.widgets.fs({
         widget:set_markup(markup("#80d9d8", fs_now.used .. "% "))
     end
 })
-
---[[ Mail IMAP check
--- commented because it needs to be set before use
-mailicon = wibox.widget.imagebox()
-mailicon:buttons(awful.util.table.join(awful.button({ }, 1, function () awful.util.spawn(mail) end)))
-mailwidget = lain.widgets.imap({
-    timeout  = 180,
-    server   = "server",
-    mail     = "mail",
-    password = "keyring get mail",
-    settings = function()
-        if mailcount > 0 then
-            mailicon:set_image(beautiful.widget_mail)
-            widget:set_markup(markup("#cccccc", mailcount .. " "))
-        else
-            widget:set_text("")
-            mailicon:set_image(nil)
-        end
-    end
-})
-]]
 
 -- CPU
 cpuicon = wibox.widget.imagebox()
@@ -499,13 +470,6 @@ globalkeys = awful.util.table.join(
                 client.focus:raise()
             end
         end),
-    awful.key({ modkey, "Shift"   }, "Tab",
-        function ()
-            awful.client.focus.history.nexts()
-            if client.focus then
-                client.focus:raise()
-            end
-        end),
     awful.key({ altkey,           }, "Tab",
         function ()
             awful.client.focus.history.previous()
@@ -513,15 +477,10 @@ globalkeys = awful.util.table.join(
                 client.focus:raise()
             end
         end),
-    awful.key({ altkey, "Shift"   }, "Tab",
-        function ()
-            awful.client.focus.history.nexts()
-            if client.focus then
-                client.focus:raise()
-            end
-        end),
+    -- Resize Window
     awful.key({ altkey, "Shift"   }, "l",      function () awful.tag.incmwfact( 0.05)     end),
     awful.key({ altkey, "Shift"   }, "h",      function () awful.tag.incmwfact(-0.05)     end),
+    
     awful.key({ modkey, "Shift"   }, "l",      function () awful.tag.incnmaster(-1)       end),
     awful.key({ modkey, "Shift"   }, "h",      function () awful.tag.incnmaster( 1)       end),
     awful.key({ modkey, "Control" }, "l",      function () awful.tag.incncol(-1)          end),
@@ -532,15 +491,15 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Shift" }, "r",      awesome.restart),
+    awful.key({ modkey, "Shift"   }, "r",      awesome.restart),
     awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
 
     -- Dropdown terminal
-    awful.key({ modkey,	          }, "z",      function () drop(terminal) end),
+    awful.key({ altkey,	"Shift"   }, "z",      function () drop(terminal) end),
 
     -- Widgets popups
-    awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
-    awful.key({ altkey,           }, "h",      function () fswidget.show(7) end),
+    awful.key({ altkey, "Shift"    }, "c",      function () lain.widgets.calendar:show(7) end),
+    awful.key({ altkey, "Shift"    }, "h",      function () fswidget.show(7) end),
     -- awful.key({ altkey,           }, "w",      function () myweather.show(7) end),
 
     -- ALSA volume control
@@ -592,11 +551,9 @@ globalkeys = awful.util.table.join(
 
     -- User programs
     awful.key({ altkey, "Control" }, "d", function () awful.util.spawn("dwb") end),
-    awful.key({ altkey, "Control" }, "f", function () awful.util.spawn("firefox") end),
+    awful.key({ altkey, "Control" }, "b", function () awful.util.spawn("firefox") end),
     awful.key({ altkey, "Control" }, "t", function () awful.util.spawn("terminator") end),
-    -- awful.key({ modkey }, "g", function () awful.util.spawn("chromium") end),
-    -- awful.key({ modkey }, "s", function () awful.util.spawn('thunar') end),
-    -- awful.key({ modkey }, "s", function () awful.util.spawn('nemo') end),
+    awful.key({ altkey, "Control" }, "f", function () awful.util.spawn('thunar') end),
     awful.key({ altkey, "Control" }, "v", function () awful.util.spawn('vlc') end),
 
     -- Prompt
@@ -611,7 +568,7 @@ globalkeys = awful.util.table.join(
 )
 
 clientkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
+    awful.key({ modkey, "Shift"   }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
@@ -700,40 +657,7 @@ awful.rules.rules = {
     { rule = { class = "MPlayer" },
           properties = { floating = true } },
 
---    { rule = { class = "Vlc" },
---          properties = { floating = true  } },
-
---    { rule = { class = "Dwb" },
---          properties = { tag = tags[1][6] } },
-
---    { rule = { class = "Chromium" },
---         properties = { floating = true, tag = tags[1][3] } },
-
---    { rule = { class = "Google-chrome-stable" },
---          properties = { tag = tags[1][2] } },
-
---    { rule = { class = "Firefox" },
---          properties = { tag = tags[1][2] } },
-
---    { rule = { class = "Thunar" },
---          properties = { tag = tags[1][5] } },
-
---    { rule = { class = "Nemo" },
---          properties = { tag = tags[1][5] } },
-
---    { rule = { class = "Caja" },
---          properties = { tag = tags[1][5] } },
-
---    { rule = { class = "Terminator" },
---          properties = { tag = tags[1][1] } },
-
---    { rule = { class = "Roxterm" },
---          properties = { tag = tags[1][1] } },
-
---    { rule = { instance = "plugin-container" },
---          properties = { tag = tags[1][1] } },
-
-	  { rule = { class = "Gimp" },
+	{ rule = { class = "Gimp" },
      	    properties = { tag = tags[1][4] } },
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
@@ -834,15 +758,5 @@ for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
         end
       end)
 end
--- }}}
-
--- {{{ Autostarts
--- awful.util.spawn_with_shell("fcitx-autostart")
--- awful.util.spawn_with_shell("dropbox")
--- awful.util.spawn_with_shell("nm-applet")
-
--- awful.util.spawn_with_shell("/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1")
--- awful.util.spawn_with_shell("run_once nm-applet")
-
 -- }}}
 
