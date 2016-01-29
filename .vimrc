@@ -41,6 +41,11 @@ set laststatus=2
 Bundle 'fcitx.vim'
 
 " command-t
+" execute following command is needed:
+" https://github.com/wincent/command-t/blob/master/doc/command-t.txt
+"   cd ~/.vim/bundle/command-t/ruby/command-t
+"   ruby extconf.rb
+"   make
 Bundle 'wincent/command-t'
 
 " Raimondi/delimitMate
