@@ -109,3 +109,9 @@ source ~/.bash_aliases
 export WORKON_HOME=~/.virtualenvs
 
 source /usr/bin/virtualenvwrapper.sh
+
+if [ -n "$VIRTUAL_ENV" ]; then
+  . "$VIRTUAL_ENV/bin/activate"
+else
+  workon default
+fi

@@ -1,7 +1,13 @@
 syntax on
 filetype plugin indent on
 
-let mapleader = "\\"
+" vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+let mapleader = ","
 set timeoutlen=2000
 
 set autoread
@@ -11,11 +17,13 @@ set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 set cursorcolumn        " 突出显示当前列
 set cursorline          " 突出显示当前行
 
+Bundle 'ervandew/supertab'
+
 set smartindent         " Smart indent
 set autoindent          " 打开自动缩进
-set tabstop=4           " 设置Tab键的宽度        [等同的空格个数]
-set shiftwidth=4        " 每一次缩进对应的空格数
-set softtabstop=4       " 按退格键时可以一次删掉 4 个空格
+set tabstop=2           " 设置Tab键的宽度        [等同的空格个数]
+set shiftwidth=2        " 每一次缩进对应的空格数
+set softtabstop=2       " 按退格键时可以一次删掉 4 个空格
 set smarttab            " insert tabs on the start of a line according to shiftwidth, not tabstop 按退格键时可以一次删掉 4 个空>
 set expandtab           " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
 set shiftround          " 缩进时，取整 use multiple of shiftwidth when indenting with '<' and '>'
@@ -29,13 +37,14 @@ set guifont=Tamsyn\ 10
 set laststatus=2
 
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-
 " fcitx 
 Bundle 'fcitx.vim'
+
+" command-t
+Bundle 'wincent/command-t'
+
+" Raimondi/delimitMate
+Bundle 'Raimondi/delimitMate'
 
 " F2 buf exploror
 Bundle 'jlanzarotta/bufexplorer'
@@ -59,10 +68,18 @@ nmap <F4> :set invnumber<CR>
 " F5 wrap and no wrap
 set nowrap
 nmap <F5> :set invwrap<CR>
+" Improve up/down movement on wrapped lines
+nnoremap j gj
+nnoremap k gk
 
 " F6 git 
 Bundle 'airblade/vim-gitgutter'
 map <F6> :GitGutterToggle<cr>
+
+" If you have your project tracked with Git, switching between terminal
+" sessions can be really painful. Fugitive is absolutely greatly tool for
+" using Git inside Vim.
+Bundle 'tpope/vim-fugitive'
 
 " F7 set invhlsearch 
 set hlsearch      " 高亮search命中的文本。
@@ -84,51 +101,67 @@ map <leader>sa ggVG"
 " Bundle 'itchyny/landscape.vim'
 let g:tagbar_ctags_bin = '/usr/bin/ctags'
 
-" ======== Python ^ ========
+" Vim plugin for intensely orgasmic commenting
+" https://github.com/scrooloose/nerdcommenter
+Bundle 'scrooloose/nerdcommenter'
+
+" python
 Bundle 'davidhalter/jedi-vim'
  
-" let g:jedi#use_tabs_not_buffers = 0
-" let g:jedi#use_splits_not_buffers = "bottom"  "open in split not buffer
-" let g:jedi#goto_command = "<leader>g"
-" let g:jedi#goto_assignments_command = "<leader>a"
-" let g:jedi#goto_definitions_command = "<leader>d"
-" let g:jedi#documentation_command = "<leader>k"
-" let g:jedi#max_doc_height = 35
-" let g:jedi#auto_close_doc = 1
-" let g:jedi#popup_on_dot = 1
-" let g:jedi#popup_select_first = 1
-" let g:jedi#completions_enabled = 1
-" let g:jedi#completions_command = "<C-n>"
-" let g:jedi#usages_command = "<leader>u"
-" let g:jedi#rename_command = "<leader>r"
+let g:jedi#use_tabs_not_buffers = 0
+" let g:jedi#use_splits_not_buffers = "bottom"  "default off, open in split not buffer
+let g:jedi#goto_command = "<leader>g"
+let g:jedi#goto_assignments_command = "<leader>a"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#documentation_command = "<leader>k"
+let g:jedi#max_doc_height = 35
+let g:jedi#auto_close_doc = 1
+let g:jedi#popup_on_dot = 1
+let g:jedi#popup_select_first = 1
+let g:jedi#completions_enabled = 1
+let g:jedi#completions_command = "<C-n>"
+let g:jedi#usages_command = "<leader>u"
+let g:jedi#rename_command = "<leader>r"
 
-" ======== Python $ ========
+" on the fly Python checking in Vim with PyFlakes (Deplicated)
+"Bundle 'kevinw/pyflakes-vim'
 
-" ======== Java ^ ========
+" Syntax checking hacks for vim
+Bundle 'scrooloose/syntastic'
 
-" ======== Java $ ========
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-" ======== Ruby ^ ========
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
-" ======== Ruby $ ========
 
-" ======== colorschemes and themes ========
+" ruby
+" https://masteruby.github.io/productivity-booster/2014/05/02/vim-plugins-for-ruby.html
+
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
+" wisely add end in ruby, endfunction/endif/more in vim script
+Bundle 'tpope/vim-endwise' 
+" A vim plugin for running your Ruby tests by ':VroomRunTestFile'
+Bundle 'skalnik/vim-vroom'
+
+" template
+Bundle 'slim-template/vim-slim'
+
+" colorschemes and themes
 Bundle 'flazz/vim-colorschemes'
-
 let g:Powerline_symbols = 'fancy'
-
 set t_Co=256
 set background=light
 colorscheme google
 
-" ======== colorschemes and themes $ ========
-
-" ======== multiple Window ========
-
-"Smart way to move between windows 分屏窗口移动
+"Smart way to move between split windows 
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" ======== multiple Window ========
