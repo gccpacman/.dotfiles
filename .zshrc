@@ -1,13 +1,29 @@
-# Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+
+# powerline
+if [[ -r /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+  source /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+fi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # Good theme bira with two command line
-ZSH_THEME="fishy"
+#ZSH_THEME="fino"
+#ZSH_THEME="suvash"
+#ZSH_THEME="ys"
+#ZSH_THEME="jnrowe"
+ZSH_THEME="agnoster"
+
 # PowerLine
+#ZSH_THEME="powerline"
+
+#POWERLINE_RIGHT_A_COLOR_FRONT="black"
+#POWERLINE_RIGHT_A_COLOR_BACK="blue"
+#POWERLINE_PATH="short"
+#POWERLINE_DETECT_SSH="true"
+#POWERLINE_HIDE_HOST_NAME="true"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -29,7 +45,7 @@ ZSH_THEME="fishy"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -44,15 +60,13 @@ ZSH_THEME="fishy"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
-export WORKON_HOME=$HOME/.virtualenvs
-
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras hub github web-search debian bundler golang virtualenvwrapper pip node npm history-substring-search zsh-syntax-highlighting sublime themes)
+plugins=(git git-extras ruby hub rake github web-search debian bundler golang virtualenvwrapper pip node npm history-substring-search zsh-syntax-highlighting sublime themes)
 
 # User configuration
 
@@ -61,17 +75,6 @@ plugins=(git git-extras hub github web-search debian bundler golang virtualenvwr
 
 export PATH="$HOME/bin:$HOME/go/bin:$HOME/.gem/ruby/2.3.0/bin:/usr/local/heroku/bin:$PATH"
 export EDITOR='vim'
-
-# Python Configuation
-export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
-
-# Ruby Configuation
-export GEM_HOME=$(ruby -e 'print Gem.user_dir')
-
-# Golang Configuation
-export GOPATH=$HOME/go
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -105,13 +108,20 @@ source ~/.bash_aliases
 # not install tmuxinator yet, commented
 # source #HOME/.tmuxinator.zsh
 
-# Copy from .bashrc
-export WORKON_HOME=~/.virtualenvs
+# Golang Configuation
+export GOPATH=$HOME/go
 
-source /usr/bin/virtualenvwrapper.sh
-
+# Python Configuation
 if [ -n "$VIRTUAL_ENV" ]; then
   . "$VIRTUAL_ENV/bin/activate"
-else
-  workon default
 fi
+
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python'
+
+# Ruby Configuation
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+
+# Path to your oh-my-zsh installation.
+source $ZSH/oh-my-zsh.sh
