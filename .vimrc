@@ -200,7 +200,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 " https://github.com/vim-airline/vim-airline/wiki/Screenshots
 " try with :AirlineTheme <theme>
-let g:airline_theme = 'tomorrow'
+let g:airline_theme = 'bubblegum'
 
 Bundle 'flazz/vim-colorschemes'
 "let g:solarized_termcolors=256
@@ -211,7 +211,7 @@ set background=light
 "else
 "   set background=dark
 "endif
-colorscheme solarized
+colorscheme luna 
 
 "Smart way to move between split windows 
 map <C-j> <C-W>j
