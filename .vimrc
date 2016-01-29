@@ -28,7 +28,6 @@ set smarttab            " insert tabs on the start of a line according to shiftw
 set expandtab           " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
 set shiftround          " 缩进时，取整 use multiple of shiftwidth when indenting with '<' and '>'
 
-
 set encoding=utf-8
 set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
@@ -36,9 +35,21 @@ set guifont=Tamsyn\ 10
 " always show status line
 set laststatus=2
 
+" google codefmt
+" Add maktaba and codefmt to the runtimepath.
+" (The latter must be installed before it can be used.)
+Bundle 'google/vim-maktaba'
+Bundle 'google/vim-codefmt'
+" Also add Glaive, which is used to configure codefmt's maktaba flags. See
+" `:help :Glaive` for usage.
+Bundle 'google/vim-glaive'
+call glaive#Install()
 
 " fcitx 
 Bundle 'fcitx.vim'
+
+" naturally copy, cut, paste between buffer and system clipboard
+Bundle 'NLKNguyen/copy-cut-paste.vim'
 
 " command-t
 " execute following command is needed:
@@ -98,13 +109,36 @@ nmap <F7> :set invhlsearch<CR>
 map <leader>sa ggVG"
 
 " force write files require root permission
-" cnoremap w!! w !sudo tee > /dev/null %
+cnoremap w!! w !sudo tee > /dev/null %
+
+"Vim sugar for the UNIX shell commands that need it the most. Features
+"include:
+"
+":Remove: Delete a buffer and the file on disk simultaneously.
+":Unlink: Like :Remove, but keeps the now empty buffer.
+":Move: Rename a buffer and the file on disk simultaneously.
+":Rename: Like :Move, but relative to the current file's containing directory.
+":Chmod: Change the permissions of the current file.
+":Mkdir: Create a directory, defaulting to the parent of the current file.
+":Find: Run find and load the results into the quickfix list.
+":Locate: Run locate and load the results into the quickfix list.
+":Wall: Write every open window. Handy for kicking off tools like guard.
+":SudoWrite: Write a privileged file with sudo.
+":SudoEdit: Edit a privileged file with sudo.
+"File type detection for sudo -e is based on original file name.
+"New files created with a shebang line are automatically made executable.
+"New init scripts are automatically prepopulated with /etc/init.d/skeleton.
+Bundle 'tpope/vim-eunuch'
 
 " values represent: [ FG, BG, ATTR ]
 "   FG ang BG are color codes
 "   ATTR (optional) is a comme-delimited string of one or more of bold, dim, underscore, etc. For details refer to 'message-attr attributes' in tmux man page
 " Bundle 'itchyny/landscape.vim'
+
+" F8 tagbar
+Bundle 'majutsushi/tagbar'
 let g:tagbar_ctags_bin = '/usr/bin/ctags'
+nmap <F8> :TagbarToggle<CR>
 
 " Vim plugin for intensely orgasmic commenting
 " https://github.com/scrooloose/nerdcommenter
@@ -142,6 +176,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height = 2
 
 
 " ruby
@@ -158,11 +193,25 @@ Bundle 'skalnik/vim-vroom'
 Bundle 'slim-template/vim-slim'
 
 " colorschemes and themes
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
+let g:powerline_symbols = 'fancy'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+" https://github.com/vim-airline/vim-airline/wiki/Screenshots
+" try with :AirlineTheme <theme>
+let g:airline_theme = 'tomorrow'
+
 Bundle 'flazz/vim-colorschemes'
-let g:Powerline_symbols = 'fancy'
+"let g:solarized_termcolors=256
 set t_Co=256
 set background=light
-colorscheme google
+"if has('gui_running')
+"   set background=light
+"else
+"   set background=dark
+"endif
+colorscheme solarized
 
 "Smart way to move between split windows 
 map <C-j> <C-W>j
