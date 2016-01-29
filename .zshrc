@@ -33,7 +33,7 @@ ZSH_THEME="agnoster"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -45,7 +45,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -66,7 +66,11 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras ruby hub rake github web-search debian bundler golang virtualenvwrapper pip node npm history-substring-search zsh-syntax-highlighting sublime themes)
+plugins=(git git-extras hub rake github web-search debian bundler node npm history-substring-search zsh-syntax-highlighting sublime themes)
+
+# https://github.com/zsh-users/zsh-completions
+plugins+=(zsh-completions)
+autoload -U compinit && compinit
 
 # User configuration
 
@@ -109,9 +113,11 @@ source ~/.bash_aliases
 # source #HOME/.tmuxinator.zsh
 
 # Golang Configuation
+plugins+=(golang)
 export GOPATH=$HOME/go
 
 # Python Configuation
+plugins+=(virtualenvwrapper pip)
 if [ -n "$VIRTUAL_ENV" ]; then
   . "$VIRTUAL_ENV/bin/activate"
 fi
@@ -121,6 +127,7 @@ source /usr/bin/virtualenvwrapper.sh
 export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python'
 
 # Ruby Configuation
+plugins+=(ruby rails)
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
 # Path to your oh-my-zsh installation.
