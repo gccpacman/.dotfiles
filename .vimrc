@@ -46,7 +46,7 @@ Bundle 'google/vim-glaive'
 call glaive#Install()
 
 " fcitx 
-Bundle 'fcitx.vim'
+"Bundle 'fcitx.vim'
 
 " naturally copy, cut, paste between buffer and system clipboard
 Bundle 'NLKNguyen/copy-cut-paste.vim'

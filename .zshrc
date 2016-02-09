@@ -66,7 +66,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras hub rake github web-search debian bundler node npm history-substring-search zsh-syntax-highlighting sublime themes)
+plugins=(git git-extras hub github web-search debian bundler node npm history-substring-search zsh-syntax-highlighting sublime themes)
 
 # https://github.com/zsh-users/zsh-completions
 plugins+=(zsh-completions)
@@ -127,7 +127,7 @@ source /usr/bin/virtualenvwrapper.sh
 export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python'
 
 # Ruby Configuation
-plugins+=(ruby rails)
+plugins+=(rake ruby rails)
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
 # Path to your oh-my-zsh installation.
