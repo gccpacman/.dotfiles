@@ -66,7 +66,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras hub github web-search debian bundler node npm history-substring-search zsh-syntax-highlighting sublime themes)
+plugins=(git git-extras hub github web-search debian node npm history-substring-search zsh-syntax-highlighting sublime themes)
 
 # https://github.com/zsh-users/zsh-completions
 plugins+=(zsh-completions)
@@ -77,7 +77,8 @@ autoload -U compinit && compinit
 # export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export PATH="$HOME/bin:$HOME/go/bin:$HOME/.gem/ruby/2.3.0/bin:/usr/local/heroku/bin:$PATH"
+#export PATH="$HOME/.rbenv/bin:$HOME/bin:$HOME/go/bin:$HOME/.gem/ruby/2.3.0/bin:/usr/local/heroku/bin:$PATH"
+export PATH="$HOME/bin:$HOME/go/bin:/usr/local/heroku/bin:$PATH"
 export EDITOR='vim'
 
 # You may need to manually set your language environment
@@ -113,11 +114,12 @@ source ~/.bash_aliases
 # source #HOME/.tmuxinator.zsh
 
 # Golang Configuation
-plugins+=(golang)
+#plugins+=(golang)
 export GOPATH=$HOME/go
 
 # Python Configuation
-plugins+=(virtualenvwrapper pip)
+plugins+=(virtualenvwrapper)
+#plugins+=(virtualenvwrapper pip)
 if [ -n "$VIRTUAL_ENV" ]; then
   . "$VIRTUAL_ENV/bin/activate"
 fi
@@ -127,8 +129,13 @@ source /usr/bin/virtualenvwrapper.sh
 export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python'
 
 # Ruby Configuation
-plugins+=(rake ruby rails)
+#plugins+=(rake rails bundler ruby)
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+export PATH="$PATH:$GEM_HOME/bin"
+
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+#eval "$(rbenv init -)"
 
 # Path to your oh-my-zsh installation.
 source $ZSH/oh-my-zsh.sh
+
