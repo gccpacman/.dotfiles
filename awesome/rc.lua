@@ -52,6 +52,7 @@ run_once("urxvtd")
 run_once("unclutter -root")
 -- fcitx
 run_once("fcitx-autostart")
+run_once("fcitx")
 -- }}}
 
 -- {{{ Variable definitions
@@ -69,7 +70,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
 browser    = "dwb"
-browser2   = "iron"
+browser2   = "firefox"
 gui_editor = "gvim"
 graphics   = "gimp"
 mail       = terminal .. " -e mutt "
@@ -532,7 +533,9 @@ globalkeys = awful.util.table.join(
     -- User programs
     awful.key({ modkey }, "q", function () awful.util.spawn(browser) end),
     awful.key({ modkey }, "i", function () awful.util.spawn(browser2) end),
-    awful.key({ modkey }, "s", function () awful.util.spawn(gui_editor) end),
+    awful.key({ modkey }, "t", function () awful.util.spawn(terminal) end),
+    awful.key({ modkey }, "e", function () awful.util.spawn(gui_editor) end),
+    awful.key({ modkey }, "s", function () awful.util.spawn("touchpad_toggle.sh") end),
     awful.key({ modkey }, "g", function () awful.util.spawn(graphics) end),
 
     -- Prompt
