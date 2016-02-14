@@ -1,0 +1,57 @@
+# remap prefix key shortcut to Ctrl B
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
+
+#set-window-option -g xterm-keys on
+#set-window-option xterm-keys on
+
+# 
+#unbind C-Left
+#unbind C-Right
+
+#bind -n C-Left previous-window
+#bind -n C-Right next-window
+
+# powerline
+source /usr/lib/python3.5/site-packages/powerline/bindings/tmux/powerline.conf
+
+set -g default-terminal "screen-256color"
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+
+# set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'git@github.com/user/plugin'
+# set -g @plugin 'git@bitbucket.com/user/plugin'
+# set -g @plugin 'tmux-plugins/tmux-resurrect'
+# set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'seebi/tmux-colors-solarized'
+
+#set-option -g status on
+#set-option -g status-interval 2
+#set-option -g status-utf8 on
+#set-option -g status-justify "centre"
+#set-option -g status-left-length 60
+#set-option -g status-right-length 90
+#set-option -g status-left "#(~/opt/tmux-powerline/powerline.sh left)"
+#set-option -g status-right "#(~/opt/tmux-powerline/powerline.sh right)"
+
+# for vim tmux resurrect
+# set -g @resurrect-strategy-vim 'session'
+
+# save session to disk
+# set -g @continuum-restore 'on'
+# set -g @continuum-save-interval '60'
+
+# turn off auto-rename
+#set-window-option -g automatic-rename on
+#set-option -g allow-rename on 
+#set-window-option -g pane-base-index 1
+#set -g set-titles-string '#T'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
