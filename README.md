@@ -90,6 +90,13 @@ Install all plugins by ```vundle```:
 
 Done!
 
+
+## Command-T compiling
+
+    cd ~/.vim/bundle/command-t/ruby/command-t
+    ruby extconf.rb
+    make
+
 ## Powerline Fonts
 
 If you want vim have a more beautiful look, you can try powerline,
@@ -99,6 +106,10 @@ If you want vim have a more beautiful look, you can try powerline,
 Install ```powerline``` by pip:
 
     pip install --user git+git://github.com/powerline/powerline
+
+(Archlinux) If you use Archlinux, you can easily install it by ```yaourt```t
+
+    yaourt -S powerline-fonts-git 
 
 ## install by pathogen (not use it anymore)
 
