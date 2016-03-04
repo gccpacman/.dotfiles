@@ -1,9 +1,9 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # powerline
-if [[ -r /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
-  source /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
-fi
+#if [[ -r /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+#  source /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+#fi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -14,10 +14,13 @@ fi
 #ZSH_THEME="suvash"
 #ZSH_THEME="ys"
 #ZSH_THEME="jnrowe"
-ZSH_THEME="agnoster"
-
+#ZSH_THEME="agnoster"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
 # PowerLine
 #ZSH_THEME="powerline"
+
+ZSH_THEME="bullet-train"
+BULLETTRAIN_VIRTUALENV_SHOW=true
 
 #POWERLINE_RIGHT_A_COLOR_FRONT="black"
 #POWERLINE_RIGHT_A_COLOR_BACK="blue"
@@ -33,7 +36,7 @@ ZSH_THEME="agnoster"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+#DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -77,7 +80,6 @@ autoload -U compinit && compinit
 # export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-#export PATH="$HOME/.rbenv/bin:$HOME/bin:$HOME/go/bin:$HOME/.gem/ruby/2.3.0/bin:/usr/local/heroku/bin:$PATH"
 export PATH="$HOME/bin:$HOME/go/bin:/usr/local/heroku/bin:$PATH"
 export EDITOR='vim'
 
@@ -118,23 +120,20 @@ source ~/.bash_aliases
 export GOPATH=$HOME/go
 
 # Python Configuation
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python'
+
 plugins+=(virtualenvwrapper)
 #plugins+=(virtualenvwrapper pip)
 if [ -n "$VIRTUAL_ENV" ]; then
   . "$VIRTUAL_ENV/bin/activate"
 fi
 
-export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
-export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python'
-
 # Ruby Configuation
 #plugins+=(rake rails bundler ruby)
 export GEM_HOME=$(ruby -e 'print Gem.user_dir')
-export PATH="$PATH:$GEM_HOME/bin"
-
-#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-#eval "$(rbenv init -)"
+export PATH="$GEM_HOME/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 source $ZSH/oh-my-zsh.sh
