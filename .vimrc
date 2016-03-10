@@ -153,9 +153,9 @@ let g:jedi#goto_command = "<leader>g"
 let g:jedi#goto_assignments_command = "<leader>a"
 let g:jedi#goto_definitions_command = "<leader>d"
 let g:jedi#documentation_command = "<leader>k"
-let g:jedi#max_doc_height = 35
+let g:jedi#max_doc_height = 10 
 let g:jedi#auto_close_doc = 1
-let g:jedi#popup_on_dot = 1
+let g:jedi#popup_on_dot = 0 
 let g:jedi#popup_select_first = 1
 let g:jedi#completions_enabled = 1
 let g:jedi#completions_command = "<C-n>"
@@ -213,9 +213,15 @@ set background=light
 "endif
 colorscheme luna 
 
-"Smart way to move between split windows 
+" Smart way to move between split windows 
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Auto Format
+" https://github.com/Chiel92/vim-autoformat 
+Bundle 'Chiel92/vim-autoformat'
+
+let g:formatterpath = ['/usr/bin/autopep8']
+noremap <leader>f :Autoformat<CR>
