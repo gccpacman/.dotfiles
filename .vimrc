@@ -78,8 +78,9 @@ let NERDTreeMouseMode=3         "  single click to open folder or file
 nmap <F3> :NERDTreeToggle<CR>
 
 " F4 show or hide line number
-set nonumber
-nmap <F4> :set invnumber<CR>
+set number
+" set nonumber
+" nmap <F4> :set invnumber<CR>
 
 " F5 wrap and no wrap
 set nowrap
@@ -90,7 +91,7 @@ nnoremap k gk
 
 " F6 git 
 Bundle 'airblade/vim-gitgutter'
-map <F6> :GitGutterToggle<cr>
+" map <F6> :GitGutterToggle<cr>
 
 " If you have your project tracked with Git, switching between terminal
 " sessions can be really painful. Fugitive is absolutely greatly tool for
@@ -137,7 +138,7 @@ Bundle 'tpope/vim-eunuch'
 
 " F8 tagbar
 Bundle 'majutsushi/tagbar'
-let g:tagbar_ctags_bin = '/usr/bin/ctags'
+let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 nmap <F8> :TagbarToggle<CR>
 
 " Vim plugin for intensely orgasmic commenting
@@ -163,7 +164,11 @@ let g:jedi#usages_command = "<leader>u"
 let g:jedi#rename_command = "<leader>r"
 
 " on the fly Python checking in Vim with PyFlakes (Deplicated)
-"Bundle 'kevinw/pyflakes-vim'
+Bundle 'kevinw/pyflakes-vim'
+
+" flask jinja2 template
+Bundle 'lepture/vim-jinja'
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 
 " Syntax checking hacks for vim
 Bundle 'scrooloose/syntastic'
