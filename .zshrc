@@ -19,8 +19,7 @@ export ZSH=$HOME/.oh-my-zsh
 # PowerLine
 #ZSH_THEME="powerline"
 
-ZSH_THEME="bullet-train"
-BULLETTRAIN_VIRTUALENV_SHOW=true
+ZSH_THEME="robbyrussell"
 
 #POWERLINE_RIGHT_A_COLOR_FRONT="black"
 #POWERLINE_RIGHT_A_COLOR_BACK="blue"
