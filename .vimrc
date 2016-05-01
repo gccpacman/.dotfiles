@@ -59,12 +59,24 @@ Bundle 'NLKNguyen/copy-cut-paste.vim'
 "   make
 Bundle 'wincent/command-t'
 
+nnoremap <leader>tt :CommandT<CR>
+nnoremap <leader>tl :CommandTLine<CR>
+nnoremap <leader>th :CommandTHistory<CR>
+nnoremap <leader>tb :CommandTBuffer<CR>
+nnoremap <leader>tr :CommandTMRU<CR>
+nnoremap <leader>tj :CommandTJump<CR>
+
+" ack
+Bundle 'mileszs/ack.vim'
+
 " Raimondi/delimitMate
 Bundle 'Raimondi/delimitMate'
 
 " F2 buf exploror
 Bundle 'jlanzarotta/bufexplorer'
-nmap <F2> :BufExplorer<CR>
+"nmap <leader>b :BufExplorer<CR>
+nmap <leader>p :bp<CR>
+nmap <leader>n :bn<CR>
 
 " F3 nerdtree
 Bundle 'scrooloose/nerdtree.git'
@@ -74,17 +86,17 @@ let NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 let NERDTreeMouseMode=3         "  single click to open folder or file
+nmap <leader>q :NERDTreeToggle<CR>
 
-nmap <F3> :NERDTreeToggle<CR>
-
-" F4 show or hide line number
+" show or hide line number
 set number
-" set nonumber
-" nmap <F4> :set invnumber<CR>
+nmap <leader>l :set invnumber<CR>
 
-" F5 wrap and no wrap
+set mouse=a
+
+" wrap and no wrap
 set nowrap
-nmap <F5> :set invwrap<CR>
+nmap <leader>w :set invwrap<CR>
 " Improve up/down movement on wrapped lines
 nnoremap j gj
 nnoremap k gk
@@ -98,13 +110,36 @@ Bundle 'airblade/vim-gitgutter'
 " using Git inside Vim.
 Bundle 'tpope/vim-fugitive'
 
-" F7 set invhlsearch 
+" set invhlsearch 
 set hlsearch      " 高亮search命中的文本。
 set incsearch     " 打开增量搜索模式,随着键入即时搜索
 set ignorecase
 set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
 
-nmap <F7> :set invhlsearch<CR>
+nmap <leader>h :set invhlsearch<CR>
+
+" Highlight all instances of word under cursor, when idle.
+" Useful when studying strange source code.
+" Type z/ to toggle highlighting on/off.
+nnoremap <leader>z :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
+function! AutoHighlightToggle()
+  let @/ = ''
+  if exists('#auto_highlight')
+    au! auto_highlight
+    augroup! auto_highlight
+    setl updatetime=4000
+    echo 'Highlight current word: off'
+    return 0
+  else
+    augroup auto_highlight
+      au!
+      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+    augroup end
+    setl updatetime=500
+    echo 'Highlight current word: ON'
+    return 1
+  endif
+endfunction
 
 " select all
 map <leader>sa ggVG"
@@ -136,10 +171,10 @@ Bundle 'tpope/vim-eunuch'
 "   ATTR (optional) is a comme-delimited string of one or more of bold, dim, underscore, etc. For details refer to 'message-attr attributes' in tmux man page
 " Bundle 'itchyny/landscape.vim'
 
-" F8 tagbar
+" tagbar
 Bundle 'majutsushi/tagbar'
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-nmap <F8> :TagbarToggle<CR>
+nmap <leader>s :TagbarToggle<CR>
 
 " Vim plugin for intensely orgasmic commenting
 " https://github.com/scrooloose/nerdcommenter
@@ -201,22 +236,22 @@ Bundle 'slim-template/vim-slim'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 let g:powerline_symbols = 'fancy'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
 " https://github.com/vim-airline/vim-airline/wiki/Screenshots
 " try with :AirlineTheme <theme>
 let g:airline_theme = 'bubblegum'
 
 Bundle 'flazz/vim-colorschemes'
-"let g:solarized_termcolors=256
+let g:solarized_termcolors=256
 set t_Co=256
-set background=light
+set background=dark
 "if has('gui_running')
 "   set background=light
 "else
 "   set background=dark
 "endif
-colorscheme luna 
+colorscheme solarized
 
 " Smart way to move between split windows 
 map <C-j> <C-W>j
@@ -229,4 +264,9 @@ map <C-l> <C-W>l
 Bundle 'Chiel92/vim-autoformat'
 
 let g:formatterpath = ['/usr/bin/autopep8']
-noremap <leader>f :Autoformat<CR>
+" noremap <leader>f :Autoformat<CR>
+
+
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
