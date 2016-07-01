@@ -243,8 +243,8 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'bubblegum'
 
 Bundle 'flazz/vim-colorschemes'
-let g:solarized_termcolors=256
-set t_Co=256
+" let g:solarized_termcolors=256
+" set t_Co=256
 set background=dark
 "if has('gui_running')
 "   set background=light
@@ -267,6 +267,6 @@ let g:formatterpath = ['/usr/bin/autopep8']
 " noremap <leader>f :Autoformat<CR>
 
 
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+"let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+"let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+"let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
