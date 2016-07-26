@@ -38,12 +38,12 @@ set laststatus=2
 " google codefmt
 " Add maktaba and codefmt to the runtimepath.
 " (The latter must be installed before it can be used.)
-Bundle 'google/vim-maktaba'
-Bundle 'google/vim-codefmt'
+" Bundle 'google/vim-maktaba'
+" Bundle 'google/vim-codefmt'
 " Also add Glaive, which is used to configure codefmt's maktaba flags. See
 " `:help :Glaive` for usage.
-Bundle 'google/vim-glaive'
-call glaive#Install()
+" Bundle 'google/vim-glaive'
+" call glaive#Install()
 
 " fcitx 
 "Bundle 'fcitx.vim'
