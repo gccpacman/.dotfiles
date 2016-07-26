@@ -237,7 +237,7 @@ Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 let g:powerline_symbols = 'fancy'
 let g:airline#extensions#tabline#enabled = 0
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
 " https://github.com/vim-airline/vim-airline/wiki/Screenshots
 " try with :AirlineTheme <theme>
 let g:airline_theme = 'bubblegum'
