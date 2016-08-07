@@ -59,12 +59,12 @@ Bundle 'NLKNguyen/copy-cut-paste.vim'
 "   make
 Bundle 'wincent/command-t'
 
-nnoremap <leader>tt :CommandT<CR>
-nnoremap <leader>tl :CommandTLine<CR>
-nnoremap <leader>th :CommandTHistory<CR>
-nnoremap <leader>tb :CommandTBuffer<CR>
-nnoremap <leader>tr :CommandTMRU<CR>
-nnoremap <leader>tj :CommandTJump<CR>
+nnoremap <leader>t :CommandT<CR>
+nnoremap <leader>l :CommandTLine<CR>
+nnoremap <leader>y :CommandTHistory<CR>
+nnoremap <leader>b :CommandTBuffer<CR>
+nnoremap <leader>r :CommandTMRU<CR>
+nnoremap <leader>j :CommandTJump<CR>
 
 " ack
 Bundle 'mileszs/ack.vim'
@@ -244,14 +244,14 @@ let g:airline_theme = 'bubblegum'
 
 Bundle 'flazz/vim-colorschemes'
 " let g:solarized_termcolors=256
-" set t_Co=256
-set background=dark
+set t_Co=256
+" set background=dark
 "if has('gui_running')
 "   set background=light
 "else
 "   set background=dark
 "endif
-colorscheme solarized
+" colorscheme solarized
 
 " Smart way to move between split windows 
 map <C-j> <C-W>j
