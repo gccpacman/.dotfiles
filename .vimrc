@@ -31,7 +31,7 @@ set shiftround          " 缩进时，取整 use multiple of shiftwidth when ind
 set encoding=utf-8
 set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
-set guifont=Tamsyn\ 10
+" set guifont=Tamsyn\ 10
 " always show status line
 set laststatus=2
 
@@ -237,7 +237,7 @@ Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 let g:powerline_symbols = 'fancy'
 let g:airline#extensions#tabline#enabled = 0
-"let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
 " https://github.com/vim-airline/vim-airline/wiki/Screenshots
 " try with :AirlineTheme <theme>
 let g:airline_theme = 'bubblegum'
