@@ -14,16 +14,16 @@ set autoread
 set nocompatible
 
 set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
-set cursorcolumn        " 突出显示当前列
+" set cursorcolumn        " 突出显示当前列
 set cursorline          " 突出显示当前行
 
 Bundle 'ervandew/supertab'
 
 set smartindent         " Smart indent
 set autoindent          " 打开自动缩进
-set tabstop=2           " 设置Tab键的宽度        [等同的空格个数]
-set shiftwidth=2        " 每一次缩进对应的空格数
-set softtabstop=2       " 按退格键时可以一次删掉 4 个空格
+set tabstop=4           " 设置Tab键的宽度        [等同的空格个数]
+set shiftwidth=4        " 每一次缩进对应的空格数
+set softtabstop=4       " 按退格键时可以一次删掉 4 个空格
 set smarttab            " insert tabs on the start of a line according to shiftwidth, not tabstop 按退格键时可以一次删掉 4 个空>
 set expandtab           " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
 set shiftround          " 缩进时，取整 use multiple of shiftwidth when indenting with '<' and '>'
@@ -33,7 +33,7 @@ set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
 " set guifont=Tamsyn\ 10
 " always show status line
-set laststatus=2
+" set laststatus=2
 
 " google codefmt
 " Add maktaba and codefmt to the runtimepath.
@@ -67,10 +67,10 @@ nnoremap <leader>tr :CommandTMRU<CR>
 nnoremap <leader>tj :CommandTJump<CR>
 
 " ack
-Bundle 'mileszs/ack.vim'
+"" Bundle 'mileszs/ack.vim'
 
 " Raimondi/delimitMate
-Bundle 'Raimondi/delimitMate'
+" Bundle 'Raimondi/delimitMate'
 
 " F2 buf exploror
 Bundle 'jlanzarotta/bufexplorer'
@@ -92,7 +92,7 @@ nmap <leader>q :NERDTreeToggle<CR>
 set number
 nmap <leader>l :set invnumber<CR>
 
-set mouse=a
+" set mouse=a
 
 " wrap and no wrap
 set nowrap
@@ -102,13 +102,13 @@ nnoremap j gj
 nnoremap k gk
 
 " F6 git 
-Bundle 'airblade/vim-gitgutter'
+" Bundle 'airblade/vim-gitgutter'
 " map <F6> :GitGutterToggle<cr>
 
 " If you have your project tracked with Git, switching between terminal
 " sessions can be really painful. Fugitive is absolutely greatly tool for
 " using Git inside Vim.
-Bundle 'tpope/vim-fugitive'
+" Bundle 'tpope/vim-fugitive'
 
 " set invhlsearch 
 set hlsearch      " 高亮search命中的文本。
@@ -119,27 +119,6 @@ set smartcase     " ignore case if search pattern is all lowercase, case-sensiti
 nmap <leader>h :set invhlsearch<CR>
 
 " Highlight all instances of word under cursor, when idle.
-" Useful when studying strange source code.
-" Type z/ to toggle highlighting on/off.
-nnoremap <leader>z :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
-function! AutoHighlightToggle()
-  let @/ = ''
-  if exists('#auto_highlight')
-    au! auto_highlight
-    augroup! auto_highlight
-    setl updatetime=4000
-    echo 'Highlight current word: off'
-    return 0
-  else
-    augroup auto_highlight
-      au!
-      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-    augroup end
-    setl updatetime=500
-    echo 'Highlight current word: ON'
-    return 1
-  endif
-endfunction
 
 " select all
 map <leader>sa ggVG"
@@ -199,7 +178,7 @@ let g:jedi#usages_command = "<leader>u"
 let g:jedi#rename_command = "<leader>r"
 
 " on the fly Python checking in Vim with PyFlakes (Deplicated)
-Bundle 'kevinw/pyflakes-vim'
+" Bundle 'kevinw/pyflakes-vim'
 
 " flask jinja2 template
 Bundle 'lepture/vim-jinja'
@@ -222,15 +201,14 @@ let g:syntastic_loc_list_height = 2
 " ruby
 " https://masteruby.github.io/productivity-booster/2014/05/02/vim-plugins-for-ruby.html
 
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
+" Bundle 'vim-ruby/vim-ruby'
+" Bundle 'tpope/vim-rails'
 " wisely add end in ruby, endfunction/endif/more in vim script
-Bundle 'tpope/vim-endwise' 
+" Bundle 'tpope/vim-endwise' 
 " A vim plugin for running your Ruby tests by ':VroomRunTestFile'
-Bundle 'skalnik/vim-vroom'
-
+" Bundle 'skalnik/vim-vroom'
 " template
-Bundle 'slim-template/vim-slim'
+" Bundle 'slim-template/vim-slim'
 
 " colorschemes and themes
 Bundle 'vim-airline/vim-airline'
@@ -240,18 +218,18 @@ let g:airline#extensions#tabline#enabled = 0
 " let g:airline_powerline_fonts = 1
 " https://github.com/vim-airline/vim-airline/wiki/Screenshots
 " try with :AirlineTheme <theme>
-let g:airline_theme = 'bubblegum'
+" let g:airline_theme = 'bubblegum'
 
 Bundle 'flazz/vim-colorschemes'
 " let g:solarized_termcolors=256
 " set t_Co=256
-set background=dark
+" set background=dark
 "if has('gui_running')
 "   set background=light
 "else
 "   set background=dark
 "endif
-colorscheme solarized
+"colorscheme solarized
 
 " Smart way to move between split windows 
 map <C-j> <C-W>j
@@ -261,9 +239,8 @@ map <C-l> <C-W>l
 
 " Auto Format
 " https://github.com/Chiel92/vim-autoformat 
-Bundle 'Chiel92/vim-autoformat'
-
-let g:formatterpath = ['/usr/bin/autopep8']
+" Bundle 'Chiel92/vim-autoformat'
+" let g:formatterpath = ['/usr/bin/autopep8']
 " noremap <leader>f :Autoformat<CR>
 
 
