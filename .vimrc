@@ -14,49 +14,69 @@ set autoread
 set nocompatible
 
 set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
-" set cursorcolumn        " 突出显示当前列
-set cursorline          " 突出显示当前行
-
-Bundle 'ervandew/supertab'
-
-set smartindent         " Smart indent
-set autoindent          " 打开自动缩进
-set tabstop=4           " 设置Tab键的宽度        [等同的空格个数]
-set shiftwidth=4        " 每一次缩进对应的空格数
-set softtabstop=4       " 按退格键时可以一次删掉 4 个空格
-set smarttab            " insert tabs on the start of a line according to shiftwidth, not tabstop 按退格键时可以一次删掉 4 个空>
-set expandtab           " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
-set shiftround          " 缩进时，取整 use multiple of shiftwidth when indenting with '<' and '>'
-
 set encoding=utf-8
 set fileencodings=utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
-" set guifont=Tamsyn\ 10
-" always show status line
-" set laststatus=2
+set laststatus=2
 
-" google codefmt
-" Add maktaba and codefmt to the runtimepath.
-" (The latter must be installed before it can be used.)
-" Bundle 'google/vim-maktaba'
-" Bundle 'google/vim-codefmt'
-" Also add Glaive, which is used to configure codefmt's maktaba flags. See
-" `:help :Glaive` for usage.
-" Bundle 'google/vim-glaive'
-" call glaive#Install()
+" set cursorcolumn
+" set cursorline
 
-" fcitx 
-"Bundle 'fcitx.vim'
+au BufNewFile, BufRead *.py
+  \ set tabstop=4
+  \ set shiftwidth=4 
+  \ set softtabstop=4
+  \ set textwidth=79
+  \ set autoindent
+  \ set expandtab
+  \ set shiftround
+
+au BufNewFile, BufRead *.js, *.html, *.css
+  \ set tabstop=2
+  \ set shiftwidth=2 
+  \ set softtabstop=2
+
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+
+
+Bundle 'vim-scripts/indentpython.vim'
+Bundle 'ervandew/supertab'
+
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+" split windows 
+set splitbelow
+set splitright
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" code folding
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
+Bundle 'tmhedberg/SimpylFold'
+let g:SimpylFold_docstring_preview=1
+
+" show or hide line number
+set number
+nmap <leader>l :set invnumber<CR>
 
 " naturally copy, cut, paste between buffer and system clipboard
 Bundle 'NLKNguyen/copy-cut-paste.vim'
 
 " command-t
-" execute following command is needed:
-" https://github.com/wincent/command-t/blob/master/doc/command-t.txt
-"   cd ~/.vim/bundle/command-t/ruby/command-t
-"   ruby extconf.rb
-"   make
 Bundle 'wincent/command-t'
 
 nnoremap <leader>t :CommandT<CR>
@@ -67,18 +87,9 @@ nnoremap <leader>r :CommandTMRU<CR>
 nnoremap <leader>j :CommandTJump<CR>
 
 " ack
-"" Bundle 'mileszs/ack.vim'
+Bundle 'mileszs/ack.vim'
 
-" Raimondi/delimitMate
-" Bundle 'Raimondi/delimitMate'
-
-" F2 buf exploror
-Bundle 'jlanzarotta/bufexplorer'
-"nmap <leader>b :BufExplorer<CR>
-nmap <leader>p :bp<CR>
-nmap <leader>n :bn<CR>
-
-" F3 nerdtree
+" nerdtree
 Bundle 'scrooloose/nerdtree.git'
 let g:nerdtree_tabs_open_on_console_startup=0
 let NERDTreeChDirMode=2
@@ -87,10 +98,6 @@ let NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let NERDTreeShowBookmarks=1
 let NERDTreeMouseMode=3         "  single click to open folder or file
 nmap <leader>q :NERDTreeToggle<CR>
-
-" show or hide line number
-set number
-nmap <leader>l :set invnumber<CR>
 
 " set mouse=a
 
@@ -102,7 +109,7 @@ nnoremap j gj
 nnoremap k gk
 
 " F6 git 
-" Bundle 'airblade/vim-gitgutter'
+Bundle 'airblade/vim-gitgutter'
 " map <F6> :GitGutterToggle<cr>
 
 " If you have your project tracked with Git, switching between terminal
@@ -163,22 +170,23 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'davidhalter/jedi-vim'
  
 let g:jedi#use_tabs_not_buffers = 0
-" let g:jedi#use_splits_not_buffers = "bottom"  "default off, open in split not buffer
-let g:jedi#goto_command = "<leader>g"
+let g:jedi#use_splits_not_buffers = "left"  "default off, open in split not buffer
+" let g:jedi#goto_command = "<leader>g"
 let g:jedi#goto_assignments_command = "<leader>a"
 let g:jedi#goto_definitions_command = "<leader>d"
 let g:jedi#documentation_command = "<leader>k"
 let g:jedi#max_doc_height = 10 
 let g:jedi#auto_close_doc = 1
-let g:jedi#popup_on_dot = 0 
-let g:jedi#popup_select_first = 1
-let g:jedi#completions_enabled = 1
-let g:jedi#completions_command = "<C-n>"
+let g:jedi#popup_on_dot = 0
+" let g:jedi#popup_select_first = 1
+" let g:jedi#completions_enabled = 1
+" let g:jedi#completions_command = "<C-n>"
 let g:jedi#usages_command = "<leader>u"
 let g:jedi#rename_command = "<leader>r"
 
 " on the fly Python checking in Vim with PyFlakes (Deplicated)
 " Bundle 'kevinw/pyflakes-vim'
+Bundle 'nvie/vim-flake8'
 
 " flask jinja2 template
 Bundle 'lepture/vim-jinja'
@@ -224,23 +232,6 @@ Bundle 'flazz/vim-colorschemes'
 " let g:solarized_termcolors=256
 " set t_Co=256
 " set background=dark
-"if has('gui_running')
-"   set background=light
-"else
-"   set background=dark
-"endif
-
-" Smart way to move between split windows 
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-" Auto Format
-" https://github.com/Chiel92/vim-autoformat 
-" Bundle 'Chiel92/vim-autoformat'
-" let g:formatterpath = ['/usr/bin/autopep8']
-" noremap <leader>f :Autoformat<CR>
 
 
 "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
