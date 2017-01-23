@@ -159,7 +159,7 @@ Bundle 'tpope/vim-eunuch'
 
 " tagbar
 Bundle 'majutsushi/tagbar'
-let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+"let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 nmap <leader>s :TagbarToggle<CR>
 
 " Vim plugin for intensely orgasmic commenting
