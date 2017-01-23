@@ -22,7 +22,13 @@ set laststatus=2
 " set cursorcolumn
 " set cursorline
 
-au BufNewFile, BufRead *.py
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+
+au BufNewFile, BufRead *.py,
   \ set tabstop=4
   \ set shiftwidth=4 
   \ set softtabstop=4
@@ -31,27 +37,13 @@ au BufNewFile, BufRead *.py
   \ set expandtab
   \ set shiftround
 
-au BufNewFile, BufRead *.js, *.html, *.css
+au BufNewFile, BufRead *.js, *.html, *.css,
   \ set tabstop=2
   \ set shiftwidth=2 
   \ set softtabstop=2
+  \ set expandtab
 
-" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-
-
-Bundle 'vim-scripts/indentpython.vim'
 Bundle 'ervandew/supertab'
-
-"python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
 
 " split windows 
 set splitbelow
@@ -72,9 +64,6 @@ let g:SimpylFold_docstring_preview=1
 " show or hide line number
 set number
 nmap <leader>l :set invnumber<CR>
-
-" naturally copy, cut, paste between buffer and system clipboard
-Bundle 'NLKNguyen/copy-cut-paste.vim'
 
 " command-t
 Bundle 'wincent/command-t'
@@ -101,9 +90,10 @@ nmap <leader>q :NERDTreeToggle<CR>
 
 " set mouse=a
 
-" wrap and no wrap
+" wrap
 set nowrap
 nmap <leader>w :set invwrap<CR>
+
 " Improve up/down movement on wrapped lines
 nnoremap j gj
 nnoremap k gk
@@ -131,7 +121,7 @@ nmap <leader>h :set invhlsearch<CR>
 map <leader>sa ggVG"
 
 " force write files require root permission
-cnoremap w!! w !sudo tee > /dev/null %
+" cnoremap w!! w !sudo tee > /dev/null %
 
 "Vim sugar for the UNIX shell commands that need it the most. Features
 "include:
@@ -150,7 +140,7 @@ cnoremap w!! w !sudo tee > /dev/null %
 "File type detection for sudo -e is based on original file name.
 "New files created with a shebang line are automatically made executable.
 "New init scripts are automatically prepopulated with /etc/init.d/skeleton.
-Bundle 'tpope/vim-eunuch'
+" Bundle 'tpope/vim-eunuch'
 
 " values represent: [ FG, BG, ATTR ]
 "   FG ang BG are color codes
@@ -166,7 +156,19 @@ nmap <leader>s :TagbarToggle<CR>
 " https://github.com/scrooloose/nerdcommenter
 Bundle 'scrooloose/nerdcommenter'
 
-" python
+" Python Dev
+"
+" Bundle 'vim-scripts/indentpython.vim'
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
 Bundle 'davidhalter/jedi-vim'
  
 let g:jedi#use_tabs_not_buffers = 0
@@ -189,51 +191,65 @@ let g:jedi#rename_command = "<leader>r"
 Bundle 'nvie/vim-flake8'
 
 " flask jinja2 template
-Bundle 'lepture/vim-jinja'
-au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
+"Bundle 'lepture/vim-jinja'
+"au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 
 " Syntax checking hacks for vim
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_loc_list_height = 2
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_loc_list_height = 2
+"let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 
-" ruby
-" https://masteruby.github.io/productivity-booster/2014/05/02/vim-plugins-for-ruby.html
-
+" ruby dev https://masteruby.github.io/productivity-booster/2014/05/02/vim-plugins-for-ruby.html
 " Bundle 'vim-ruby/vim-ruby'
 " Bundle 'tpope/vim-rails'
-" wisely add end in ruby, endfunction/endif/more in vim script
 " Bundle 'tpope/vim-endwise' 
-" A vim plugin for running your Ruby tests by ':VroomRunTestFile'
 " Bundle 'skalnik/vim-vroom'
-" template
 " Bundle 'slim-template/vim-slim'
 
+" angular 2
+Bundle 'leafgarland/typescript-vim'
+" Bundle 'magarcia/vim-angular2-snippets'
+
+" let g:typescript_compiler_binary = 'tsc'
+" let g:typescript_compiler_options = ''
+" autocmd QuickFixCmdPost [^l]* nested cwindow
+" autocmd QuickFixCmdPost    l* nested lwindow
+
+"Bundle 'Quramy/vim-js-pretty-template'
+
+"autocmd FileType typescript JsPreTmpl html
+"autocmd FileType typescript syn clear foldBraces
+
+"Bundle 'bdauria/angular-cli.vim'
+
 " colorschemes and themes
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-let g:powerline_symbols = 'fancy'
-let g:airline#extensions#tabline#enabled = 0
+" Bundle 'vim-airline/vim-airline'
+" Bundle 'vim-airline/vim-airline-themes'
+" let g:powerline_symbols = 'fancy'
+" let g:airline#extensions#tabline#enabled = 1
 " let g:airline_powerline_fonts = 1
 " https://github.com/vim-airline/vim-airline/wiki/Screenshots
 " try with :AirlineTheme <theme>
 " let g:airline_theme = 'bubblegum'
 
-Bundle 'flazz/vim-colorschemes'
+" Bundle 'flazz/vim-colorschemes'
 " let g:solarized_termcolors=256
 " set t_Co=256
 " set background=dark
 
 
-"let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-"let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-"let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+" system copy and paste
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
