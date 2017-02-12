@@ -8,7 +8,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 let mapleader = ","
-set timeoutlen=2000
+"set timeoutlen=2000
 
 set autoread
 set nocompatible
@@ -43,7 +43,7 @@ au BufNewFile, BufRead *.js, *.html, *.css,
   \ set softtabstop=2
   \ set expandtab
 
-Bundle 'ervandew/supertab'
+"Bundle 'ervandew/supertab'
 
 " split windows 
 set splitbelow
@@ -63,7 +63,15 @@ let g:SimpylFold_docstring_preview=1
 
 " show or hide line number
 set number
-nmap <leader>l :set invnumber<CR>
+" nmap <leader>l :set invnumber<CR>
+"
+" remember file location
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" paste mode
+set pastetoggle=<leader>p
 
 " command-t
 Bundle 'wincent/command-t'
@@ -100,7 +108,7 @@ nnoremap k gk
 
 " F6 git 
 Bundle 'airblade/vim-gitgutter'
-" map <F6> :GitGutterToggle<cr>
+"map <leader>g :GitGutterToggle<cr>
 
 " If you have your project tracked with Git, switching between terminal
 " sessions can be really painful. Fugitive is absolutely greatly tool for
@@ -113,7 +121,7 @@ set incsearch     " 打开增量搜索模式,随着键入即时搜索
 set ignorecase
 set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
 
-nmap <leader>h :set invhlsearch<CR>
+"nmap <leader>h :set invhlsearch<CR>
 
 " Highlight all instances of word under cursor, when idle.
 
@@ -173,7 +181,7 @@ Bundle 'davidhalter/jedi-vim'
  
 let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#use_splits_not_buffers = "left"  "default off, open in split not buffer
-" let g:jedi#goto_command = "<leader>g"
+let g:jedi#goto_command = "<leader>g"
 let g:jedi#goto_assignments_command = "<leader>a"
 let g:jedi#goto_definitions_command = "<leader>d"
 let g:jedi#documentation_command = "<leader>k"
@@ -217,7 +225,7 @@ Bundle 'nvie/vim-flake8'
 " Bundle 'slim-template/vim-slim'
 
 " angular 2
-Bundle 'leafgarland/typescript-vim'
+"Bundle 'leafgarland/typescript-vim'
 " Bundle 'magarcia/vim-angular2-snippets'
 
 " let g:typescript_compiler_binary = 'tsc'
@@ -247,9 +255,3 @@ Bundle 'leafgarland/typescript-vim'
 " set t_Co=256
 " set background=dark
 
-
-" system copy and paste
-vmap <C-c> "+yi
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <ESC>"+pa
