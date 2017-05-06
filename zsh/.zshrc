@@ -1,4 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
+export ZSH_CACHE_DIR=$HOME/.tmp/zsh_cache
 
 # powerline
 #if [[ -r /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
