@@ -121,8 +121,7 @@ export GOPATH=$HOME/go
 
 # Python Configuation
 export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
-export VIRTUALENVWRAPPER_PYTHON='/usr/bin/python'
+source virtualenvwrapper.sh
 
 plugins+=(virtualenvwrapper)
 #plugins+=(virtualenvwrapper pip)
