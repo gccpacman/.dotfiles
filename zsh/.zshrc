@@ -120,11 +120,10 @@ source ~/.bash_aliases
 export GOPATH=$HOME/go
 
 # Python Configuation
-export WORKON_HOME=~/.virtualenvs
+export WORKON_HOME=~/Virtualenvs
 source virtualenvwrapper.sh
 
-plugins+=(virtualenvwrapper)
-#plugins+=(virtualenvwrapper pip)
+plugins+=(virtualenvwrapper pip)
 if [ -n "$VIRTUAL_ENV" ]; then
   . "$VIRTUAL_ENV/bin/activate"
 fi

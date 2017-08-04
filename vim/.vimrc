@@ -167,16 +167,6 @@ Bundle 'scrooloose/nerdcommenter'
 " Python Dev
 "
 " Bundle 'vim-scripts/indentpython.vim'
-"python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
-
 Bundle 'davidhalter/jedi-vim'
  
 let g:jedi#use_tabs_not_buffers = 0
