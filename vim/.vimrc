@@ -198,6 +198,9 @@ let g:jedi#rename_command = "<leader>r"
 " Bundle 'kevinw/pyflakes-vim'
 Bundle 'nvie/vim-flake8'
 
+" VueJs
+Bundle 'posva/vim-vue'
+
 " flask jinja2 template
 "Bundle 'lepture/vim-jinja'
 "au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
