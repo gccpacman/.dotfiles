@@ -120,7 +120,7 @@ source ~/.bash_aliases
 export GOPATH=$HOME/go
 
 # Python Configuation
-export WORKON_HOME=~/Virtualenvs
+export WORKON_HOME=~/.virtualenvs
 source virtualenvwrapper.sh
 
 plugins+=(virtualenvwrapper pip)
