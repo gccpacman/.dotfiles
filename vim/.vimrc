@@ -86,8 +86,10 @@ nnoremap <leader>j :CommandTJump<CR>
 " ack
 Bundle 'mileszs/ack.vim'
 " better search code  https://github.com/ggreer/the_silver_searcher
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
+" let g:ackprg = 'ag --nogroup --nocolor --column'
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
 
 " nerdtree
 Bundle 'scrooloose/nerdtree.git'
