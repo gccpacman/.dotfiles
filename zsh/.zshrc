@@ -69,10 +69,9 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras hub github web-search debian node npm history-substring-search zsh-syntax-highlighting sublime themes)
+plugins=(git node zsh-completions zsh-better-npm-completion history-substring-search zsh-syntax-highlighting themes)
 
 # https://github.com/zsh-users/zsh-completions
-plugins+=(zsh-completions)
 autoload -U compinit && compinit
 
 # User configuration
@@ -84,7 +83,7 @@ export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:/usr/local/heroku/bin:$PATH
 export EDITOR='vim'
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
+# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -92,7 +91,6 @@ export LANG=en_US.UTF-8
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -108,9 +106,6 @@ export EDITOR='vim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-### Do some git alias
-source ~/.bash_aliases
 
 # not install tmuxinator yet, commented
 # source #HOME/.tmuxinator.zsh
@@ -130,8 +125,8 @@ fi
 
 # Ruby Configuation
 #plugins+=(rake rails bundler ruby)
-export GEM_HOME=$(ruby -e 'print Gem.user_dir')
-export PATH="$GEM_HOME/bin:$PATH"
+#export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+#export PATH="$GEM_HOME/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 source $ZSH/oh-my-zsh.sh
