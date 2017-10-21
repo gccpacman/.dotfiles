@@ -1,0 +1,35 @@
+# remap prefix key shortcut to Ctrl B
+unbind C-b
+set -g prefix 'C-\'
+bind 'C-\' send-prefix
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'git@github.com/user/plugin'
+# set -g @plugin 'git@bitbucket.com/user/plugin'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'seebi/tmux-colors-solarized'
+
+
+# for vim tmux resurrect
+set -g @resurrect-strategy-vim 'session'
+
+# save session to disk
+# set -g @continuum-restore 'on'
+# set -g @continuum-save-interval '60'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+
+# source ~/.tmux.tmuxline
+
+# turn off auto-rename
+set-window-option -g automatic-rename on
+set-option -g allow-rename on 
+
+set-window-option -g pane-base-index 1
