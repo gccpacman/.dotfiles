@@ -81,7 +81,7 @@ nnoremap <leader>l :CommandTLine<CR>
 nnoremap <leader>y :CommandTHistory<CR>
 nnoremap <leader>b :CommandTBuffer<CR>
 nnoremap <leader>r :CommandTMRU<CR>
-nnoremap <leader>j :CommandTJump<CR>
+nnoremap <leader>tj :CommandTJump<CR>
 
 " ack
 Bundle 'mileszs/ack.vim'
@@ -90,6 +90,8 @@ Bundle 'mileszs/ack.vim'
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
+
+nnoremap <leader>c :Ack 
 
 " nerdtree
 Bundle 'scrooloose/nerdtree.git'
@@ -176,7 +178,7 @@ Bundle 'davidhalter/jedi-vim'
  
 let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#use_splits_not_buffers = "left"  "default off, open in split not buffer
-let g:jedi#goto_command = "<leader>g"
+let g:jedi#goto_command = "<leader>j"
 let g:jedi#goto_assignments_command = "<leader>a"
 let g:jedi#goto_definitions_command = "<leader>d"
 let g:jedi#documentation_command = "<leader>k"
