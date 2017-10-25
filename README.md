@@ -2,7 +2,7 @@ Dotfiles for `Vim` mainly target python/vuejs developement
 
 `Vim`的dot文件, 主要针对 python/vueJs开发
 
-1. 特性和快捷键:
+## 1. 特性和快捷键:
 
 `<leader>` 按键设置 ','
 
@@ -13,7 +13,7 @@ Shortcut:
 `<leader> + b` : 搜索已经打开的buffer文件名
 `<leader> + y` : 搜索最近执行的vim命令
 
-![command-t](https://github.com/gccpacman/.dotfiles4pythonide/raw/master/asserts/commandt-t.png")
+![commandt](https://github.com/gccpacman/.dotfiles4pythonide/raw/master/asserts/command-t.png)
 
 2) [ack.vim](https://github.com/mileszs/ack.vim): 全局文本搜索🔍
 
@@ -43,10 +43,7 @@ Shortcut:
 `<leader> + u` : 列出全局引用
 `<leader> + r` : 变量重命名
 
-2. 安装：
-
-
-## install by vim-Vundle
+## 2. 安装：
 
 1) 备份你的 `.vimrc` 文件:
 
