@@ -8,10 +8,9 @@ Dotfiles for `Vim` mainly target python/vuejs developement
 
 1) [command-t](https://github.com/wincent/command-t): 强大的检索工具🔧
 
-Shortcut:
-`<leader> + t` : 搜索当前目录下所有的文件名
-`<leader> + b` : 搜索已经打开的buffer文件名
-`<leader> + y` : 搜索最近执行的vim命令
+    `<leader> + t` : 搜索当前目录下所有的文件名
+    `<leader> + b` : 搜索已经打开的buffer文件名
+    `<leader> + y` : 搜索最近执行的vim命令
 
 ![commandt](https://github.com/gccpacman/.dotfiles4pythonide/raw/master/asserts/command-t.png)
 
@@ -19,51 +18,51 @@ Shortcut:
 
 [ack](https://github.com/davidgiven/ack)是一个全局搜索文件内容，但是其实这里只是用了ack的vim插件，实际上配置的是ag，搜索代码而言，ag比ack更加友好，
 
-`<leader> + c` 或者直接 ':Ack + ' : 搜索最近执行的vim命令
+    `<leader> + c` 或者直接 ':Ack + ' : 搜索最近执行的vim命令
 
 ![ack](https://github.com/gccpacman/.dotfiles4pythonide/raw/master/asserts/ack.png)
 
 3) [nerdtree](https://github.com/scrooloose/nerdtree): 文件树🌲
 
-`<leader> + q` : 打开文件树
+    `<leader> + q` : 打开文件树
 
 ![nerdtree](https://github.com/gccpacman/.dotfiles4pythonide/raw/master/asserts/nerdtree.png)
 
 4）[gitgutter](https://github.com/airblade/vim-gitgutter): git文件差异查看📃
 
-`<leader> + g` : 打开，隐藏git差异
+    `<leader> + g` : 打开，隐藏git差异
 
 ![gitgutter](https://github.com/gccpacman/.dotfiles4pythonide/raw/master/asserts/git.png)
 
 5）[jedi-vim](https://github.com/davidhalter/jedi-vim): python自动完成工具
 
-`<leader> + j` : 跳转到变量定义
-`<leader> + a` : 跳转到变量赋值
-`<leader> + k` : 跳转到文档
-`<leader> + u` : 列出全局引用
-`<leader> + r` : 变量重命名
+    `<leader> + j` : 跳转到变量定义
+    `<leader> + a` : 跳转到变量赋值
+    `<leader> + k` : 跳转到文档
+    `<leader> + u` : 列出全局引用
+    `<leader> + r` : 变量重命名
 
 ## 2. 安装：
 
-1) 备份你的 `.vimrc` 文件:
+1)备份你的 `.vimrc` 文件:
 
+    $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
     $ mv .vimrc .vimrc.bak
 
-2) 用wget获取 `.vimrc` :
+2)用wget获取 `.vimrc` :
 
     $ cd ~
     $ wget https://raw.githubusercontent.com/gccpacman/.dotfiles4pythonide/master/vim/.vimrc
 
-
-3） 安装 [vundle](https://github.com/VundleVim/Vundle.vim)类似于vim包管理，可以很轻松的安装所有插件:
+3)安装 [vundle](https://github.com/VundleVim/Vundle.vim)类似于vim包管理，可以很轻松的安装所有插件:
 
     $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-
-4） 安装所有插件 ```vundle```:
+    
+4)安装所有插件 ```vundle```:
 
     $ vim +BundleInstall +qall
 
-5） 如果`command-t`，则需要手动编译ruby，确保你的电脑安装了ruby环境：
+5)如果`command-t`，则需要手动编译ruby，确保你的电脑安装了ruby环境：
 
     $ cd .vim/bundle/command-t/ruby/command-t/ext/command-t
     $ ruby extconf.rb
