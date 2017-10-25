@@ -13,7 +13,7 @@ Shortcut:
 `<leader> + b` : 搜索已经打开的buffer文件名
 `<leader> + y` : 搜索最近执行的vim命令
 
-![command-t]({{http://gccpacman.com/assets/images/commandt1.png}})
+![command-t]({{ "/assets/commandt-t.png" | absolute_url }})
 
 2) [ack.vim](https://github.com/mileszs/ack.vim): 全局文本搜索🔍
 
@@ -21,15 +21,19 @@ Shortcut:
 
 `<leader> + c` 或者直接 ':Ack + ' : 搜索最近执行的vim命令
 
+![ack]({{ "/assets/ack.png" | absolute_url }})
+
 3) [nerdtree](https://github.com/scrooloose/nerdtree): 文件树🌲
 
 `<leader> + q` : 打开文件树
+
+![nerdtree]({{ "/assets/nerdtree.png" | absolute_url }})
 
 4）[gitgutter](https://github.com/airblade/vim-gitgutter): git文件差异查看📃
 
 `<leader> + g` : 打开，隐藏git差异
 
-![gitgutter]({{ "https://camo.githubusercontent.com/f88161827e0cbb3144455b9e5c7582fdd5b5fc83/68747470733a2f2f7261772e6769746875622e636f6d2f616972626c6164652f76696d2d6769746775747465722f6d61737465722f73637265656e73686f742e706e67"}})
+![gitgutter]({{ "/assets/git.png" | absolute_url }})
 
 5）[jedi-vim](https://github.com/davidhalter/jedi-vim): python自动完成工具
 
