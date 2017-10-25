@@ -2,7 +2,12 @@ Dotfiles for `Vim` mainly target python/vuejs developement
 
 `Vim`的dot文件, 主要针对 python/vueJs开发
 
-## 1. 特性和快捷键:
+目录
+---
+1. [特性和快捷键](#特性和快捷键)
+2. [安装](#安装)
+
+## 特性和快捷键
 
 `<leader>` 按键设置 ','
 
@@ -42,7 +47,7 @@ Dotfiles for `Vim` mainly target python/vuejs developement
     `<leader> + u` : 列出全局引用
     `<leader> + r` : 变量重命名
 
-## 2. 安装：
+## 安装
 
 1)备份你的 `.vimrc` 文件:
 
