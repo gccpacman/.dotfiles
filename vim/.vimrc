@@ -198,6 +198,10 @@ Bundle 'nvie/vim-flake8'
 " VueJs
 Bundle 'posva/vim-vue'
 
+" maximize & minimize
+nnoremap <C-W>M <C-W>\| <C-W>_
+nnoremap <C-W>m <C-W>=
+
 " flask jinja2 template
 "Bundle 'lepture/vim-jinja'
 "au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
