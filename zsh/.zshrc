@@ -11,14 +11,7 @@ export ZSH_CACHE_DIR=$HOME/.tmp/zsh_cache
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # Good theme bira with two command line
-#ZSH_THEME="fino"
-#ZSH_THEME="suvash"
-#ZSH_THEME="ys"
-#ZSH_THEME="jnrowe"
-#ZSH_THEME="agnoster"
-#ZSH_THEME="powerlevel9k/powerlevel9k"
-# PowerLine
-#ZSH_THEME="powerline"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 
 ZSH_THEME="robbyrussell"
 
@@ -122,6 +115,10 @@ plugins+=(virtualenvwrapper pip)
 if [ -n "$VIRTUAL_ENV" ]; then
   . "$VIRTUAL_ENV/bin/activate"
 fi
+
+# thefuck: Magnificent app which corrects your previous console command.
+# https://github.com/nvbn/thefuck
+eval $(thefuck --alias) 
 
 # Ruby Configuation
 #plugins+=(rake rails bundler ruby)
