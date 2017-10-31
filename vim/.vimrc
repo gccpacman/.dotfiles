@@ -136,6 +136,7 @@ set smartcase     " ignore case if search pattern is all lowercase, case-sensiti
 map <leader>sa ggVG"
 
 " force write files require root permission
+" https://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work#
 cnoremap w!! w !sudo tee > /dev/null %
 
 "Vim sugar for the UNIX shell commands that need it the most. Features
