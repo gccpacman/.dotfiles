@@ -128,3 +128,8 @@ eval $(thefuck --alias)
 # Path to your oh-my-zsh installation.
 source $ZSH/oh-my-zsh.sh
 
+# if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
+if [ -f /usr/bin/neofetch ]; then neofetch; fi
+if [ -f /usr/share/nvm/init-nvm.sh ];
+    then source /usr/share/nvm/init-nvm.sh;
+fi
