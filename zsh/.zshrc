@@ -118,8 +118,9 @@ fi
 
 # thefuck: Magnificent app which corrects your previous console command.
 # https://github.com/nvbn/thefuck
-eval $(thefuck --alias) 
-
+if [ -f /usr/bin/neofetch ];
+    then eval $(thefuck --alias);
+fi
 # Ruby Configuation
 #plugins+=(rake rails bundler ruby)
 #export GEM_HOME=$(ruby -e 'print Gem.user_dir')
