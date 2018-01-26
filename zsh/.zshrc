@@ -72,7 +72,7 @@ autoload -U compinit && compinit
 # export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:/usr/local/heroku/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:/usr/local/heroku/bin:/usr/local/go/bin:$PATH"
 export EDITOR='vim'
 
 # You may need to manually set your language environment
