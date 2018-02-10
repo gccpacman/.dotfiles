@@ -107,6 +107,10 @@ export EDITOR='vim'
 #plugins+=(golang)
 export GOPATH=$HOME/go
 
+# Java
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/jre
+export PATH=$JAVA_HOME/bin:$PATH
+
 # Python Configuation
 export WORKON_HOME=~/.virtualenvs
 source virtualenvwrapper.sh
@@ -118,7 +122,7 @@ fi
 
 # thefuck: Magnificent app which corrects your previous console command.
 # https://github.com/nvbn/thefuck
-if [ -f /usr/bin/neofetch ];
+if [ -f /usr/bin/thefuck ];
     then eval $(thefuck --alias);
 fi
 # Ruby Configuation
@@ -130,7 +134,14 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
-if [ -f /usr/bin/neofetch ]; then neofetch; fi
+if [ -f /usr/bin/neofetch ]; 
+    then neofetch;
+fi
+
 if [ -f /usr/share/nvm/init-nvm.sh ];
     then source /usr/share/nvm/init-nvm.sh;
 fi
+
+# Aliases
+alias pchs=proxychains
+
