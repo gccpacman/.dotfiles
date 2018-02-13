@@ -1,3 +1,14 @@
+" Please execute following commands to make this configuation work:
+" 
+" $ cd ~ 
+" $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+" $ vim +BundleInstall +qall
+" $ cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t
+" $ ruby extconf.rb
+" $ make
+"
+
+
 syntax on
 filetype plugin indent on
 
