@@ -1,6 +1,4 @@
-Dotfiles for `Vim` mainly target python/vuejs developement
-
-`Vim`的dot文件, 主要针对 python/vueJs开发
+`Vim` 配置兼容 Linux, Mac OS, Windows, `Vim` 主要针对Python/Vuejs开发的便利优化配置。
 
 目录
 ---
@@ -11,33 +9,33 @@ Dotfiles for `Vim` mainly target python/vuejs developement
 
 `<leader>` 按键设置 ','
 
-1) [command-t](https://github.com/wincent/command-t): 强大的检索工具🔧
+1) [command-t](https://github.com/wincent/command-t): 检索工具（[截图](https://github.com/gccpacman/.dotfiles4pythonide/raw/master/asserts/command-t.png)）
 
     `<leader> + t` : 搜索当前目录下所有的文件名
     `<leader> + b` : 搜索已经打开的buffer文件名
     `<leader> + y` : 搜索最近执行的vim命令
 
-![commandt](https://github.com/gccpacman/.dotfiles4pythonide/raw/master/asserts/command-t.png)
 
-2) [ack.vim](https://github.com/mileszs/ack.vim): 全局文本搜索🔍
+
+2) [ack.vim](https://github.com/mileszs/ack.vim): 全局文本搜索（[截图](https://github.com/gccpacman/.dotfiles4pythonide/raw/master/asserts/ack.png)）
 
 [ack](https://github.com/davidgiven/ack)是一个全局搜索文件内容，但是其实这里只是用了ack的vim插件，实际上配置的是ag，搜索代码而言，ag比ack更加友好，
 
     `<leader> + c` 或者直接 ':Ack + ' : 搜索最近执行的vim命令
 
-![ack](https://github.com/gccpacman/.dotfiles4pythonide/raw/master/asserts/ack.png)
 
-3) [nerdtree](https://github.com/scrooloose/nerdtree): 文件树🌲
+
+3) [nerdtree](https://github.com/scrooloose/nerdtree): 文件树（[截图](https://github.com/gccpacman/.dotfiles4pythonide/raw/master/asserts/nerdtree.png)）
 
     `<leader> + q` : 打开文件树
 
-![nerdtree](https://github.com/gccpacman/.dotfiles4pythonide/raw/master/asserts/nerdtree.png)
 
-4）[gitgutter](https://github.com/airblade/vim-gitgutter): git文件差异查看📃
+
+4）[gitgutter](https://github.com/airblade/vim-gitgutter): git文件差异查看（[截图](https://github.com/gccpacman/.dotfiles4pythonide/raw/master/asserts/git.png)）
 
     `<leader> + g` : 打开，隐藏git差异
 
-![gitgutter](https://github.com/gccpacman/.dotfiles4pythonide/raw/master/asserts/git.png)
+
 
 5）[jedi-vim](https://github.com/davidhalter/jedi-vim): python自动完成工具
 
@@ -75,4 +73,4 @@ Dotfiles for `Vim` mainly target python/vuejs developement
 
 PS： 如果是windows，command-t的安装可以参考[vim插件command-t在windows上编译](http://gccpacman.com/2017/10/24/vim%E6%8F%92%E4%BB%B6command-t%E5%9C%A8windows%E4%B8%8A%E7%BC%96%E8%AF%91)
 
-maintained by @Gccpacman
+maintained by [@Gccpacman](https://github.com/gccpacman)
