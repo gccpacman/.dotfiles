@@ -1,0 +1,35 @@
+# shell title
+look_for_cmd=0
+print_cmd() {
+  if [ ${look_for_cmd} = 1 ] ;then
+    if [ "${BASH_COMMAND}" != 'print_host' ] ;then
+      cmdline=$(history 1 | xargs | cut -d\  -f3-)
+      if [[ "${cmdline}" =~ ^(sudo|ssh|vi|man|more|less)\  ]] ;then
+        first=$(echo "${cmdline}" | awk '{print $1}')
+        for i in ${cmdline} ;do
+          if ! [[ "${i}" =~ ^-.*$ ]] && ! [[ "${i}" =~ ^${first}$ ]] ;then
+            cmd="${first}[${i}]"
+            break
+          fi
+        done
+      elif [[ "${cmdline}" =~ ^[A-Z]*=.*$ ]] ;then
+        cmd=$(echo ${cmdline} | awk '{print $2}')
+      else
+        cmd=$(echo ${cmdline} | awk '{print $1}')
+      fi
+      echo -ne "\033k${cmd}\033\\" 1>&2
+      look_for_cmd=0
+    else
+      return
+    fi
+  fi
+}
+
+print_host() {
+  echo -ne "\033k${HOSTNAME}\033\\" 1>&2
+  look_for_cmd=1
+}
+
+PROMPT_COMMAND="print_host"
+
+trap "print_cmd" DEBUG
