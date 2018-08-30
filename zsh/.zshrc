@@ -1,25 +1,22 @@
-export ZSH=$HOME/.oh-my-zsh
-export ZSH_CACHE_DIR=$HOME/.tmp/zsh_cache
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# powerline
-#if [[ -r /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
-#  source /usr/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
-#fi
+# Path to your oh-my-zsh installation.
+  export ZSH="/home/teotfw/.oh-my-zsh"
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-# Good theme bira with two command line
-# ZSH_THEME="powerlevel9k/powerlevel9k"
-
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-#POWERLINE_RIGHT_A_COLOR_FRONT="black"
-#POWERLINE_RIGHT_A_COLOR_BACK="blue"
-#POWERLINE_PATH="short"
-#POWERLINE_DETECT_SSH="true"
-#POWERLINE_HIDE_HOST_NAME="true"
+# ZSH_THEME="agnoster"
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -29,7 +26,7 @@ ZSH_THEME="robbyrussell"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-#DISABLE_AUTO_UPDATE="true"
+# DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -53,27 +50,28 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git node zsh-completions zsh-better-npm-completion history-substring-search zsh-syntax-highlighting themes)
+plugins=(
+  git
+)
 
-# https://github.com/zsh-users/zsh-completions
-autoload -U compinit && compinit
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-export PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:/usr/local/heroku/bin:/usr/local/go/bin:$PATH"
-export EDITOR='vim'
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -89,7 +87,7 @@ export EDITOR='vim'
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -100,48 +98,58 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# not install tmuxinator yet, commented
-# source #HOME/.tmuxinator.zsh
+# aliases
+alias code="/usr/bin/code-insiders"
+alias tmux-wsl="tmux new -A -s wsl"
 
-# Golang Configuation
-#plugins+=(golang)
-export GOPATH=$HOME/go
+# environment variables
+DISPLAY=:0
+GOPATH="/usr/local/go"
+PATH="$HOME/bin:$GOPATH/bin:$HOME/go/bin:$HOME/.local/bin:$PATH"
 
-# Java
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk/jre
-export PATH=$JAVA_HOME/bin:$PATH
+# docker-machine env
+export DOCKER_TLS_VERIFY=1
+export DOCKER_HOST=tcp://192.168.99.100:2376
+export DOCKER_CERT_PATH="/home/teotfw/winhome/.docker/machine/machines/default"
+export DOCKER_MACHINE_NAME=default
 
-# Python Configuation
-export WORKON_HOME=~/.virtualenvs
-source virtualenvwrapper.sh
+# colors
+eval `dircolors $HOME/.dircolors`
 
-plugins+=(virtualenvwrapper pip)
-if [ -n "$VIRTUAL_ENV" ]; then
-  . "$VIRTUAL_ENV/bin/activate"
+# Shell Title
+look_for_cmd=0
+print_cmd() {
+  if [ ${look_for_cmd} = 1 ] ;then
+    if [ "${BASH_COMMAND}" != 'print_host' ] ;then
+      cmdline=$(history 1 | xargs | cut -d\  -f3-)
+      if [[ "${cmdline}" =~ ^(sudo|ssh|vi|man|more|less)\  ]] ;then
+        first=$(echo "${cmdline}" | awk '{print $1}')
+        for i in ${cmdline} ;do
+          if ! [[ "${i}" =~ ^-.*$ ]] && ! [[ "${i}" =~ ^${first}$ ]] ;then
+            cmd="${first}[${i}]"
+            break
+          fi
+        done
+      elif [[ "${cmdline}" =~ ^[A-Z]*=.*$ ]] ;then
+        cmd=$(echo ${cmdline} | awk '{print $2}')
+      else
+        cmd=$(echo ${cmdline} | awk '{print $1}')
+      fi
+      echo -ne "\033k${cmd}\033\\" 1>&2
+      look_for_cmd=0
+    else
+      return
+    fi
+  fi
+}
+print_host() {
+  echo -ne "\033k${HOSTNAME}\033\\" 1>&2
+  look_for_cmd=1
+}
+PROMPT_COMMAND="print_host"
+trap "print_cmd" DEBUG
+
+# go to home directory
+if [ -t 1 ]; then
+  cd ~
 fi
-
-# thefuck: Magnificent app which corrects your previous console command.
-# https://github.com/nvbn/thefuck
-if [ -f /usr/bin/thefuck ];
-    then eval $(thefuck --alias);
-fi
-# Ruby Configuation
-#plugins+=(rake rails bundler ruby)
-#export GEM_HOME=$(ruby -e 'print Gem.user_dir')
-#export PATH="$GEM_HOME/bin:$PATH"
-
-# Path to your oh-my-zsh installation.
-source $ZSH/oh-my-zsh.sh
-
-# if [ -f /usr/bin/screenfetch ]; then screenfetch; fi
-if [ -f /usr/bin/neofetch ]; 
-    then neofetch;
-fi
-
-if [ -f /usr/share/nvm/init-nvm.sh ];
-    then source /usr/share/nvm/init-nvm.sh;
-fi
-
-# Aliases
-alias pchs=proxychains
-
