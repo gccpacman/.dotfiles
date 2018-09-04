@@ -87,6 +87,8 @@ set pastetoggle=<leader>p
 " command-t
 Bundle 'wincent/command-t'
 
+let g:CommandTMaxFiles=10000
+
 nnoremap <leader>t :CommandT<CR>
 nnoremap <leader>l :CommandTLine<CR>
 nnoremap <leader>y :CommandTHistory<CR>
