@@ -1,14 +1,3 @@
-" Please execute following commands to make this configuation work:
-" 
-" $ cd ~ 
-" $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-" $ vim +BundleInstall +qall
-" $ cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t
-" $ ruby extconf.rb
-" $ make
-"
-
-
 syntax on
 filetype plugin indent on
 
@@ -74,6 +63,7 @@ let g:SimpylFold_docstring_preview=1
 
 " show or hide line number
 set number
+
 " nmap <leader>l :set invnumber<CR>
 "
 " remember file location
@@ -83,18 +73,6 @@ endif
 
 " paste mode
 set pastetoggle=<leader>p
-
-" command-t
-Bundle 'wincent/command-t'
-
-let g:CommandTMaxFiles=10000
-
-nnoremap <leader>t :CommandT<CR>
-nnoremap <leader>l :CommandTLine<CR>
-nnoremap <leader>y :CommandTHistory<CR>
-nnoremap <leader>b :CommandTBuffer<CR>
-nnoremap <leader>r :CommandTMRU<CR>
-nnoremap <leader>tj :CommandTJump<CR>
 
 " ack
 Bundle 'mileszs/ack.vim'
@@ -152,30 +130,6 @@ map <leader>sa ggVG"
 " https://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work#
 cnoremap w!! w !sudo tee > /dev/null %
 
-"Vim sugar for the UNIX shell commands that need it the most. Features
-"include:
-"
-":Remove: Delete a buffer and the file on disk simultaneously.
-":Unlink: Like :Remove, but keeps the now empty buffer.
-":Move: Rename a buffer and the file on disk simultaneously.
-":Rename: Like :Move, but relative to the current file's containing directory.
-":Chmod: Change the permissions of the current file.
-":Mkdir: Create a directory, defaulting to the parent of the current file.
-":Find: Run find and load the results into the quickfix list.
-":Locate: Run locate and load the results into the quickfix list.
-":Wall: Write every open window. Handy for kicking off tools like guard.
-":SudoWrite: Write a privileged file with sudo.
-":SudoEdit: Edit a privileged file with sudo.
-"File type detection for sudo -e is based on original file name.
-"New files created with a shebang line are automatically made executable.
-"New init scripts are automatically prepopulated with /etc/init.d/skeleton.
-" Bundle 'tpope/vim-eunuch'
-
-" values represent: [ FG, BG, ATTR ]
-"   FG ang BG are color codes
-"   ATTR (optional) is a comme-delimited string of one or more of bold, dim, underscore, etc. For details refer to 'message-attr attributes' in tmux man page
-" Bundle 'itchyny/landscape.vim'
-
 " tagbar
 Bundle 'majutsushi/tagbar'
 "let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
@@ -215,61 +169,4 @@ Bundle 'posva/vim-vue'
 " maximize & minimize
 nnoremap <C-W>M <C-W>\| <C-W>_
 nnoremap <C-W>m <C-W>=
-
-" flask jinja2 template
-"Bundle 'lepture/vim-jinja'
-"au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
-
-" Syntax checking hacks for vim
-"Bundle 'scrooloose/syntastic'
-
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_loc_list_height = 2
-"let g:syntastic_typescript_checkers = ['tsuquyomi']
-
-
-" ruby dev https://masteruby.github.io/productivity-booster/2014/05/02/vim-plugins-for-ruby.html
-" Bundle 'vim-ruby/vim-ruby'
-" Bundle 'tpope/vim-rails'
-" Bundle 'tpope/vim-endwise' 
-" Bundle 'skalnik/vim-vroom'
-" Bundle 'slim-template/vim-slim'
-
-" angular 2
-"Bundle 'leafgarland/typescript-vim'
-" Bundle 'magarcia/vim-angular2-snippets'
-
-" let g:typescript_compiler_binary = 'tsc'
-" let g:typescript_compiler_options = ''
-" autocmd QuickFixCmdPost [^l]* nested cwindow
-" autocmd QuickFixCmdPost    l* nested lwindow
-
-"Bundle 'Quramy/vim-js-pretty-template'
-
-"autocmd FileType typescript JsPreTmpl html
-"autocmd FileType typescript syn clear foldBraces
-
-"Bundle 'bdauria/angular-cli.vim'
-
-" colorschemes and themes
-" Bundle 'vim-airline/vim-airline'
-" Bundle 'vim-airline/vim-airline-themes'
-" let g:powerline_symbols = 'fancy'
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline_powerline_fonts = 1
-" https://github.com/vim-airline/vim-airline/wiki/Screenshots
-" try with :AirlineTheme <theme>
-" let g:airline_theme = 'bubblegum'
-
-" Bundle 'flazz/vim-colorschemes'
-" let g:solarized_termcolors=256
-" set t_Co=256
-" set background=dark
 
